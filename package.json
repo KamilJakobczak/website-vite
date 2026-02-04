@@ -1,0 +1,13 @@
+{
+	"name": "website-vite",
+	"private": true,
+	"version": "1.0.0",
+	"workspaces": [
+		"packages/*"
+	],
+	"scripts": {
+		"dev": "npm run dev --workspace=main-site",
+		"build": "npm run build --workspace=main-site",
+		"preview": "npm run preview --workspace=main-site"
+	}
+}
