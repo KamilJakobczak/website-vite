@@ -1,0 +1,30 @@
+// fonts
+$font-main:
+	'Inter',
+	system-ui,
+	-apple-system,
+	BlinkMacSystemFont,
+	'Segoe UI',
+	sans-serif,
+	'Apple Color Emoji',
+	'Segoe UI Emoji',
+	'Segoe UI Symbol',
+	'Noto Color Emoji';
+
+$font-headings:
+	'Space Grotesk',
+	system-ui,
+	-apple-system,
+	BlinkMacSystemFont,
+	'Segoe UI',
+	sans-serif;
+
+$font-size-root: 20px;
+
+$content-width: 1200px;
+
+// colors
+$color-accent: #06b6d4;
+
+$background-color-header-dark: #040c13;
+$background-color-header-light: white;

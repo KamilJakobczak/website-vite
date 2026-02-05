@@ -1,22 +1,16 @@
+import { useState } from 'react';
+import Header from './Header';
+
+export type Theme = 'light' | 'dark';
+
 export default function App() {
+	const [theme, setTheme] = useState<Theme>('dark');
 	return (
-		<>
-			<header>
-				<div>
-					<p>
-						Kamil <span>"Jamar"</span>Jakóbczak
-					</p>
-				</div>
-				<nav>
-					<ul>
-						<li>home</li>
-						<li>projects</li>
-						<li>3D printing</li>
-						<li>contact</li>
-						<li>light/dark toggle</li>
-					</ul>
-				</nav>
-			</header>
+		<div data-theme={theme}>
+			<Header
+				theme={theme}
+				setTheme={setTheme}
+			/>
 			<main>
 				<section id='projects'>
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet
@@ -62,6 +56,6 @@ export default function App() {
 				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione,
 				perspiciatis?
 			</footer>
-		</>
+		</div>
 	);
 }

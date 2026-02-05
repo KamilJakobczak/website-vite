@@ -1,0 +1,19 @@
+@use './styles/reset';
+@use './styles/variables';
+
+:root {
+	--font-main: #{variables.$font-main};
+	--font-headings: #{variables.$font-headings};
+	--font-size-root: #{variables.$font-size-root};
+
+	--background-color-header: #{variables.$background-color-header-dark};
+}
+body {
+	max-width: #{variables.$content-width};
+	display: flex;
+	margin: 0 auto;
+}
+
+[data-theme='light'] {
+	--background-color-header: #{variables.$background-color-header-light};
+}

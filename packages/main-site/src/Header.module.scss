@@ -1,0 +1,59 @@
+@use '././styles/variables';
+
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 65px;
+	width: 100%;
+	background-color: var(--background-color-header);
+	color: #f3faff;
+	outline: 1px solid #4d9aff80;
+	font-family: variables.$font-headings;
+	box-shadow: 0 1px 0 rgba(148, 163, 184, 0.4);
+	div {
+		max-width: variables.$content-width;
+		margin: 0 auto;
+		line-height: 65px;
+
+		div {
+			float: left;
+			text-transform: uppercase;
+			letter-spacing: 0.5px;
+			span {
+				font-size: 24px;
+				color: variables.$color-accent;
+			}
+		}
+		.header_nav {
+			float: right;
+			ul {
+				display: flex;
+				gap: 30px;
+				text-transform: capitalize;
+				font-weight: 600;
+				li {
+					&:last-child {
+						margin-left: 2rem;
+						display: flex;
+						justify-content: center;
+						align-items: center;
+
+						svg {
+							width: 25px;
+							height: 25px;
+							&.sun {
+								fill: #f3faff;
+							}
+							&.moon {
+								color: variables.$background-color-header-dark;
+								// fill: variables.$background-color-header;
+								// stroke: variables.$background-color-header;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
