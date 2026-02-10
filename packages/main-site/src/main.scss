@@ -7,13 +7,16 @@
 	--font-size-root: #{variables.$font-size-root};
 
 	--background-color-header: #{variables.$background-color-header-dark};
+	--text-color-header: #{variables.$background-color-header-light};
 }
 body {
 	max-width: #{variables.$content-width};
 	display: flex;
 	margin: 0 auto;
+	font-family: var(--font-main);
 }
 
 [data-theme='light'] {
 	--background-color-header: #{variables.$background-color-header-light};
+	--text-color-header: #{variables.$background-color-header-dark};
 }

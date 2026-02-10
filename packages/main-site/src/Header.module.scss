@@ -7,22 +7,51 @@
 	height: 65px;
 	width: 100%;
 	background-color: var(--background-color-header);
-	color: #f3faff;
+	color: var(--text-color-header);
 	outline: 1px solid #4d9aff80;
 	font-family: variables.$font-headings;
 	box-shadow: 0 1px 0 rgba(148, 163, 184, 0.4);
+
 	div {
 		max-width: variables.$content-width;
 		margin: 0 auto;
 		line-height: 65px;
-
-		div {
+		.name {
 			float: left;
+			display: flex;
+			align-items: center;
+			font-size: 1.1rem;
 			text-transform: uppercase;
 			letter-spacing: 0.5px;
+			font-weight: 600;
 			span {
+				position: relative;
+				margin-left: 1rem;
+				margin-right: 1rem;
+				line-height: 2rem;
 				font-size: 24px;
 				color: variables.$color-accent;
+				letter-spacing: 1px;
+				font-weight: 500;
+				&:after,
+				&:before {
+					content: '';
+					position: absolute;
+					width: 10px;
+					height: 10px;
+				}
+				&:after {
+					bottom: -2px;
+					right: -0.5rem;
+					border-bottom: 2px solid variables.$color-accent;
+					border-right: 2px solid variables.$color-accent;
+				}
+				&:before {
+					top: -2px;
+					left: -0.5rem;
+					border-top: 2px solid variables.$color-accent;
+					border-left: 2px solid variables.$color-accent;
+				}
 			}
 		}
 		.header_nav {
@@ -31,8 +60,10 @@
 				display: flex;
 				gap: 30px;
 				text-transform: capitalize;
-				font-weight: 600;
+
 				li {
+					font-size: 1.2rem;
+					font-weight: 400;
 					&:last-child {
 						margin-left: 2rem;
 						display: flex;
@@ -47,8 +78,6 @@
 							}
 							&.moon {
 								color: variables.$background-color-header-dark;
-								// fill: variables.$background-color-header;
-								// stroke: variables.$background-color-header;
 							}
 						}
 					}

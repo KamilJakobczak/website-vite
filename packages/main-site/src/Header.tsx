@@ -16,8 +16,8 @@ export default function Header({ theme, setTheme }: HeaderProps) {
 	return (
 		<header className={styles.header}>
 			<div>
-				<div>
-					Kamil <span>"Jamar"</span> Jakóbczak
+				<div className={styles.name}>
+					Kamil <span>Jamar</span> Jakóbczak
 				</div>
 				<nav className={styles.header_nav}>
 					<ul>
