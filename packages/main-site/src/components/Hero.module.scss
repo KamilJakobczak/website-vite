@@ -1,0 +1,57 @@
+@use '../styles/variables';
+
+.hero {
+	display: flex;
+	align-items: center;
+	gap: 50px;
+
+	.heroWrapper {
+		display: flex;
+		flex-direction: column;
+
+		h1 {
+			font-size: 3rem;
+			span {
+				color: variables.$color-accent;
+			}
+		}
+		p {
+			margin-top: 10px;
+			&:nth-child(3) {
+				margin-top: 30px;
+			}
+		}
+
+		.buttons {
+			display: flex;
+			align-items: center;
+			justify-content: space-evenly;
+			margin-top: 2rem;
+
+			button {
+				background-color: variables.$color-global-light;
+				border: none;
+			}
+		}
+	}
+	.imageWrapper {
+		width: 350px;
+		height: 350px;
+		position: relative;
+		overflow: hidden;
+		// div {
+		// 	width: 100%;
+		// 	height: 100%;
+		// 	background-image: url('../assets/images/dreams.jpg');
+		// 	background-position: center;
+		// 	background-size: contain;
+		// 	background-repeat: no-repeat;
+	}
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: center;
+		border-radius: 5%;
+	}
+}

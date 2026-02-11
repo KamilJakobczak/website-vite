@@ -1,5 +1,5 @@
-import SunIcon from './assets/icons/sun.svg?react';
-import MoonIcon from './assets/icons/moon.svg?react';
+import SunIcon from '../assets/icons/sun.svg?react';
+import MoonIcon from '../assets/icons/moon.svg?react';
 import styles from './Header.module.scss';
 import type { Theme } from './App';
 

@@ -1,10 +1,17 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Header from './Header';
+import Hero from './Hero';
+import styles from './App.module.scss';
 
 export type Theme = 'light' | 'dark';
 
 export default function App() {
 	const [theme, setTheme] = useState<Theme>('dark');
+
+	useEffect(() => {
+		document.documentElement.setAttribute('data-theme', theme);
+	}, [theme]);
+
 	return (
 		<div data-theme={theme}>
 			<Header
@@ -12,6 +19,7 @@ export default function App() {
 				setTheme={setTheme}
 			/>
 			<main>
+				<Hero />
 				<section id='projects'>
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet
 					soluta quam voluptate nihil vel consequuntur optio consectetur
@@ -52,10 +60,7 @@ export default function App() {
 					voluptatum?
 				</section>
 			</main>
-			<footer>
-				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione,
-				perspiciatis?
-			</footer>
+			<footer>Kamil Jakóbczak 2026</footer>
 		</div>
 	);
 }

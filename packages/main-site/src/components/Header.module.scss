@@ -1,4 +1,4 @@
-@use '././styles/variables';
+@use '../styles/variables';
 
 .header {
 	position: fixed;
@@ -6,8 +6,7 @@
 	left: 0;
 	height: 65px;
 	width: 100%;
-	background-color: var(--background-color-header);
-	color: var(--text-color-header);
+
 	outline: 1px solid #4d9aff80;
 	font-family: variables.$font-headings;
 	box-shadow: 0 1px 0 rgba(148, 163, 184, 0.4);
@@ -43,14 +42,14 @@
 				&:after {
 					bottom: -2px;
 					right: -0.5rem;
-					border-bottom: 2px solid variables.$color-accent;
-					border-right: 2px solid variables.$color-accent;
+					border-bottom: 1.5px solid variables.$color-accent;
+					border-right: 1.5px solid variables.$color-accent;
 				}
 				&:before {
 					top: -2px;
 					left: -0.5rem;
-					border-top: 2px solid variables.$color-accent;
-					border-left: 2px solid variables.$color-accent;
+					border-top: 1.5px solid variables.$color-accent;
+					border-left: 1.5px solid variables.$color-accent;
 				}
 			}
 		}
@@ -74,10 +73,10 @@
 							width: 25px;
 							height: 25px;
 							&.sun {
-								fill: #f3faff;
+								fill: variables.$color-global-light;
 							}
 							&.moon {
-								color: variables.$background-color-header-dark;
+								color: variables.$color-global-dark;
 							}
 						}
 					}
