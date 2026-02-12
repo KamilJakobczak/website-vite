@@ -3,12 +3,13 @@
 .hero {
 	display: flex;
 	align-items: center;
+	justify-content: space-evenly;
 	gap: 50px;
 
 	.heroWrapper {
 		display: flex;
 		flex-direction: column;
-
+		flex-basis: 55%;
 		h1 {
 			font-size: 3rem;
 			span {
@@ -16,9 +17,14 @@
 			}
 		}
 		p {
-			margin-top: 10px;
+			&:nth-child(2) {
+				margin-top: 10px;
+				opacity: 0.5;
+			}
 			&:nth-child(3) {
 				margin-top: 30px;
+				font-size: 1.2rem;
+				text-align: justify;
 			}
 		}
 
@@ -35,17 +41,8 @@
 		}
 	}
 	.imageWrapper {
-		width: 350px;
+		width: 450px;
 		height: 350px;
-		position: relative;
-		overflow: hidden;
-		// div {
-		// 	width: 100%;
-		// 	height: 100%;
-		// 	background-image: url('../assets/images/dreams.jpg');
-		// 	background-position: center;
-		// 	background-size: contain;
-		// 	background-repeat: no-repeat;
 	}
 	img {
 		width: 100%;

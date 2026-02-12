@@ -13,7 +13,7 @@ export default function App() {
 	}, [theme]);
 
 	return (
-		<div data-theme={theme}>
+		<>
 			<Header
 				theme={theme}
 				setTheme={setTheme}
@@ -61,6 +61,6 @@ export default function App() {
 				</section>
 			</main>
 			<footer>Kamil Jakóbczak 2026</footer>
-		</div>
+		</>
 	);
 }

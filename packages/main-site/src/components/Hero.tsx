@@ -10,8 +10,9 @@ export default function Hero() {
 				</h1>
 				<p>Frontend Developer & 3D Printing Enthusiast</p>
 				<p>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit.
-					Consequatur, molestiae?
+					I create beautiful web experiences and bring ideas to life
+					through code and 3D printing. Welcome to my digital space where
+					creativity meets technology.
 				</p>
 				<div className={styles.buttons}>
 					<button>View My Work</button>
