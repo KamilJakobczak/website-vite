@@ -2,6 +2,7 @@
 
 .hero {
 	display: flex;
+	flex-direction: column;
 	align-items: center;
 	justify-content: space-evenly;
 	gap: 50px;
@@ -19,7 +20,7 @@
 		p {
 			&:nth-child(2) {
 				margin-top: 10px;
-				opacity: 0.5;
+				color: rgba(variables.$color-global-light, 0.5);
 			}
 			&:nth-child(3) {
 				margin-top: 30px;

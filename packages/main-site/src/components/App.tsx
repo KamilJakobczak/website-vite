@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import Header from './Header';
+import Header from './header/Header';
 import Hero from './Hero';
 import styles from './App.module.scss';
 
