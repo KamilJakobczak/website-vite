@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
-import Header from './header/Header';
-import Hero from './Hero';
+import Header from './layout/header/Header';
+import Hero from './layout/hero/Hero';
+import type { Theme } from './theme';
 import styles from './App.module.scss';
-
-export type Theme = 'light' | 'dark';
 
 export default function App() {
 	const [theme, setTheme] = useState<Theme>('dark');

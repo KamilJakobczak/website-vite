@@ -1,8 +1,13 @@
 import { useState } from 'react';
 import styles from './Hamburger.module.scss';
 
-export default function Hamburger() {
+interface HamburgerProps {
+	navigation: React.ReactNode;
+}
+
+export default function Hamburger({ navigation }: HamburgerProps) {
 	const [open, setOpen] = useState(false);
+
 	return (
 		<div
 			className={styles.hamburgerWrapper}
@@ -16,7 +21,7 @@ export default function Hamburger() {
 				<span />
 				<span />
 			</button>
-			<div className={styles.hamburgerContent}></div>
+			<div className={styles.hamburgerContent}>{navigation}</div>
 		</div>
 	);
 }

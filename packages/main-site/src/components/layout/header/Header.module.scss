@@ -1,4 +1,4 @@
-@use '../../styles/variables';
+@use '../../../styles/variables';
 
 .header {
 	position: fixed;
@@ -9,19 +9,18 @@
 	outline: 1px solid variables.$color-outline;
 	font-family: variables.$font-headings;
 	box-shadow: 0 1px 0 rgba(148, 163, 184, 0.4);
-
 	> div {
 		display: flex;
 		align-items: center;
-		justify-content: space-between;
 		max-width: variables.$content-width;
 		margin: 0 auto;
 		line-height: 65px;
 		.name {
-			margin-left: 30px;
+			margin-left: 15px;
 			display: flex;
 			align-items: center;
-			font-size: 1.1rem;
+			flex: 1;
+			font-size: 0.9rem;
 			text-transform: uppercase;
 			letter-spacing: 0.5px;
 			font-weight: 600;
@@ -29,8 +28,8 @@
 				position: relative;
 				margin-left: 1rem;
 				margin-right: 1rem;
-				line-height: 2rem;
-				font-size: 24px;
+				line-height: 1.7rem;
+				font-size: 1.2rem;
 				color: variables.$color-accent;
 				letter-spacing: 1px;
 				font-weight: 500;
@@ -55,71 +54,20 @@
 				}
 			}
 		}
+	}
+}
 
-		.navWrapper {
-			.nav {
-				float: right;
-				ul {
-					display: flex;
-					gap: 30px;
-					text-transform: capitalize;
-
-					li {
-						font-size: 1.2rem;
-						font-weight: 400;
-						&:last-child {
-							margin-left: 2rem;
-							display: flex;
-							justify-content: center;
-							align-items: center;
-
-							svg {
-								width: 25px;
-								height: 25px;
-								&.sun {
-									fill: variables.$color-global-light;
-								}
-								&.moon {
-									color: variables.$color-global-dark;
-								}
-							}
-						}
-					}
+@media (min-width: 400px) {
+	.header {
+		> div {
+			.name {
+				margin-left: 25px;
+				font-size: 1.1rem;
+				span {
+					line-height: 2rem;
+					font-size: 24px;
 				}
 			}
 		}
-	}
-}
-
-@keyframes middleSpan {
-	0% {
-		transform: translateX(-50%);
-	}
-	100% {
-		transform: translateX(100%);
-	}
-}
-
-@keyframes bottomSpan {
-	0% {
-		transform: rotate(0deg);
-		top: calc(50% + 7px);
-		left: 50%;
-		right: auto;
-	}
-	100% {
-		top: 5px;
-		right: 5px;
-		left: auto;
-		transform: rotate(-90deg);
-	}
-}
-
-@keyframes expandMenu {
-	0% {
-		transform: scale(0.2);
-	}
-	100% {
-		transform: scale(1);
 	}
 }
