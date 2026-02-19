@@ -9,7 +9,7 @@ import type { WithTheme } from '../../theme';
 type HeaderProps = WithTheme;
 
 export default function Header({ theme, setTheme }: HeaderProps) {
-	const isMobile = useMediaQuery('(max-width: 1024px)');
+	const isMobile = useMediaQuery('(max-width: 1023px)');
 
 	return (
 		<header className={styles.header}>
