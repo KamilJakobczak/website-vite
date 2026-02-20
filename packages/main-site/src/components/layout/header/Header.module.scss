@@ -23,7 +23,7 @@
 			flex: 1;
 			font-size: 0.9rem;
 			text-transform: uppercase;
-			letter-spacing: 0.5px;
+			letter-spacing: 1px;
 			font-weight: 600;
 			span {
 				position: relative;
@@ -81,6 +81,7 @@
 		}
 	}
 }
+
 @media (min-width: variables.$breakpoint-1280) {
 	.header {
 		> div {

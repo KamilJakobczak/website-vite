@@ -1,10 +1,12 @@
-@use '../../../styles/variables';
+@use '../../../../styles/variables';
 
 .hero {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	// justify-content: space-evenly;
+	max-width: variables.$content-width;
+	margin: 0 auto;
+	padding: 0 15px;
 	// gap: 50px;
 	.imageWrapper {
 		width: 275px;
@@ -37,23 +39,24 @@
 				text-align: center;
 			}
 			&:nth-child(3) {
-				margin-top: 12px;
+				margin: 12px 5px 0;
 				line-height: 1.15rem;
 				font-size: 1rem;
-				text-align: justify;
+				text-align: center;
 			}
 		}
 
 		.buttons {
 			display: flex;
 			align-items: center;
-			justify-content: space-evenly;
+			justify-content: space-around;
 			margin-top: 20px;
+			font-size: 1rem;
 			button {
-				padding: 10px 15px;
+				padding: 12px 15px;
 				border-radius: 25px;
-				font-size: 1rem;
-				font-weight: 700;
+
+				font-weight: 500;
 				letter-spacing: 0.25px;
 				&:nth-child(1) {
 					background-color: variables.$color-accent;
@@ -91,12 +94,16 @@
 				}
 				&:nth-child(3) {
 					margin-top: 15px;
-					font-size: 1rem;
+					font-size: 1.1rem;
 				}
 			}
 
 			.buttons {
 				margin-top: 20px;
+				font-size: 1.2rem;
+				button {
+					padding: 15px 20px;
+				}
 			}
 		}
 	}
@@ -115,12 +122,17 @@
 		.heroWrapper {
 			margin-top: 0;
 			flex-basis: 57%;
+			.buttons {
+				margin-top: 25px;
+			}
 		}
 	}
 }
 
 @media (min-width: variables.$breakpoint-1024) {
 	.hero {
+		justify-content: space-evenly;
+		padding: 0;
 		.heroWrapper {
 			h1 {
 				font-size: 2.2rem;
@@ -145,6 +157,66 @@
 					padding: 12px 20px;
 					font-size: 1.1rem;
 					letter-spacing: 0.5px;
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: variables.$breakpoint-1024) and (pointer: fine) {
+	.hero {
+		.heroWrapper {
+			.buttons {
+				button {
+					transition: 0.2s;
+					cursor: pointer;
+					position: relative;
+					overflow: visible;
+					&:nth-child(1) {
+						&:before {
+							content: '';
+							position: absolute;
+							top: 0;
+							left: 0;
+							width: 100%;
+							height: 100%;
+							border-radius: 100px;
+							background-color: variables.$color-accent;
+							z-index: -1;
+							transition: 0.4s;
+						}
+					}
+					&:nth-child(2) {
+						&:before {
+							content: '';
+							position: absolute;
+							top: 0;
+							left: 0;
+							width: 100%;
+							height: 100%;
+							border-radius: 100px;
+							background-color: color-mix(
+								in srgb,
+								var(--text-color-global) 15%,
+								transparent
+							);
+							z-index: -1;
+							transition: 0.4s;
+						}
+					}
+
+					&:hover {
+						transform: translateY(-3px);
+						box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+						&:before {
+							transform: scaleX(1.4) scaleY(1.6);
+							opacity: 0;
+						}
+					}
+					&:active {
+						transform: translateY(-1px);
+						box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+					}
 				}
 			}
 		}
@@ -179,11 +251,43 @@
 			.buttons {
 				margin-top: 30px;
 				button {
-					padding: 15px 25px;
-					font-size: 1.2rem;
+					padding: 18px 25px;
+					font-size: 1.3rem;
 					font-weight: 500;
 				}
 			}
 		}
+	}
+}
+
+#button_22 {
+	border-radius: 100px;
+	background-color: powderblue;
+	color: #726f6f;
+	transition: 0.2s;
+	overflow: visible;
+	&:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		border-radius: 100px;
+		background-color: powderblue;
+		z-index: -1;
+		transition: 0.4s;
+	}
+	&:hover {
+		transform: translateY(-3px);
+		box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+		&:before {
+			transform: scaleX(1.4) scaleY(1.6);
+			opacity: 0;
+		}
+	}
+	&:active {
+		transform: translateY(-1px);
+		box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
 	}
 }

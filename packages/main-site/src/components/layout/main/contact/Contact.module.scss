@@ -1,0 +1,18 @@
+@use '../../../../styles/variables';
+
+.inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	h2 {
+		flex-basis: 100%;
+	}
+	p {
+		flex-basis: 100%;
+	}
+	.layout {
+		flex-basis: 100%;
+		display: flex;
+	}
+}

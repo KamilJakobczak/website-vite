@@ -1,5 +1,5 @@
 import styles from './Hero.module.scss';
-import heroImg from '../../../assets/images/dreams.jpg';
+import heroImg from '../../../../assets/images/dreams.jpg';
 
 export default function Hero() {
 	return (

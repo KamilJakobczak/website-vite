@@ -53,3 +53,15 @@
 		}
 	}
 }
+
+@media (min-width: variables.$breakpoint-1024) and (pointer: fine) {
+	.navWrapper {
+		.nav {
+			ul {
+				li {
+					cursor: pointer;
+				}
+			}
+		}
+	}
+}
