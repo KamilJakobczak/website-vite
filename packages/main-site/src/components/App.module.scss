@@ -7,19 +7,27 @@
 	width: 100dvw;
 	margin-top: 100px;
 	> :first-child {
-		margin-bottom: 30px;
+		margin-bottom: 40px;
 	}
 	> *:not(:first-child) {
-		&:nth-child(odd) {
-			padding: 80px;
-		}
+		padding: 30px;
 		&:nth-child(even) {
 			background-color: rgba(105, 105, 105, 0.1);
-			padding: 80px;
 		}
 		> div {
 			margin: 0 auto;
 			max-width: variables.$content-width;
+		}
+	}
+}
+
+@media (min-width: variables.$breakpoint-480) {
+	.main {
+		> *:not(:first-child) {
+			padding: 50px;
+			&:nth-child(even) {
+				background-color: rgba(105, 105, 105, 0.1);
+			}
 		}
 	}
 }
@@ -29,6 +37,14 @@
 		margin-top: 120px;
 		> :first-child {
 			margin-bottom: 70px;
+		}
+		> *:not(:first-child) {
+			padding: 80px;
+			&:nth-child(odd) {
+			}
+			&:nth-child(even) {
+				background-color: rgba(105, 105, 105, 0.1);
+			}
 		}
 	}
 }

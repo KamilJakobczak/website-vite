@@ -4,7 +4,7 @@ import MoonIcon from '../../../assets/icons/moon.svg?react';
 import styles from './Navigation.module.scss';
 
 interface NavigationProps extends WithTheme {
-	isMobile: boolean;
+	device?: 'mobile' | 'desktop';
 }
 
 function DarkModeButton({
@@ -30,18 +30,27 @@ function DarkModeButton({
 }
 
 export default function Navigation({
-	isMobile,
+	device,
 	theme,
 	setTheme,
 }: NavigationProps) {
 	return (
-		<div className={`${styles.navWrapper} ${isMobile ? styles.mobile : ''}`}>
+		<div
+			className={`${styles.navWrapper} ${device === 'mobile' ? styles.mobile : ''}`}>
 			<nav className={styles.nav}>
 				<ul>
-					<li>home</li>
-					<li>projects</li>
-					<li>3D printing</li>
-					<li>contact</li>
+					<li>
+						<a href='#about'>About</a>
+					</li>
+					<li>
+						<a href='#projects'>Projects</a>
+					</li>
+					<li>
+						<a href='#3d-printing'>3D printing</a>
+					</li>
+					<li>
+						<a href='#contact'>contact</a>
+					</li>
 					<li>
 						<DarkModeButton
 							theme={theme}

@@ -7,7 +7,8 @@ export default function Hero() {
 			<div className={styles.imageWrapper}>
 				<img
 					src={heroImg}
-					alt='image of book and waterfall'
+					alt='image of a book and waterfall'
+					fetchPriority='high'
 				/>
 			</div>
 			<div className={styles.heroWrapper}>
@@ -21,8 +22,16 @@ export default function Hero() {
 					creativity meets technology.
 				</p>
 				<div className={styles.buttons}>
-					<button>View My Work</button>
-					<button>Get in Touch</button>
+					<a
+						href='#projects'
+						className={styles.btnPrimary}>
+						View My Work
+					</a>
+					<a
+						href='#contact'
+						className={styles.btnSecondary}>
+						Get in Touch
+					</a>
 				</div>
 			</div>
 		</section>

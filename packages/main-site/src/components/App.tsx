@@ -5,6 +5,7 @@ import type { Theme } from './theme';
 import styles from './App.module.scss';
 import Contact from './layout/main/contact/Contact';
 import Footer from './layout/footer/Footer';
+import AboutMe from './layout/main/about/AboutMe';
 
 export default function App() {
 	const [theme, setTheme] = useState<Theme>('dark');
@@ -21,6 +22,7 @@ export default function App() {
 			/>
 			<main className={styles.main}>
 				<Hero />
+				<AboutMe />
 				<section id='projects'>
 					<div className={styles.inner}>
 						Lorem ipsum dolor sit amet, consectetur adipisicing elit.

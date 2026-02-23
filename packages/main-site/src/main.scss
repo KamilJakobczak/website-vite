@@ -24,6 +24,7 @@ html {
 		#000000 100%
 	);
 	font-family: var(--font-main);
+	scroll-behavior: smooth;
 }
 body {
 	position: relative;
@@ -39,9 +40,20 @@ button {
 	appearance: none;
 	font-family: var(--font-headings);
 }
+h1,
+h2,
+h3,
+h4,
+h5 {
+	font-family: variables.$font-headings;
+}
 
-[data-theme='light'] {
+html[data-theme='light'] {
 	--color-global: #{variables.$color-global-light};
 	--text-color-global: #{variables.$color-global-dark};
 	background: var(--color-global);
+	background-image: none;
+}
+section {
+	scroll-margin-top: 80px;
 }

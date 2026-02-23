@@ -7,9 +7,9 @@
 	height: 65px;
 	width: 100%;
 	outline: 2px solid variables.$color-outline;
-	font-family: variables.$font-headings;
 	box-shadow: 0 1px 0 rgba(148, 163, 184, 0.4);
 	background-color: var(--color-global);
+	z-index: 100;
 	> div {
 		display: flex;
 		align-items: center;

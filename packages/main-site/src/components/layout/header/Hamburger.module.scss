@@ -5,19 +5,11 @@
 	height: 35px;
 	margin-right: 10px;
 	.hamburger {
-		// style reset
-		border: none;
-		background: none;
-		font: inherit;
-		color: inherit;
-		appearance: none;
-		// custom styling
 		display: block;
 		position: relative;
 		width: 100%;
 		height: 100%;
 		overflow: hidden;
-
 		span {
 			display: block;
 			position: absolute;
@@ -63,7 +55,11 @@
 		height: auto;
 		z-index: 10;
 		border: 3px solid var(--text-color-global);
-		background-color: rgba(var(--color-global), 0.9);
+		background-color: color-mix(
+			in srgb,
+			var(--color-global) 70%,
+			transparent
+		);
 		backdrop-filter: blur(6px);
 		transform: scale(0);
 	}
@@ -72,8 +68,6 @@
 @media (min-width: 400px) {
 	.hamburgerWrapper {
 		margin-right: 25px;
-		.hamburger {
-		}
 	}
 }
 

@@ -19,7 +19,7 @@ export default function Header({ theme, setTheme }: HeaderProps) {
 				</div>
 				{!isMobile ? (
 					<Navigation
-						isMobile={isMobile}
+						device={'desktop'}
 						theme={theme}
 						setTheme={setTheme}
 					/>
@@ -27,7 +27,7 @@ export default function Header({ theme, setTheme }: HeaderProps) {
 					<Hamburger
 						navigation={
 							<Navigation
-								isMobile={isMobile}
+								device='mobile'
 								theme={theme}
 								setTheme={setTheme}
 							/>
