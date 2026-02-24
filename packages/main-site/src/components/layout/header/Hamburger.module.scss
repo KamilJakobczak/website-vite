@@ -41,9 +41,11 @@
 				}
 			}
 			+ .hamburgerContent {
-				animation: expandMenu 1s ease-out forwards;
-				animation-delay: 0.7s;
-				transform-origin: top right;
+				transform: scale(1);
+				visibility: visible;
+				transition:
+					transform 0.3s ease-out 0.7s,
+					visibility 0s 0.7s;
 			}
 		}
 	}
@@ -61,7 +63,24 @@
 			transparent
 		);
 		backdrop-filter: blur(6px);
+		visibility: hidden;
 		transform: scale(0);
+		transform-origin: top right;
+		transition:
+			transform 0.2s ease-in,
+			visibility 0s linear 0.2s;
+
+		.closeButton {
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			font-size: 1rem;
+			line-height: 1;
+			padding: 5px;
+			&:hover {
+				opacity: 1;
+			}
+		}
 	}
 }
 // Media queries
@@ -96,11 +115,13 @@
 	}
 }
 
-@keyframes expandMenu {
-	0% {
-		transform: scale(0.2);
+@media (prefers-reduced-motion: reduce) {
+	.hamburgerContent,
+	.hamburger.open + .hamburgerContent {
+		transition: none;
 	}
-	100% {
+	.hamburger.open + .hamburgerContent {
 		transform: scale(1);
+		visibility: visible;
 	}
 }

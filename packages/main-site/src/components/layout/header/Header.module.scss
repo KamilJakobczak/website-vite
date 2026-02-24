@@ -15,8 +15,9 @@
 		align-items: center;
 		max-width: variables.$content-width;
 		margin: 0 auto;
-		line-height: 65px;
+		height: 65px;
 		.name {
+			font-family: variables.$font-headings;
 			margin-left: 15px;
 			display: flex;
 			align-items: center;
@@ -25,7 +26,10 @@
 			text-transform: uppercase;
 			letter-spacing: 1px;
 			font-weight: 600;
-			span {
+			.namePart {
+				display: none;
+			}
+			.nameAccent {
 				position: relative;
 				margin-left: 1rem;
 				margin-right: 1rem;
@@ -55,6 +59,19 @@
 				}
 			}
 		}
+		.controls {
+			display: flex;
+			align-items: center;
+			gap: 5px;
+			button {
+				padding: 0;
+				svg {
+					width: 25px;
+					height: 25px;
+					fill: currentColor;
+				}
+			}
+		}
 	}
 }
 
@@ -64,7 +81,10 @@
 			.name {
 				margin-left: 25px;
 				font-size: 1.1rem;
-				span {
+				.namePart {
+					display: inline;
+				}
+				.nameAccent {
 					line-height: 2rem;
 					font-size: 24px;
 				}

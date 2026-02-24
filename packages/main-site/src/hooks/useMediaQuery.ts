@@ -10,7 +10,6 @@ export function useMediaQuery(query: string) {
 		const listener = (e: MediaQueryListEvent) => setMatches(e.matches);
 
 		mql.addEventListener('change', listener);
-		listener({ matches: mql.matches } as MediaQueryListEvent);
 
 		return () => mql.removeEventListener('change', listener);
 	}, [query]);

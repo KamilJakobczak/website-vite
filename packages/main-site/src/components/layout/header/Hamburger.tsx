@@ -20,9 +20,22 @@ export default function Hamburger({ navigation }: HamburgerProps) {
 				<span />
 				<span />
 			</button>
-			<div className={styles.hamburgerContent}>
-				<button onClick={() => setOpen(false)}>X</button>
-				{navigation}
+			<div
+				className={styles.hamburgerContent}
+				aria-hidden={!open}>
+				<button
+					type='button'
+					aria-label='Close navigation'
+					className={styles.closeButton}
+					onClick={() => setOpen(false)}>
+					x
+				</button>
+				<div
+					onClick={e => {
+						if ((e.target as HTMLElement).closest('a')) setOpen(false);
+					}}>
+					{navigation}
+				</div>
 			</div>
 		</div>
 	);

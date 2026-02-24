@@ -5,6 +5,7 @@
 	.nav {
 		ul {
 			display: flex;
+			align-items: center;
 			position: relative;
 			gap: 30px;
 			text-transform: capitalize;
@@ -42,13 +43,8 @@
 				flex-direction: column;
 				justify-content: center;
 				align-items: flex-start;
-				margin-left: 20px;
-				gap: 0px;
-				li:nth-last-child(1) {
-					position: fixed;
-					bottom: 1rem;
-					right: 1rem;
-				}
+				margin: 30px 0 30px 20px;
+				gap: 40px;
 			}
 		}
 	}
@@ -59,7 +55,10 @@
 		.nav {
 			ul {
 				li {
-					cursor: pointer;
+					a,
+					button {
+						cursor: pointer;
+					}
 				}
 			}
 		}

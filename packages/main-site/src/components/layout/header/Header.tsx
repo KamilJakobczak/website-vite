@@ -1,8 +1,6 @@
 import styles from './Header.module.scss';
-
 import Hamburger from './Hamburger';
-
-import Navigation from './Navigation';
+import Navigation, { DarkModeButton } from './Navigation';
 import { useMediaQuery } from '../../../hooks/useMediaQuery';
 import type { WithTheme } from '../../theme';
 
@@ -15,7 +13,9 @@ export default function Header({ theme, setTheme }: HeaderProps) {
 		<header className={styles.header}>
 			<div>
 				<div className={styles.name}>
-					Kamil <span>Jamar</span> Jakóbczak
+					<span className={styles.namePart}>Kamil </span>
+					<span className={styles.nameAccent}>Jamar</span>
+					<span className={styles.namePart}> Jakóbczak</span>
 				</div>
 				{!isMobile ? (
 					<Navigation
@@ -24,15 +24,21 @@ export default function Header({ theme, setTheme }: HeaderProps) {
 						setTheme={setTheme}
 					/>
 				) : (
-					<Hamburger
-						navigation={
-							<Navigation
-								device='mobile'
-								theme={theme}
-								setTheme={setTheme}
-							/>
-						}
-					/>
+					<div className={styles.controls}>
+						<DarkModeButton
+							theme={theme}
+							setTheme={setTheme}
+						/>
+						<Hamburger
+							navigation={
+								<Navigation
+									device='mobile'
+									theme={theme}
+									setTheme={setTheme}
+								/>
+							}
+						/>
+					</div>
 				)}
 			</div>
 		</header>

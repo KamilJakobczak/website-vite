@@ -7,7 +7,7 @@ interface NavigationProps extends WithTheme {
 	device?: 'mobile' | 'desktop';
 }
 
-function DarkModeButton({
+export function DarkModeButton({
 	theme,
 	setTheme,
 }: Pick<WithTheme, 'theme' | 'setTheme'>) {
@@ -49,14 +49,16 @@ export default function Navigation({
 						<a href='#3d-printing'>3D printing</a>
 					</li>
 					<li>
-						<a href='#contact'>contact</a>
+						<a href='#contact'>Contact</a>
 					</li>
+					{device !== 'mobile' && (
 					<li>
 						<DarkModeButton
 							theme={theme}
 							setTheme={setTheme}
 						/>
 					</li>
+				)}
 				</ul>
 			</nav>
 		</div>
