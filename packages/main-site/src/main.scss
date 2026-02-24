@@ -9,6 +9,7 @@
 	--color-global: #{variables.$color-global-dark};
 	--text-color-global: #{variables.$color-global-light};
 	--color-outline: #{variables.$color-outline};
+	--color-accent: #{variables.$color-accent};
 }
 #root {
 	display: flex;

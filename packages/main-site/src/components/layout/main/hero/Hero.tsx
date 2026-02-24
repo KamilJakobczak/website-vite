@@ -15,6 +15,7 @@ export default function Hero() {
 				<h1>
 					Hi, I'm <span>Kamil Jakóbczak</span>
 				</h1>
+
 				<p>Frontend Developer & 3D Printing Enthusiast</p>
 				<p>
 					I create beautiful web experiences and bring ideas to life
