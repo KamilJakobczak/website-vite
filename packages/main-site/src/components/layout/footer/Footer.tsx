@@ -3,11 +3,6 @@ export default function Footer() {
 	return (
 		<footer className={styles.footer}>
 			<span>&copy;Kamil Jakóbczak {new Date().getFullYear()}</span>
-			<a
-				href='https://icons8.com/'
-				rel='noopener noreferrer'>
-				Icons by ICONS8
-			</a>
 		</footer>
 	);
 }

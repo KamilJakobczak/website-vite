@@ -1,0 +1,27 @@
+@use '../../../styles/variables';
+
+.grid {
+	display: grid;
+	gap: 24px;
+	grid-template-columns: 1fr;
+}
+
+@media (min-width: variables.$breakpoint-768) {
+	.projects {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.gallery {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (min-width: variables.$breakpoint-1024) {
+	.grid {
+		gap: 32px;
+	}
+
+	.gallery {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}

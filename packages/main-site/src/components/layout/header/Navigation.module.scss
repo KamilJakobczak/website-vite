@@ -35,17 +35,16 @@
 	}
 }
 
-@media (min-width: variables.$breakpoint-1024) and (pointer: fine) {
+@media (min-width: variables.$breakpoint-1024), (pointer: fine) {
 	.navWrapper {
 		.nav {
 			ul {
-				gap: 35px;
+				gap: 50px;
 				li {
 					transition: 0.2s;
 
 					a {
 						position: relative;
-						cursor: pointer;
 						&:before,
 						&:after {
 							content: '';
@@ -73,7 +72,6 @@
 						// color: variables.$color-accent;
 
 						a {
-							font-weight: 700;
 							&:before {
 								top: -7px;
 								left: -10px;

@@ -10,6 +10,7 @@
 	--text-color-global: #{variables.$color-global-light};
 	--color-outline: #{variables.$color-outline};
 	--color-accent: #{variables.$color-accent};
+	--color-sections: #{variables.$color-sections-dark};
 }
 #root {
 	display: flex;
@@ -30,6 +31,7 @@ html {
 body {
 	position: relative;
 	margin: 0 auto;
+	cursor: auto;
 }
 
 button {
@@ -52,12 +54,22 @@ h5 {
 html[data-theme='light'] {
 	--color-global: #{variables.$color-global-light};
 	--text-color-global: #{variables.$color-global-dark};
+	--color-sections: #{variables.$color-sections-light};
 	background: var(--color-global);
 	background-image: none;
 }
 section {
 	scroll-margin-top: 80px;
 }
-a {
-	cursor: none;
+
+@media (hover: hover) and (pointer: fine) {
+	body {
+		cursor: default;
+	}
+
+	a,
+	button,
+	[role='button'] {
+		cursor: pointer;
+	}
 }

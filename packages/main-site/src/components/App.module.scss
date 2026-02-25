@@ -4,7 +4,7 @@
 	flex: 1;
 	display: flex;
 	flex-direction: column;
-	width: 100dvw;
+	width: 100%;
 	margin-top: 100px;
 	> :first-child {
 		margin-bottom: 40px;
@@ -12,7 +12,7 @@
 	> *:not(:first-child) {
 		padding: 30px;
 		&:nth-child(even) {
-			background-color: rgba(105, 105, 105, 0.1);
+			background-color: var(--color-sections);
 		}
 		> div {
 			margin: 0 auto;
@@ -25,9 +25,6 @@
 	.main {
 		> *:not(:first-child) {
 			padding: 50px;
-			&:nth-child(even) {
-				background-color: rgba(105, 105, 105, 0.1);
-			}
 		}
 	}
 }
@@ -40,11 +37,6 @@
 		}
 		> *:not(:first-child) {
 			padding: 80px;
-			&:nth-child(odd) {
-			}
-			&:nth-child(even) {
-				background-color: rgba(105, 105, 105, 0.1);
-			}
 		}
 	}
 }

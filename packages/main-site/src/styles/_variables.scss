@@ -29,6 +29,12 @@ $color-accent: #06b6d4;
 $color-global-dark: rgb(4, 12, 19);
 $color-global-light: rgb(243, 250, 255);
 $color-outline: #4d9aff80;
+$color-sections-light: color-mix(
+	in srgb,
+	var(--text-color-global) 10%,
+	transparent
+);
+$color-sections-dark: rgba(105, 105, 105, 0.1);
 
 $breakpoint-480: 480px;
 $breakpoint-768: 768px;

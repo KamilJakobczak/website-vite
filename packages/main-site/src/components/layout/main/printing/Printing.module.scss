@@ -1,0 +1,31 @@
+@use '../../../../styles/variables';
+
+.inner {
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+}
+
+.heading {
+	font-family: variables.$font-headings;
+	font-size: 1.6rem;
+	font-weight: 700;
+	color: var(--text-color-global);
+	text-align: center;
+}
+
+@media (min-width: variables.$breakpoint-768) {
+	.heading {
+		font-size: 1.8rem;
+	}
+}
+
+@media (min-width: variables.$breakpoint-1024) {
+	.inner {
+		gap: 32px;
+	}
+
+	.heading {
+		font-size: 2rem;
+	}
+}

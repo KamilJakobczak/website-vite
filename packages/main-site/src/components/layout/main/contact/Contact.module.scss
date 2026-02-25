@@ -2,17 +2,88 @@
 
 .inner {
 	display: flex;
+	flex-direction: column;
 	align-items: center;
-	justify-content: space-around;
-	flex-wrap: wrap;
+	gap: 40px;
+	text-align: center;
+}
+
+.heading {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+
 	h2 {
-		flex-basis: 100%;
+		font-size: 1.8rem;
 	}
-	p {
-		flex-basis: 100%;
+}
+
+.role {
+	font-size: 0.95rem;
+	color: color-mix(in srgb, var(--text-color-global) 80%, transparent);
+}
+
+.meta {
+	font-size: 0.8rem;
+	color: color-mix(in srgb, var(--text-color-global) 50%, transparent);
+	letter-spacing: 0.3px;
+}
+
+.cards {
+	display: flex;
+	gap: 20px;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.card {
+	background-color: color-mix(
+		in srgb,
+		var(--text-color-global) 15%,
+		transparent
+	);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 8px;
+	padding: 24px 32px;
+	border: 1px solid rgba(variables.$color-accent, 0.25);
+	border-radius: 12px;
+	text-decoration: none;
+	color: var(--text-color-global);
+	transition:
+		border-color 0.2s,
+		transform 0.2s,
+		box-shadow 0.2s;
+	min-width: 200px;
+
+	svg {
+		width: 32px;
+		height: 32px;
+		fill: var(--color-accent);
 	}
-	.layout {
-		flex-basis: 100%;
-		display: flex;
+
+	.cardLabel {
+		font-family: variables.$font-headings;
+		font-size: 0.85rem;
+		font-weight: 600;
+		color: color-mix(in srgb, var(--text-color-global) 55%, transparent);
+		text-transform: uppercase;
+		letter-spacing: 1px;
+	}
+
+	.cardValue {
+		font-size: 0.9rem;
+		color: variables.$color-accent;
+	}
+}
+
+@media (min-width: variables.$breakpoint-1024), (pointer: fine) {
+	.card {
+		&:hover {
+			border-color: variables.$color-accent;
+			transform: translateY(-3px);
+			box-shadow: 0 8px 24px rgba(variables.$color-accent, 0.15);
+		}
 	}
 }
