@@ -1,0 +1,9 @@
+{
+	"compilerOptions": {
+		"noImplicitAny": true,
+		"module": "ES6",
+		"target": "ES2022",
+		"lib": ["ES2022", "DOM"]
+	},
+	"exclude": ["node_modules"]
+}
