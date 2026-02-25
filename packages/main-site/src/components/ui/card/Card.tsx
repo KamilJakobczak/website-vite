@@ -41,19 +41,12 @@ export default function Card({
 				)}
 			</div>
 			<div className={styles.content}>
-				<h3 className={styles.title}>{title}</h3>
-				{description && (
-					<p className={styles.description}>{description}</p>
-				)}
+				<h3>{title}</h3>
+				{description && <p>{description}</p>}
 				{tags && tags.length > 0 && (
 					<ul className={styles.tags}>
 						{tags.map(tag => (
-							<li
-								key={tag}
-								className={styles.tag}
-							>
-								{tag}
-							</li>
+							<li key={tag}>{tag}</li>
 						))}
 					</ul>
 				)}
@@ -64,9 +57,7 @@ export default function Card({
 								key={link.url}
 								href={link.url}
 								target='_blank'
-								rel='noopener noreferrer'
-								className={styles.link}
-							>
+								rel='noopener noreferrer'>
 								{link.label}
 							</a>
 						))}
