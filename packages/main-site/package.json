@@ -5,7 +5,7 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
-		"prebuild": "npm run build --workspace=japanese && xcopy /s /y ..\\japanese\\dist\\* .\\public\\japanese\\",
+		"prebuild": "npm run build --workspace=japanese && xcopy /s /y ..\\japanese\\dist\\* .\\public\\japanese\\ && npm run build --workspace=vue-rec && xcopy /s /y ..\\csv-parser\\dist\\* .\\public\\csv-parser\\",
 		"build": "tsc -b && vite build",
 		"lint": "eslint .",
 		"preview": "vite preview"

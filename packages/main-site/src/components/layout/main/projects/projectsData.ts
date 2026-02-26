@@ -86,7 +86,7 @@ export const projects: ProjectItem[] = [
 		tags: ['Vue.js', 'JavaScript', 'HTML', 'CSS'],
 		links: [
 			{
-				url: 'https://kamiljakobczak.github.io/recruitment-task-in-vue/',
+				url: '/projects/csv-parser',
 				label: 'Live Demo',
 			},
 		],
