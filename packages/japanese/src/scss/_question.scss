@@ -1,47 +1,57 @@
+@use './variables' as *;
+
 .gameContainer {
-	margin-top: 50px;
+	margin-top: 25px;
+
 	form {
 		display: flex;
 		flex-direction: column;
-		margin-top: 30px;
+		margin-top: 15px;
+
 		h2 {
 			flex-basis: 80%;
-			font-size: 3rem;
+			font-size: 2rem;
 			text-align: center;
-			margin-bottom: 20px;
+			margin-bottom: 12px;
+
 			span {
 				font-family: 'Noto Sans JP', sans-serif;
 				font-weight: 600;
 			}
 		}
+
 		fieldset {
 			display: flex;
 			justify-content: center;
 			align-items: center;
 			flex-wrap: wrap;
+
 			label {
 				display: none;
 			}
+
 			> div {
-				flex-basis: 40%;
+				flex-basis: 100%;
 				display: flex;
 				align-items: center;
 				justify-content: center;
+
 				label {
 					width: 100%;
 					display: flex;
 					justify-content: center;
 					align-items: center;
-					font-size: 2.5rem;
-					line-height: 4rem;
+					font-size: 1.6rem;
+					line-height: 3rem;
 					cursor: pointer;
+
 					input {
 						display: block;
 						position: relative;
 						border: 0px;
-						height: 2rem;
-						width: 2rem;
-						margin-right: 10px;
+						height: 1.6rem;
+						width: 1.6rem;
+						margin-right: 8px;
 						cursor: pointer;
 					}
 				}
@@ -49,22 +59,112 @@
 		}
 
 		button {
-			flex-basis: 51%;
+			flex-basis: 80%;
 			align-self: center;
 			justify-self: center;
-			margin: 20px auto 0;
-			padding: 10px 20px;
+			margin: 15px auto 0;
+			padding: 8px 15px;
 			background: none;
 			border: none;
-			font-size: 2rem;
+			font-size: 1.4rem;
 			text-transform: uppercase;
 			cursor: pointer;
 			border: 3px solid #040461;
 			border-radius: 5px;
 			transition: 0.5s;
+
 			&:hover {
 				background-color: #040461;
 				color: white;
+			}
+		}
+	}
+}
+
+@media (min-width: $bp-480) {
+	.gameContainer {
+		form {
+			h2 {
+				font-size: 2.2rem;
+			}
+
+			fieldset > div {
+				flex-basis: 50%;
+
+				label {
+					font-size: 1.8rem;
+					line-height: 3.2rem;
+				}
+			}
+
+			button {
+				font-size: 1.6rem;
+				flex-basis: 60%;
+			}
+		}
+	}
+}
+
+@media (min-width: $bp-768) {
+	.gameContainer {
+		margin-top: 35px;
+
+		form {
+			margin-top: 25px;
+
+			h2 {
+				font-size: 2.5rem;
+				margin-bottom: 16px;
+			}
+
+			fieldset > div {
+				flex-basis: 40%;
+
+				label {
+					font-size: 2.2rem;
+					line-height: 3.5rem;
+
+					input {
+						height: 1.8rem;
+						width: 1.8rem;
+						margin-right: 10px;
+					}
+				}
+			}
+
+			button {
+				flex-basis: 51%;
+				font-size: 1.8rem;
+				padding: 10px 20px;
+			}
+		}
+	}
+}
+
+@media (min-width: $bp-1280) {
+	.gameContainer {
+		margin-top: 50px;
+
+		form {
+			margin-top: 30px;
+
+			h2 {
+				font-size: 3rem;
+				margin-bottom: 20px;
+			}
+
+			fieldset > div label {
+				font-size: 2.5rem;
+				line-height: 4rem;
+
+				input {
+					height: 2rem;
+					width: 2rem;
+				}
+			}
+
+			button {
+				font-size: 2rem;
 			}
 		}
 	}

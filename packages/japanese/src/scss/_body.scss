@@ -3,4 +3,12 @@ html {
 	font-family: 'Roboto', sans-serif;
 }
 body {
+	background-color: rgb(243, 250, 255);
+	padding: 0 10px;
+}
+
+@media (min-width: 768px) {
+	body {
+		padding: 0;
+	}
 }

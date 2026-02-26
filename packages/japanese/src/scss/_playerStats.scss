@@ -1,7 +1,9 @@
+@use './variables' as *;
+
 .playerStats {
-	width: 90%;
-	margin: 40px auto 0;
-	padding: 25px 0;
+	width: 95%;
+	margin: 20px auto 0;
+	padding: 15px 0;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-evenly;
@@ -10,42 +12,124 @@
 	color: rgb(249, 249, 249);
 	background-color: #040461;
 	font-family: 'Genos', sans-serif;
-	gap: 25px;
+	gap: 15px;
+
 	h2 {
 		flex-basis: 100%;
-		font-size: 2.8rem;
-		margin-bottom: 1rem;
+		font-size: 2rem;
+		margin-bottom: 0.5rem;
 		text-transform: uppercase;
 		text-align: center;
 		font-weight: 400;
 		letter-spacing: 1px;
 	}
+
 	> div {
 		display: flex;
-		flex-basis: 40%;
+		flex-basis: 100%;
 		flex-wrap: wrap;
 		flex-direction: column;
 		justify-content: center;
-		gap: 5px;
+		align-items: center;
+		gap: 3px;
 
 		> h3 {
-			margin-bottom: 5px;
+			margin-bottom: 3px;
 			text-align: center;
-			font-size: 2.4rem;
+			font-size: 1.8rem;
 			font-weight: 600;
 			letter-spacing: 1px;
 		}
+
 		> p {
-			font-size: 2.1rem;
+			font-size: 1.6rem;
 			font-weight: 400;
-			// text-shadow: 0 0 2px #ffffff;
 			text-transform: uppercase;
 		}
 	}
+
 	&-general {
 	}
 	&-average {
 	}
 	&-specific {
+	}
+}
+
+@media (min-width: $bp-480) {
+	.playerStats {
+		gap: 20px;
+		padding: 20px 0;
+
+		h2 {
+			font-size: 2.2rem;
+		}
+
+		> div {
+			flex-basis: 45%;
+
+			> h3 {
+				font-size: 2rem;
+			}
+
+			> p {
+				font-size: 1.8rem;
+			}
+		}
+	}
+}
+
+@media (min-width: $bp-768) {
+	.playerStats {
+		width: 92%;
+		margin: 30px auto 0;
+		padding: 22px 0;
+		gap: 22px;
+
+		h2 {
+			font-size: 2.5rem;
+			margin-bottom: 0.8rem;
+		}
+
+		> div {
+			flex-basis: 40%;
+			gap: 4px;
+
+			> h3 {
+				font-size: 2.2rem;
+			}
+
+			> p {
+				font-size: 1.9rem;
+			}
+		}
+	}
+}
+
+@media (min-width: $bp-1280) {
+	.playerStats {
+		width: 90%;
+		margin: 40px auto 0;
+		padding: 25px 0;
+		gap: 25px;
+
+		h2 {
+			font-size: 2.8rem;
+			margin-bottom: 1rem;
+		}
+
+		> div {
+			flex-basis: 40%;
+			gap: 5px;
+
+			> h3 {
+				margin-bottom: 5px;
+				font-size: 2.4rem;
+			}
+
+			> p {
+				font-size: 2.1rem;
+			}
+		}
 	}
 }

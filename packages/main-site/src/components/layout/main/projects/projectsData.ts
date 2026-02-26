@@ -1,5 +1,8 @@
 import type { CardLink } from '../../../ui/card/Card';
 import placeholder from '../../../../assets/images/dreams.jpg';
+import japanese from '../../../../assets/images/projects/learning_japanese.jpg';
+import bookCollection from '../../../../assets/images/projects/book_collection.jpg';
+import codingPlayground from '../../../../assets/images/projects/coding_playground.jpg';
 
 interface ProjectItem {
 	id: string;
@@ -22,55 +25,84 @@ export const projects: ProjectItem[] = [
 		tags: ['React', 'TypeScript', 'Vite', 'SCSS'],
 		links: [
 			{
-				url: 'https://github.com/username/portfolio',
+				url: 'https://github.com/KamilJakobczak/website-vite',
 				label: 'GitHub',
 			},
-			{ url: 'https://example.com', label: 'Live Demo' },
+			{ url: '', label: 'You are there!' },
 		],
 	},
 	{
-		id: 'project-2',
-		image: placeholder,
-		imageAlt: 'Screenshot of task manager app',
-		title: 'Task Manager App',
+		id: 'collection',
+		image: bookCollection,
+		imageAlt: 'Screenshot of Book Collection App',
+		title: 'Book Collection App',
+		description:
+			'Fullstack web app to organize a multilingual family book collection with an EPUB parser for metadata extraction, authentication, and an admin panel to manage and search books.',
+		tags: [
+			'React',
+			'TypeScript',
+			'Node.js',
+			'Express',
+			'Apollo',
+			'GraphQL',
+			'Prisma',
+			'MongoDB',
+		],
+		links: [
+			{
+				url: 'https://github.com/KamilJakobczak/',
+				label: 'GitHub',
+			},
+			{ url: '', label: 'Live Demo' },
+		],
+	},
+	{
+		id: 'japanese',
+		image: japanese,
+		imageAlt: 'Screenshot of japanese alphabet game',
+		title: 'Japanese Alphabet Learning Game',
 		description:
 			'A full-stack task management application with drag-and-drop, real-time updates, and collaborative features.',
-		tags: ['React', 'Node.js', 'GraphQL', 'PostgreSQL'],
+		tags: ['JavaScript', 'TypeScript', 'OOP'],
 		links: [
 			{
-				url: 'https://github.com/username/tasks',
+				url: 'https://github.com/KamilJakobczak/learning-japanese',
 				label: 'GitHub',
+			},
+			{
+				url: '/projects/japanese',
+				label: 'Live Demo',
+			},
+		],
+	},
+
+	{
+		id: 'csv-parser',
+		image: placeholder,
+		imageAlt: 'Screenshot of CSV Data Parser and Viewer',
+		title: 'CSV Data Parser and Viewer',
+		description:
+			'Web app to import CSV datasets, parse their content and render sortable tables with sorting and grouping options for flexible data exploration.',
+		tags: ['Vue.js', 'JavaScript', 'HTML', 'CSS'],
+		links: [
+			{
+				url: 'https://kamiljakobczak.github.io/recruitment-task-in-vue/',
+				label: 'Live Demo',
 			},
 		],
 	},
 	{
-		id: 'project-3',
-		image: placeholder,
-		imageAlt: 'Screenshot of weather dashboard',
-		title: 'Weather Dashboard',
+		id: 'playground',
+		image: codingPlayground,
+		imageAlt: 'Screenshot of Coding Playground app',
+		title: 'Coding Playground',
 		description:
-			'Real-time weather dashboard with interactive maps, forecast charts, and location-based alerts.',
-		tags: ['TypeScript', 'D3.js', 'REST API'],
+			'In-browser transpiler and bundler app that enables writing and running JavaScript code directly in the browser.',
+		tags: ['React', 'Redux', 'Node.js'],
 		links: [
 			{
-				url: 'https://github.com/username/weather',
-				label: 'GitHub',
-			},
-			{ url: 'https://example.com', label: 'Live Demo' },
-		],
-	},
-	{
-		id: 'project-4',
-		image: placeholder,
-		imageAlt: 'Screenshot of e-commerce platform',
-		title: 'E-Commerce Platform',
-		description:
-			'Headless e-commerce storefront with server-side rendering, cart management, and payment integration.',
-		tags: ['Next.js', 'Stripe', 'Tailwind', 'Prisma'],
-		links: [
-			{
-				url: 'https://github.com/username/shop',
-				label: 'GitHub',
+				url: '',
+				label: '',
 			},
 		],
 	},

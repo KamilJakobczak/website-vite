@@ -52,15 +52,24 @@ export default function Card({
 				)}
 				{links && links.length > 0 && (
 					<div className={styles.links}>
-						{links.map(link => (
-							<a
-								key={link.url}
-								href={link.url}
-								target='_blank'
-								rel='noopener noreferrer'>
-								{link.label}
-							</a>
-						))}
+						{links.map(link =>
+							link.url ? (
+								<a
+									key={link.url}
+									href={link.url}
+									target='_blank'
+									rel='noopener noreferrer'>
+									{link.label}
+								</a>
+							) : (
+								<button
+									key={link.label}
+									type='button'
+									onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+									{link.label}
+								</button>
+							),
+						)}
 					</div>
 				)}
 			</div>

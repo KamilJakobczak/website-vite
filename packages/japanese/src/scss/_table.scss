@@ -1,40 +1,146 @@
+@use './variables' as *;
+
 .table {
 	border: 2px solid black;
-	max-width: 1200px;
+	max-width: 100%;
+	overflow-x: auto;
+
 	&-header {
-		margin-top: 10px;
-		margin-bottom: 20px;
+		margin-top: 8px;
+		margin-bottom: 12px;
 
 		h2 {
 			text-align: center;
 			text-transform: uppercase;
-			letter-spacing: 3px;
+			letter-spacing: 1px;
 			font-weight: 400;
-			font-size: 3rem;
+			font-size: 2rem;
 		}
 	}
+
 	&-body {
-		width: 100%;
-		margin-bottom: 20px;
-		column-gap: 5px;
-		row-gap: 10px;
+		width: max-content;
+		min-width: 100%;
+		margin-bottom: 15px;
+		column-gap: 3px;
+		row-gap: 6px;
 	}
+
 	&-cell {
-		min-width: 70px;
+		min-width: 45px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		flex-direction: column;
+		padding: 2px;
+
 		span {
 			display: inline-block;
+			white-space: nowrap;
+
 			&:nth-child(1) {
 				font-family: 'Noto Sans JP', 'Roboto', sans-serif;
-				font-size: 2.6rem;
+				font-size: 1.8rem;
 				font-weight: 400;
 			}
 			&:nth-child(2) {
-				font-size: 1.9rem;
+				font-size: 1.3rem;
 				font-weight: 300;
+			}
+		}
+	}
+}
+
+@media (min-width: $bp-480) {
+	.table {
+		&-header h2 {
+			font-size: 2.2rem;
+			letter-spacing: 2px;
+		}
+
+		&-cell {
+			min-width: 55px;
+
+			span {
+				&:nth-child(1) {
+					font-size: 2rem;
+				}
+				&:nth-child(2) {
+					font-size: 1.5rem;
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: $bp-768) {
+	.table {
+		overflow-x: visible;
+
+		&-body {
+			width: 100%;
+		}
+
+		&-header {
+			margin-top: 10px;
+			margin-bottom: 16px;
+
+			h2 {
+				font-size: 2.5rem;
+				letter-spacing: 2.5px;
+			}
+		}
+
+		&-body {
+			column-gap: 4px;
+			row-gap: 8px;
+		}
+
+		&-cell {
+			min-width: 60px;
+
+			span {
+				&:nth-child(1) {
+					font-size: 2.3rem;
+				}
+				&:nth-child(2) {
+					font-size: 1.7rem;
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: $bp-1280) {
+	.table {
+		max-width: 1200px;
+
+		&-header {
+			margin-top: 10px;
+			margin-bottom: 20px;
+
+			h2 {
+				font-size: 3rem;
+				letter-spacing: 3px;
+			}
+		}
+
+		&-body {
+			margin-bottom: 20px;
+			column-gap: 5px;
+			row-gap: 10px;
+		}
+
+		&-cell {
+			min-width: 70px;
+
+			span {
+				&:nth-child(1) {
+					font-size: 2.6rem;
+				}
+				&:nth-child(2) {
+					font-size: 1.9rem;
+				}
 			}
 		}
 	}
