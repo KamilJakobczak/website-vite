@@ -26,3 +26,4 @@ packages/japanese/docs
 *.sln
 *.sw?
 .claude
+csv-parser

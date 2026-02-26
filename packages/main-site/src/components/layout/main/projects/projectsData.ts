@@ -53,7 +53,7 @@ export const projects: ProjectItem[] = [
 				url: 'https://github.com/KamilJakobczak/',
 				label: 'GitHub',
 			},
-			{ url: '', label: 'Live Demo' },
+			{ url: '/projects/collection', label: 'Live Demo' },
 		],
 	},
 	{
@@ -62,7 +62,7 @@ export const projects: ProjectItem[] = [
 		imageAlt: 'Screenshot of japanese alphabet game',
 		title: 'Japanese Alphabet Learning Game',
 		description:
-			'A full-stack task management application with drag-and-drop, real-time updates, and collaborative features.',
+			'Browser game for learning Japanese characters (hiragana and katakana). Features difficulty levels, answer direction options, and mixed character modes.',
 		tags: ['JavaScript', 'TypeScript', 'OOP'],
 		links: [
 			{
@@ -101,8 +101,8 @@ export const projects: ProjectItem[] = [
 		tags: ['React', 'Redux', 'Node.js'],
 		links: [
 			{
-				url: '',
-				label: '',
+				url: '/projects/playground',
+				label: 'Live Demo',
 			},
 		],
 	},

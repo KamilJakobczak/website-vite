@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styles from './Card.module.scss';
 
 export interface CardLink {
@@ -53,7 +54,20 @@ export default function Card({
 				{links && links.length > 0 && (
 					<div className={styles.links}>
 						{links.map(link =>
-							link.url ? (
+							!link.url ? (
+								<button
+									key={link.label}
+									type='button'
+									onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+									{link.label}
+								</button>
+							) : link.url.startsWith('/') ? (
+								<Link
+									key={link.url}
+									to={link.url}>
+									{link.label}
+								</Link>
+							) : (
 								<a
 									key={link.url}
 									href={link.url}
@@ -61,13 +75,6 @@ export default function Card({
 									rel='noopener noreferrer'>
 									{link.label}
 								</a>
-							) : (
-								<button
-									key={link.label}
-									type='button'
-									onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-									{link.label}
-								</button>
 							),
 						)}
 					</div>

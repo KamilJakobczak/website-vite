@@ -1,0 +1,31 @@
+{
+	"name": "playground",
+	"version": "1.0.0",
+	"description": "",
+	"license": "ISC",
+	"author": "",
+	"type": "commonjs",
+	"main": "App.tsx",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"dependencies": {
+		"@fortawesome/fontawesome-free": "^7.2.0",
+		"@monaco-editor/react": "^4.5.1",
+		"@reduxjs/toolkit": "^1.8.6",
+		"@uiw/react-md-editor": "^3.20.8",
+		"axios": "^1.7.4",
+		"esbuild-wasm": "^0.27.3",
+		"localforage": "^1.10.0",
+		"monaco-jsx-highlighter": "^2.77.77",
+		"react-redux": "^8.0.4",
+		"react-resizable": "^3.0.4",
+		"redux": "^4.2.0"
+	},
+	"devDependencies": {
+		"@types/prettier": "^2.7.1",
+		"@types/react-redux": "^7.1.24",
+		"@types/react-resizable": "^3.0.3",
+		"prettier": "^2.7.1"
+	}
+}
