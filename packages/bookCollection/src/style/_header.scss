@@ -1,0 +1,49 @@
+header {
+  position: relative;
+  flex-basis: 4%;
+  width: 100%;
+  flex-shrink: 0;
+
+  padding: 10px 0 10px;
+  border-bottom: 1px solid $fourth-color;
+
+  background-color: $apps_background;
+  color: $fourth-color;
+
+  a {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    color: $fourth-color;
+    text-decoration: none;
+    span.header {
+      display: block;
+
+      font-family: Monoton;
+      font-size: $font-size-h3;
+      text-transform: uppercase;
+      text-align: center;
+      letter-spacing: 0.5px;
+    }
+  }
+}
+
+@media (min-width: $breakpoint-360) {
+  header {
+    a {
+      span.header {
+        font-size: $font-size-medium;
+      }
+    }
+  }
+}
+
+@media (min-width: $breakpoint-1024) {
+  header {
+    a {
+      span.header {
+        font-size: $font-size-large;
+      }
+    }
+  }
+}

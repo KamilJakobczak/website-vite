@@ -1,0 +1,64 @@
+.navigation {
+  margin: 10px auto;
+
+  &_ul {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    margin: 0 auto;
+    li {
+      flex-basis: 22%;
+      text-align: center;
+      font-family: $font-headings;
+      a {
+        padding: 3px;
+        text-align: center;
+        flex-grow: 1;
+        font-weight: bold;
+        color: $fourth-color;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 0.7px;
+        transition: 0.3s;
+        &.active {
+          background-color: $fourth-color;
+          color: $apps_background;
+          transition: 0.2s;
+        }
+        &:hover {
+          background-color: $fourth-color;
+          color: $apps_background;
+        }
+      }
+    }
+  }
+  &:nth-last-child(2) {
+    margin-bottom: 20px;
+    border-bottom: 1px solid $fourth-color;
+    padding-bottom: 10px;
+  }
+}
+
+@media (min-width: $breakpoint-700) {
+  .navigation {
+    &_ul {
+      li {
+        // flex-basis: 25%;
+      }
+    }
+  }
+}
+
+// @media (min-width: $breakpoint-1025) {
+//   .navigation {
+//     width: 100%;
+//     &_ul {
+//       li {
+//         flex-basis: 33%;
+//         a {
+//           letter-spacing: 1px;
+//         }
+//       }
+//     }
+//   }
+// }

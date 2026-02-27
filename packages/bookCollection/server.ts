@@ -1,4 +1,4 @@
-export const server = process.env.REACT_APP_API_URL;
+export const server = `${import.meta.env.VITE_APP_API_URL}/api`;
 
 export const codingApi = `${server}/projects/coding`;
 export const graphqlApi = `${server}/graphql`;

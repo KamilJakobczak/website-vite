@@ -1,0 +1,64 @@
+.scroller {
+  background: rgba($color: $fourth-color, $alpha: 0.3);
+
+  &__navigation {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    position: absolute;
+    top: 46dvh;
+    bottom: 40dvh;
+    right: 2vw;
+    left: 94vw;
+
+    li {
+      background-color: $scroller-text-color;
+      width: clamp(10px, 7.5439px + 0.8772vi, 30px);
+      height: clamp(10px, 7.5439px + 0.8772vi, 30px);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: 0.2s;
+      &.active {
+        background-color: #007acc;
+      }
+    }
+  }
+}
+@media (orientation: landscape) {
+  .scroller {
+    &__navigation {
+      top: 45dvh;
+      bottom: 30dvh;
+    }
+  }
+}
+
+// @media (min-width: $breakpoint-1025) {
+//   .scroller {
+//     &__navigation {
+//       right: 2vw;
+//       left: 96vw;
+//       li {
+//         width: 2vw;
+//         height: 2vw;
+//         transition: 0.2s;
+//         &:hover {
+//           cursor: pointer;
+//           background-color: rgba($color: $fourth-color, $alpha: 0.5);
+//         }
+//       }
+//     }
+//   }
+// }
+// @media (min-width: $breakpoint-1025) {
+//   .scroller {
+//     &__navigation {
+//       li {
+//         width: 2vw;
+//         height: 2vw;
+//       }
+//     }
+//   }
+// }

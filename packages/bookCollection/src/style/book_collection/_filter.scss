@@ -1,0 +1,80 @@
+.filter_category {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 5px;
+  justify-content: space-between;
+
+  &_legend {
+    flex-basis: 100%;
+    text-transform: capitalize;
+    padding-bottom: 1px;
+    margin: 3px 0 5px;
+    border-bottom: 1px solid;
+    font-size: $font-size-p;
+  }
+  &_item {
+    flex-basis: 45%;
+    margin-top: 3px;
+    label {
+      input {
+        // font-size: $font-size-p;
+        font-size: $font-size-small;
+      }
+    }
+  }
+}
+
+@media (min-width: $breakpoint-480) {
+  .filter_category {
+    &_item {
+      flex-basis: 30%;
+    }
+  }
+  .filter_publishers .filter_category {
+    &_item {
+      flex-basis: 45%;
+    }
+  }
+}
+
+@media (min-width: $breakpoint-700) {
+  .filter_category {
+    justify-content: flex-start;
+    &_item {
+      flex-basis: 25%;
+    }
+  }
+  .filter_publishers .filter_category {
+    &_item {
+      flex-basis: 33%;
+    }
+  }
+}
+
+@media (min-width: $breakpoint-1024) {
+  .filter_category {
+    justify-content: space-between;
+    &_item {
+      flex-basis: 50%;
+    }
+  }
+  .filter_publishers .filter_category {
+    &_item {
+      flex-basis: 90%;
+    }
+  }
+}
+
+@media (min-width: $breakpoint-1400) {
+  .filter_category {
+    // justify-content: space-between;
+    &_item {
+      // flex-basis: 45%;
+    }
+  }
+  .filter_publishers .filter_category {
+    &_item {
+      flex-basis: 100%;
+    }
+  }
+}

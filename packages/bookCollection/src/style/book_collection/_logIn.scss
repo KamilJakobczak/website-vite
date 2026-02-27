@@ -1,0 +1,43 @@
+.login-wrapper,
+.signup-wrapper {
+  width: 90%;
+  margin: 20px auto;
+
+  // h5 {
+  //   width: 100%;
+  //   font-size: $font-size-medium;
+  //   text-align: center;
+  //   text-transform: uppercase;
+  //   margin-top: 15px;
+  //   margin-bottom: 10px;
+  // }
+  form {
+    > div {
+      display: flex;
+      align-items: center;
+      + div {
+        margin-top: 2px;
+      }
+      label {
+        flex-basis: 27%;
+        font-size: $font-size-p;
+        text-transform: capitalize;
+      }
+      input {
+        flex-basis: 60%;
+        font-size: $font-size-p;
+      }
+      textarea {
+        font-size: $font-size-p;
+        flex: 1;
+      }
+      &:last-child {
+        margin-top: 10px;
+      }
+    }
+  }
+  .login_username {
+  }
+  .login_password {
+  }
+}

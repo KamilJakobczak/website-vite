@@ -1,0 +1,48 @@
+$main-color: #bcf7ff;
+$second-color: #e67eb3;
+$third-color: #6de4f3;
+$fourth-color: #e6d450;
+$fifth-color: #726a30;
+
+$scroller-background-color: #fefcec;
+$scroller-text-color: #150715;
+
+$font-size-basic: 14px;
+$font-size-medium: 20px;
+$font-size-large: 26px;
+$font-size-headings: 32px;
+$font-size-huge: 40px;
+
+$font-size-root: 10px;
+$font-size-h1: clamp(2.5rem, 1.5789rem + 3.2895vw, 10rem);
+// $font-size-h2: clamp(2rem, 1.5088rem + 1.7544vw, 6rem);
+$font-size-h2: clamp(2rem, 1.632rem + 2.105vw, 5rem);
+$font-size-h3: clamp(1.8rem, 1.53rem + 1.544vw, 4rem);
+$font-size-h4: clamp(1.6rem, 1.428rem + 0.982vw, 3rem);
+$font-size-h5: clamp(1.4rem, 1.265rem + 0.772vw, 2.5rem);
+// $font-size-p: clamp(1.4rem, 1.2035rem + 0.7018vw, 3rem);
+$font-size-p: clamp(1.2rem, 0.439vw + 1.077rem, 2.2rem);
+$font-size-small: clamp(1rem, 0.439vw + 0.877rem, 2rem);
+
+$book_thumbnail: clamp(2rem, 1.632rem + 2.105vw, 5rem);
+$list_thumbnail: clamp(1.5rem, 1.316rem + 1.053vw, 3rem);
+
+$font-basic: 'Lora', serif;
+$font-headings: 'Rubik', Arial, Helvetica, sans-serif;
+$font-front-heading: 'Monoton', Arial, Helvetica, sans-serif;
+// $font-size-body: clamp(1rem,)
+
+// Apps variables
+$apps_background: #1f2d3b;
+$cp_button_background: #df691a;
+$collection_blue: #b9ccdf;
+
+// Breakpoints
+
+$breakpoint-360: 360px;
+$breakpoint-480: 480px;
+$breakpoint-700: 700px;
+$breakpoint-1024: 1024px;
+$breakpoint-1201: 1201px;
+$breakpoint-1400: 1400px;
+$breakpoint-1920: 1920px;

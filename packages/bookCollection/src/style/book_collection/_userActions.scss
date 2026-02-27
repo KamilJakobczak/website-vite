@@ -1,0 +1,96 @@
+.userActions {
+  width: 100%;
+  margin: 20px auto;
+  &__form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    > div {
+      margin-top: 10px;
+      flex-basis: 90%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      label,
+      legend {
+        font-size: $font-size-p;
+      }
+      > div {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        label {
+          font-size: $font-size-p;
+          margin-right: 5px;
+        }
+      }
+    }
+    input {
+      font-size: $font-size-p;
+      line-height: 1.6rem;
+    }
+    &_element-status {
+    }
+    &_element-rating {
+      justify-content: space-evenly;
+      div {
+        color: $fourth-color;
+        width: 100%;
+        justify-content: space-between;
+
+        &.hovered {
+          color: $fourth-color;
+        }
+      }
+
+      // legend {
+      //   flex-basis: 15%;
+      // }
+      // label {
+      //   font-size: calc($font-size-basic * 0.6);
+      //   flex-basis: 8%;
+      // }
+    }
+    &_element-whenRead {
+      input {
+      }
+    }
+    &_element-coverType {
+      font-size: $font-size-p;
+      label {
+      }
+      div {
+        label {
+        }
+        input {
+        }
+      }
+    }
+    &_element-editions {
+      font-size: $font-size-p;
+      label {
+        flex-basis: 20%;
+      }
+      div {
+        flex-basis: 30%;
+        input {
+        }
+      }
+    }
+    &_element-price {
+      font-size: $font-size-p;
+      div {
+        flex-basis: 30%;
+        label {
+        }
+        input {
+        }
+      }
+    }
+
+    &_element-submit {
+      flex-basis: 100%;
+    }
+  }
+}
