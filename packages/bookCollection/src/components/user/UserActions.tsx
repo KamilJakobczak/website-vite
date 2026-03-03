@@ -40,6 +40,8 @@ const UserActions: React.FC<UserActionsInterface> = ({ parentClass, recordId }) 
   const [showOptions, setShowOptions] = useState(false);
   // value states
   const [owned, setOwned] = useState<boolean>();
+  const [ownedChecked, setOwnedChecked] = useState(false);
+  const [notOwnedChecked, setNotOwnedChecked] = useState(false);
   const [whenRead, setWhenRead] = useState('');
   const [ratingState, setRatingState] = useState('');
 
@@ -76,25 +78,14 @@ const UserActions: React.FC<UserActionsInterface> = ({ parentClass, recordId }) 
   };
 
   const handleOwnedCheckboxes = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const ownedBox = document.getElementById('owned') as HTMLInputElement;
-    const notOwnedBox = document.getElementById('notOwned') as HTMLInputElement;
-
-    if (ownedBox && notOwnedBox) {
-      if (e.target.id === 'owned') {
-        if (notOwnedBox.checked === false) {
-          setOwned(true);
-        } else if (notOwnedBox.checked === true) {
-          notOwnedBox.checked = false;
-          setOwned(true);
-        }
-      } else if (e.target.id === 'notOwned') {
-        if (ownedBox.checked === false) {
-          setOwned(false);
-        } else if (ownedBox.checked === true) {
-          ownedBox.checked = false;
-          setOwned(false);
-        }
-      }
+    if (e.target.id === 'owned') {
+      setOwnedChecked(e.target.checked);
+      setNotOwnedChecked(false);
+      setOwned(true);
+    } else if (e.target.id === 'notOwned') {
+      setNotOwnedChecked(e.target.checked);
+      setOwnedChecked(false);
+      setOwned(false);
     }
   };
 
@@ -189,11 +180,11 @@ const UserActions: React.FC<UserActionsInterface> = ({ parentClass, recordId }) 
             <legend>Owned:</legend>
             <div className='form-control'>
               <label htmlFor='owned'>owned</label>
-              <input type='checkbox' name='owned' id='owned' onChange={e => handleOwnedCheckboxes(e)} />
+              <input type='checkbox' name='owned' id='owned' checked={ownedChecked} onChange={e => handleOwnedCheckboxes(e)} />
             </div>
             <div className='form-control'>
               <label htmlFor='notOwned'>not owned</label>
-              <input type='checkbox' name='notOwned' id='notOwned' onChange={e => handleOwnedCheckboxes(e)} />
+              <input type='checkbox' name='notOwned' id='notOwned' checked={notOwnedChecked} onChange={e => handleOwnedCheckboxes(e)} />
             </div>
           </div>
           {owned && (

@@ -62,6 +62,8 @@ const UploadBook: React.FC = () => {
 
 	const [newPublisher, setNewPublisher] = useState<string | null>();
 	const [publisherAdded, setPublisherAdded] = useState('');
+	const [skippedGenres, setSkippedGenres] = useState<Set<string>>(new Set());
+	const [publisherSkipped, setPublisherSkipped] = useState(false);
 
 	const childRef = useRef<AddBookFormRef>(null);
 
@@ -227,39 +229,39 @@ const UploadBook: React.FC = () => {
 	const showAddGenre = () => {
 		return (
 			newGenres &&
-			newGenres.map(genre => {
-				return (
-					<div
-						className='bookCollection__addBook__upload_addGenre'
-						key={genre}
-						id={genre}>
-						<AddGenre
+			newGenres
+				.filter(genre => !skippedGenres.has(genre))
+				.map(genre => {
+					return (
+						<div
 							className='bookCollection__addBook__upload_addGenre'
-							genre={genre}
-							onAdded={setGenresAdded}
-							flag={Flags.Add}
-						/>
-						<div className='bookCollection__addBook__upload_addGenre-skip'>
-							<Button
-								className=''
-								text='skip'
-								handleClick={() => {
-									document.getElementById(genre)?.remove();
-								}}
+							key={genre}>
+							<AddGenre
+								className='bookCollection__addBook__upload_addGenre'
+								genre={genre}
+								onAdded={setGenresAdded}
+								flag={Flags.Add}
 							/>
+							<div className='bookCollection__addBook__upload_addGenre-skip'>
+								<Button
+									className=''
+									text='skip'
+									handleClick={() => {
+										setSkippedGenres(prev => new Set(prev).add(genre));
+									}}
+								/>
+							</div>
 						</div>
-					</div>
-				);
-			})
+					);
+				})
 		);
 	};
 	const showAddPublisher = () => {
 		return (
-			newPublisher && (
+			newPublisher && !publisherSkipped && (
 				<div
 					className='bookCollection__addBook__upload_addPublisher'
-					key={newPublisher}
-					id={newPublisher}>
+					key={newPublisher}>
 					<AddPublisherForm
 						className='bookCollection__addBook__upload_addPublisher'
 						publisher={newPublisher}
@@ -271,7 +273,7 @@ const UploadBook: React.FC = () => {
 							className=''
 							text='skip'
 							handleClick={() => {
-								document.getElementById(newPublisher)?.remove();
+								setPublisherSkipped(true);
 							}}
 						/>
 					</div>

@@ -5,6 +5,7 @@ import JapaneseProject from '../components/projects/JapaneseProject';
 import PlaygroundProject from '../components/projects/PlaygroundProject';
 import CsvParserProject from '../components/projects/CsvParserProject';
 import BookCollectionProject from '../components/projects/BookCollectionProject';
+import { bookCollectionRoutes } from '@portfolio/book-collection/router';
 
 export const router = createBrowserRouter([
 	{ path: '/', element: <App /> },
@@ -12,10 +13,14 @@ export const router = createBrowserRouter([
 		path: '/projects',
 		element: <ProjectsLayout />,
 		children: [
-			{ path: 'collection', element: <BookCollectionProject /> },
 			{ path: 'japanese', element: <JapaneseProject /> },
 			{ path: 'csv-parser', element: <CsvParserProject /> },
 			{ path: 'playground', element: <PlaygroundProject /> },
 		],
+	},
+	{
+		path: 'collection',
+		element: <BookCollectionProject />,
+		children: bookCollectionRoutes,
 	},
 ]);

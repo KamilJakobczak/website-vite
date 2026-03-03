@@ -13,27 +13,6 @@ export const usePaginatedQueries = (paginatedQuery: DocumentNode, listCLass?: Co
   const [offsetMulti, setOffsetMulti] = useState(10);
   const [totalPages, setTotalPages] = useState(0);
   const [data, setData] = useState<DataInterface[]>([]);
-  // const [isMobile, setIsMobile] = useState(0);
-
-  // useEffect(() => {
-  //   const handleResize = () => {
-  //     const height = window.innerHeight;
-  //     const width = window.innerWidth;
-  //     console.log(height, width);
-  //     if (height <= 600 && width < 1025) {
-  //       setIsMobile(0.5);
-  //     } else {
-  //       setIsMobile(1);
-  //     }
-  //   };
-  //   // Set initial state based on current window size
-  //   handleResize();
-  //   // window.addEventListener('resize', handleResize);
-  //   // return () => {
-  //   //   window.removeEventListener('resize', handleResize);
-  //   // };
-  // }, []);
-
   useEffect(() => {
     const offset = {
       authors: 30,
@@ -82,10 +61,6 @@ export const usePaginatedQueries = (paginatedQuery: DocumentNode, listCLass?: Co
     fetchPolicy: 'cache-and-network',
   });
 
-  // console.log(data, loading, error);
-  // useEffect(() => {
-  //   if (QueryLoading) setLoading(true);
-  // }, [QueryLoading]);
   useEffect(() => {
     if (QueryData && !loading) {
       switch (true) {

@@ -47,7 +47,6 @@ const List: React.FC<ListProps> = ({ data, nested, pagination }) => {
 		}
 		return `../${record.__typename.toLowerCase()}s/${pathId}`;
 	};
-	console.log(data);
 	const sortData = () => {
 		return data.filter(record => {
 			if (
@@ -60,16 +59,6 @@ const List: React.FC<ListProps> = ({ data, nested, pagination }) => {
 			} else return false;
 		});
 	};
-
-	// const checkLocation = () => {
-	//   const path = location.pathname;
-	//   console.log(path);
-	//   if (path.includes('books') || path.includes('authors') || path.includes('publishers')) {
-	//     return true;
-	//   } else {
-	//     return false;
-	//   }
-	// };
 
 	const showThumbnail = (record: RecordValues, thumbnail: string) => {
 		const type = record.__typename;

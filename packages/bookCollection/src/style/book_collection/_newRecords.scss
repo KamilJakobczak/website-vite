@@ -88,7 +88,7 @@
 	}
 }
 
-@media (min-width: $breakpoint-700) {
+@media (min-width: $breakpoint-768) {
 	.addPublisher {
 		form {
 			div {
@@ -109,7 +109,7 @@
 		}
 	}
 }
-// @media (min-width: $breakpoint-1201) {
+// @media (min-width: $breakpoint-1280) {
 //   .addPublisher {
 //     .addPublisher__form {
 //       &_element {
@@ -133,7 +133,7 @@
 //     }
 //   }
 // }
-// @media (min-width: $breakpoint-1400) {
+// @media (min-width: $breakpoint-1280) {
 //   .addPublisher {
 //     .addPublisher__form {
 //       &_element {

@@ -48,9 +48,6 @@ const SingleRecord: React.FC<SingleRecordProps> = ({ query }) => {
 		skip: !id,
 	});
 
-	console.log('SingleRecord id:', id);
-	console.log('SingleRecord after useQuery:', { loading, error, data });
-
 	// Query to load user book details
 	const {
 		loading: loadingUserBookDetails,
@@ -161,8 +158,8 @@ const SingleRecord: React.FC<SingleRecordProps> = ({ query }) => {
 				return;
 			}
 			deleteRecord({ variables: { model: recordType, id: id } });
-		} catch (error: any) {
-			console.error('Error:', error.message);
+		} catch (error: unknown) {
+			console.error('Error:', error instanceof Error ? error.message : error);
 			setUserError('An error occured while trying to delete the record');
 		}
 	};

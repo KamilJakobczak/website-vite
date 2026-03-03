@@ -162,8 +162,8 @@ const AddBookForm = forwardRef<AddBookFormRef, AddBookFormProps>(
 		// Mutation for updating a book
 		const [updateBook] = useMutation(UPDATE_BOOK, {
 			onCompleted(data) {
-				const linkRedirect = location.pathname.slice(0, 33);
-				navigate(linkRedirect, {
+				const recordPath = location.pathname.replace(/\/edit$/, '');
+				navigate(recordPath, {
 					state: { id: editableData.id, refetch: true },
 				});
 			},
@@ -227,11 +227,7 @@ const AddBookForm = forwardRef<AddBookFormRef, AddBookFormProps>(
 				setSuccessMessage(data.addBook.book.title);
 				setTimeout(() => {
 					setSuccessMessage('');
-					const linkRedirect = `${location.pathname.slice(
-						0,
-						17,
-					)}books/${bookId.slice(-10)}`;
-					navigate(linkRedirect, {
+					navigate(`/books/${bookId.slice(-10)}`, {
 						state: { id: bookId, refetch: false },
 					});
 				}, 3000);

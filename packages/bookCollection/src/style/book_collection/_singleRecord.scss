@@ -251,7 +251,7 @@ $singleRecords_selectors: '.author, .genre, .publisher, .translator, .bookSeries
 	}
 }
 
-@media (min-width: $breakpoint-1201) {
+@media (min-width: $breakpoint-1280) {
 	.singleRecord {
 		&__container {
 			.author,
@@ -276,7 +276,7 @@ $singleRecords_selectors: '.author, .genre, .publisher, .translator, .bookSeries
 		}
 	}
 }
-@media (min-width: $breakpoint-1920) {
+@media (min-width: $breakpoint-1280) {
 	.singleRecord__container {
 		.book__data {
 			> div {
@@ -285,7 +285,7 @@ $singleRecords_selectors: '.author, .genre, .publisher, .translator, .bookSeries
 		}
 	}
 }
-// @media (min-width: $breakpoint-1201) {
+// @media (min-width: $breakpoint-1280) {
 //   .singleRecord {
 //     &__container {
 //       // width: 70%;

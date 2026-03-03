@@ -1,7 +1,12 @@
 {
-	"name": "book-collection",
+	"name": "@portfolio/book-collection",
 	"private": true,
 	"version": "1.0.0",
+	"main": "src/Entry.tsx",
+	"exports": {
+		".": "./src/Entry.tsx",
+		"./router": "./src/routes/router.tsx"
+	},
 	"type": "module",
 	"scripts": {
 		"dev": "vite",

@@ -16,8 +16,9 @@ const Navigation: React.FC<NavigationProps> = ({ elements, parentClass }) => {
   const navigate = useNavigate();
 
   const handleSamePageRefresh = (element: string) => {
-    const path = location.pathname.slice(17);
-    if (element === path) {
+    const segments = location.pathname.split('/').filter(Boolean);
+    const lastSegment = segments[segments.length - 1];
+    if (element === lastSegment) {
       navigate(0);
     }
   };

@@ -21,7 +21,6 @@ const BookSeries: React.FC<BookSeriesProps> = ({ data, editable }) => {
 		name,
 		books: booksInBookSeries,
 	};
-	console.log(booksInBookSeries, books);
 	return (
 		<div className='bookSeries'>
 			<div className='bookSeries__name'>

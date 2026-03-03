@@ -104,7 +104,7 @@
     }
   }
 }
-@media (min-width: $breakpoint-360) {
+@media (min-width: $breakpoint-480) {
   .bookCollection__list {
     &.authors,
     &.translators {
@@ -144,7 +144,7 @@
   }
 }
 
-@media (min-width: $breakpoint-700) {
+@media (min-width: $breakpoint-768) {
   .bookCollection__list {
     &.authors,
     &.bookSeries,
@@ -172,7 +172,7 @@
   }
 }
 
-@media (min-width: $breakpoint-1201) {
+@media (min-width: $breakpoint-1280) {
   .bookCollection__list {
     &.translators,
     &.authors,
@@ -220,7 +220,7 @@
   }
 }
 
-@media (min-width: $breakpoint-1400) {
+@media (min-width: $breakpoint-1280) {
   .bookCollection__list {
     &.authors,
     &.genres,
@@ -235,7 +235,7 @@
   }
 }
 
-@media (min-width: $breakpoint-1920) {
+@media (min-width: $breakpoint-1280) {
   .bookCollection__list {
     &.publishers {
       .bookCollection__list_element {

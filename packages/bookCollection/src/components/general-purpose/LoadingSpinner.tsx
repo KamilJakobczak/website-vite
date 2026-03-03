@@ -1,5 +1,4 @@
 const LoadingSpinner = () => {
-  console.log('using spinner');
   return (
     <div className='loading_spinner'>
       <div className='spinner'>

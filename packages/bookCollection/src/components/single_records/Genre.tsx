@@ -21,7 +21,6 @@ const Genre: React.FC<GenreProps> = ({ data, editable }) => {
     name,
     namePolish,
   };
-  console.log(currentLanguage);
   return (
     <div className='genre'>
       <div className='genre__name'>

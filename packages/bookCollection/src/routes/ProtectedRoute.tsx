@@ -4,7 +4,7 @@ import LoadingSpinner from '../components/general-purpose/LoadingSpinner';
 import { Navigate } from 'react-router-dom';
 
 interface ProtectedRouteProps {
-  nestedElement: any;
+  nestedElement: React.ReactNode;
 }
 
 export const ProtectedRoute = (props: ProtectedRouteProps) => {

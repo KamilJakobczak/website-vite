@@ -1,10 +1,7 @@
 // reset, variables & top tier elements
-@import './reset';
 @import './variables';
 
 @import './index';
-@import './header';
-@import './footer';
 
 // Utility
 
@@ -16,26 +13,6 @@
 @import './utility/radioInput';
 @import './utility/uploader';
 @import './utility/select';
-
-// Scroller
-@import './scroller/scrollerNavigation';
-@import './scroller/homepage';
-@import './scroller/welcomeMessage';
-@import './scroller/projects';
-@import './scroller/business';
-@import './scroller/skills';
-
-// Coding playground
-@import './coding_playground/codingGuide';
-@import './coding_playground/actionBar';
-@import './coding_playground/addCell';
-@import './coding_playground/cellList';
-@import './coding_playground/cellListItem';
-@import './coding_playground/codeCell';
-@import './coding_playground/codeEditor';
-@import './coding_playground/preview';
-@import './coding_playground/resizable';
-@import './coding_playground/textEditor';
 
 // Book Collection
 @import './book_collection/addBook';

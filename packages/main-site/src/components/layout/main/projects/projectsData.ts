@@ -53,7 +53,7 @@ export const projects: ProjectItem[] = [
 				url: 'https://github.com/KamilJakobczak/',
 				label: 'GitHub',
 			},
-			{ url: '/projects/collection', label: 'Live Demo' },
+			{ url: '/collection', label: 'Live Demo' },
 		],
 	},
 	{

@@ -34,7 +34,6 @@ const AddAuthorForm: React.FC<AddAuthorFormProps> = ({
 	onAdded,
 }) => {
 	const location = useLocation();
-	console.log(location);
 	const navigate = useNavigate();
 
 	const editableData = location.state;
@@ -74,11 +73,11 @@ const AddAuthorForm: React.FC<AddAuthorFormProps> = ({
 		onCompleted(data) {
 			setSuccessMessage('Author data updated successfully');
 
-			const linkRedirect = location.pathname.slice(0, 35);
+			const recordPath = location.pathname.replace(/\/edit$/, '');
 			setTimeout(() => {
 				setSuccessMessage('');
 			}, 3000);
-			navigate(linkRedirect, {
+			navigate(recordPath, {
 				state: { id: editableData.id, refetch: true },
 			});
 		},
@@ -112,7 +111,7 @@ const AddAuthorForm: React.FC<AddAuthorFormProps> = ({
 			setTimeout(() => {
 				setSuccessMessage('');
 				if (!location.pathname.includes('add/book')) {
-					navigate(location.pathname.slice(0, 20));
+					navigate('/add');
 				}
 			}, 3000);
 		}

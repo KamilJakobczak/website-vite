@@ -29,7 +29,7 @@ const Filter: React.FC<FilterProps> = ({ handleCheckboxChange, filterOptions }) 
   return (
     <div className={`filter_category ${className}`}>
       <legend className={'filter_category_legend'}>{translatedName()}</legend>
-      {data.map((item: any) => {
+      {data.map(item => {
         return (
           <div key={item.name} className={'filter_category_item'}>
             <label className='form-control' htmlFor={item.name}>

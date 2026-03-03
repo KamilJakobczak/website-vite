@@ -41,7 +41,7 @@ const AddGenreForm: React.FC<AddGenreFormProps> = ({ className, genre, onAdded, 
         onAdded && onAdded(prevState => [...prevState, data.addGenre.genre.id]);
         setTimeout(() => {
           setSuccessMessage('');
-          navigate(location.pathname.slice(0, 20));
+          navigate('/add');
         }, 3000);
       }
     },
@@ -49,8 +49,8 @@ const AddGenreForm: React.FC<AddGenreFormProps> = ({ className, genre, onAdded, 
 
   const [updateGenre, { data: dataU, loading: loadingU, error: errorU }] = useMutation(UPDATE_GENRE, {
     onCompleted(data) {
-      const linkRedirect = location.pathname.slice(0, 34);
-      navigate(linkRedirect, {
+      const recordPath = location.pathname.replace(/\/edit$/, '');
+      navigate(recordPath, {
         state: { id: editableData.id, refetch: true },
       });
     },

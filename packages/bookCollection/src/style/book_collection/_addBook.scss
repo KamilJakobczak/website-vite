@@ -183,7 +183,7 @@
 //     }
 //   }
 // }
-@media (min-width: $breakpoint-360) {
+@media (min-width: $breakpoint-480) {
   .bookCollection {
     &__addBook {
       &__bookForm {
@@ -356,7 +356,7 @@
   }
 }
 
-@media (min-width: $breakpoint-700) {
+@media (min-width: $breakpoint-768) {
   .bookCollection {
     &__addBook {
       &__bookForm {
@@ -459,7 +459,7 @@
   }
 }
 
-@media (min-width: $breakpoint-1201) {
+@media (min-width: $breakpoint-1280) {
   .bookCollection {
     &__addBook {
       &__bookForm {
@@ -558,7 +558,7 @@
     }
   }
 }
-@media (min-width: $breakpoint-1400) {
+@media (min-width: $breakpoint-1280) {
   .bookCollection {
     &__addBook {
       &__bookForm {

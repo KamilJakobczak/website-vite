@@ -37,7 +37,7 @@
   }
 }
 
-@media (min-width: $breakpoint-700) {
+@media (min-width: $breakpoint-768) {
   .filter_category {
     justify-content: flex-start;
     &_item {
@@ -65,7 +65,7 @@
   }
 }
 
-@media (min-width: $breakpoint-1400) {
+@media (min-width: $breakpoint-1280) {
   .filter_category {
     // justify-content: space-between;
     &_item {

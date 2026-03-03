@@ -5,7 +5,7 @@ import { checkDuplicates, processSelectionData } from '../../utility/handlers';
 interface SelectProps {
   item: string;
   id: number;
-  data: [];
+  data: { id: string; firstName?: string; lastName?: string; name?: string; title?: string }[];
   selectedValues: string[];
   inputValues?: string[];
   selectCounter: number[];
@@ -125,7 +125,7 @@ const Select: React.FC<SelectProps> = ({
         >
           <option value=''>-- find me --</option>
           {data &&
-            data.map((record: any) => {
+            data.map(record => {
               let label = record.firstName
                 ? `${record.lastName} ${record.firstName}`
                 : record.name || record.title;

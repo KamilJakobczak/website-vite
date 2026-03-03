@@ -130,7 +130,7 @@
   color: #9fa3b1;
 }
 
-@media (min-width: $breakpoint-360) {
+@media (min-width: $breakpoint-480) {
   .bookCollection__search {
     --search_height: 20px;
     &__searchBox {

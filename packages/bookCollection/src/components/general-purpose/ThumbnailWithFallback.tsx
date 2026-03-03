@@ -9,7 +9,7 @@ import translator_thumbnail from '../../assets/thumbnails/translator_thumbnail.p
 
 import { RecordTypes } from '../../utility/enums';
 
-interface ThumbnailWithFallbackProps extends ImgHTMLAttributes<any> {
+interface ThumbnailWithFallbackProps extends ImgHTMLAttributes<HTMLImageElement> {
   url?: string;
   recordType: RecordTypes;
   linkTo?: string;

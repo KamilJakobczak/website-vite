@@ -35,7 +35,6 @@ const AddBookSeries: React.FC<AddBookSeriesProps> = ({ className, flag }) => {
 	const [duplicationError, setDuplicationError] = useState(false);
 	const [successMessage, setSuccessMessage] = useState('');
 	const [userError, setUserError] = useState('');
-	console.log(editableData);
 	useEffect(() => {
 		if (
 			editableData &&
@@ -53,7 +52,6 @@ const AddBookSeries: React.FC<AddBookSeriesProps> = ({ className, flag }) => {
 						newBooksState.push(element.bookId);
 						newTomesState.push(element.tome);
 						newCounterState.push(index);
-						console.log(element, index);
 					}
 				);
 				setBooks(newBooksState);
@@ -81,11 +79,11 @@ const AddBookSeries: React.FC<AddBookSeriesProps> = ({ className, flag }) => {
 		useMutation(UPDATE_BOOKSERIES, {
 			onCompleted(data) {
 				setSuccessMessage('Book series data updated successfully');
-				const linkRedirect = location.pathname.slice(0, 35);
+				const recordPath = location.pathname.replace(/\/edit$/, '');
 				setTimeout(() => {
 					setSuccessMessage('');
 				}, 3000);
-				navigate(linkRedirect, {
+				navigate(recordPath, {
 					state: { id: editableData.id, refetch: true },
 				});
 			},
@@ -95,7 +93,6 @@ const AddBookSeries: React.FC<AddBookSeriesProps> = ({ className, flag }) => {
 		setName('');
 		setBooks(['']);
 		setTomes(['']);
-		// setAddBooks(false);
 		if (data.addBookSeries.userErrors[0].message) {
 			setUserError(data.addBookSeries.userErrors[0].message);
 		}
@@ -259,7 +256,6 @@ const AddBookSeries: React.FC<AddBookSeriesProps> = ({ className, flag }) => {
 			return <CustomError text={userError} />;
 		}
 	};
-	console.log(className);
 	return (
 		<div className={`${className} addBookSeries`}>
 			{data && successMessage ? (

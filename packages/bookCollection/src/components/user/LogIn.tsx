@@ -1,5 +1,5 @@
 // Hooks and main libraries
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { useNavigate } from 'react-router-dom';
 import { useStatus } from '../../main';
@@ -13,7 +13,6 @@ import { SIGNIN } from '../../GraphQL/mutations';
 
 const LogIn: React.FC = () => {
 	const navigate = useNavigate();
-	const controller = new AbortController();
 	const { setLoggedIn, setUserRole } = useStatus();
 
 	const [email, setEmail] = useState('');
@@ -28,7 +27,6 @@ const LogIn: React.FC = () => {
 				setUserError(data.signin.userErrors[0].message);
 			} else if (data.signin.user) {
 				setSuccessMessage('You were successfully logged in');
-				controller.abort();
 				setEmail('');
 				setPassword('');
 				setLoggedIn(true);
@@ -55,21 +53,9 @@ const LogIn: React.FC = () => {
 			},
 		});
 	};
-	// Effect to handle "Enter" key press for form submission
-	useEffect(() => {
-		const handleEnterKey = (e: KeyboardEvent) => {
-			if (e.key === 'Enter') handleSubmit();
-		};
-		const passwordInput = document.getElementById('password');
-		if (passwordInput) {
-			passwordInput.addEventListener('keydown', handleEnterKey, {
-				signal: controller.signal,
-			});
-		}
-		return () => {
-			controller.abort();
-		};
-	}, [userError, controller]);
+	const handleEnterKey = (e: React.KeyboardEvent<HTMLInputElement>) => {
+		if (e.key === 'Enter') handleSubmit();
+	};
 
 	const showForm = () => {
 		return (
@@ -80,6 +66,7 @@ const LogIn: React.FC = () => {
 						type='text'
 						id='username'
 						value={email}
+						onKeyDown={handleEnterKey}
 						onChange={e => {
 							setEmail(e.target.value);
 							setUserError('');
@@ -92,6 +79,7 @@ const LogIn: React.FC = () => {
 						type='password'
 						id='password'
 						value={password}
+						onKeyDown={handleEnterKey}
 						onChange={e => {
 							setPassword(e.target.value);
 							setUserError('');

@@ -35,7 +35,6 @@ const Author: React.FC<AuthorProps> = ({ data, editable }) => {
 		books,
 		bioPages,
 	} = data;
-	console.log(data);
 	const editableData = {
 		id,
 		firstName,

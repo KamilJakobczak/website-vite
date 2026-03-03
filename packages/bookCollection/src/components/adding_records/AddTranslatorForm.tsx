@@ -51,7 +51,7 @@ const AddTranslator: React.FC<AddTranslatorFormProps> = ({
 
 					setTimeout(() => {
 						setSuccessMessage('');
-						navigate(location.pathname.slice(0, 20));
+						navigate('/add');
 					}, 3000);
 				}
 			},
@@ -60,8 +60,8 @@ const AddTranslator: React.FC<AddTranslatorFormProps> = ({
 	const [updateTranslator, { data: dataU, loading: loadingU, error: errorU }] =
 		useMutation(UPDATE_TRANSLATOR, {
 			onCompleted(data) {
-				const linkRedirect = location.pathname.slice(0, 38);
-				navigate(linkRedirect, {
+				const recordPath = location.pathname.replace(/\/edit$/, '');
+				navigate(recordPath, {
 					state: { id: editableData.id, refetch: true },
 				});
 			},

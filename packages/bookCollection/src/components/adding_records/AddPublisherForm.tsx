@@ -41,8 +41,8 @@ const AddPublisherForm: React.FC<AddPublisherFormProps> = ({ className, publishe
   });
   const [updatePublisher, { data: dataU, loading: loadingU, error: errorU }] = useMutation(UPDATE_PUBLISHER, {
     onCompleted(data) {
-      const linkRedirect = location.pathname.slice(0, 38);
-      navigate(linkRedirect, {
+      const recordPath = location.pathname.replace(/\/edit$/, '');
+      navigate(recordPath, {
         state: { id: editableData.id, refetch: true },
       });
     },
@@ -68,7 +68,7 @@ const AddPublisherForm: React.FC<AddPublisherFormProps> = ({ className, publishe
 
       setTimeout(() => {
         setSuccessMessage('');
-        navigate(location.pathname.slice(0, 20));
+        navigate('/add');
       }, 3000);
     }
   };
