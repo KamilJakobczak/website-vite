@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import EditButton from '../general-purpose/EditButton';
 import List from '../lists/List';
+import styles from './RecordDetail.module.scss';
 
 interface GenreProps {
   data: {
@@ -22,14 +23,14 @@ const Genre: React.FC<GenreProps> = ({ data, editable }) => {
     namePolish,
   };
   return (
-    <div className='genre'>
-      <div className='genre__name'>
+    <div className={styles.record}>
+      <div className={styles.name}>
         <h4>{currentLanguage === 'pl' ? (namePolish ? namePolish : name) : name}</h4>
         {editable ? <EditButton data={editableData} /> : null}
       </div>
-      <div className='genre__data'></div>
+      <div className={styles.data}></div>
       {!books.length ? null : (
-        <div className='genre__books'>
+        <div className={styles.books}>
           <h5>{t('books')}</h5>
           <List data={books} nested={true} />
         </div>

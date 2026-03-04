@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { checkURL } from '../../utility/handlers/checkURL';
 import EditButton from '../general-purpose/EditButton';
 import List from '../lists/List';
+import styles from './RecordDetail.module.scss';
 
 interface PublisherProps {
   data: {
@@ -40,21 +41,16 @@ const Publisher: React.FC<PublisherProps> = ({ data, editable }) => {
   };
 
   return (
-    <div className='publisher'>
-      <div className='publisher__name'>
+    <div className={styles.record}>
+      <div className={styles.name}>
         <h4>
           {name}
           {editable ? <EditButton data={editableData} /> : null}
         </h4>
       </div>
 
-      {/* <div className='publisher__logo'>
-         <div className='publisher__logo_img'>
-          <img src='' alt='' />
-        </div> 
-      </div> */}
-      <div className='publisher__data'>
-        <div className='publisher__data_street'>
+      <div className={styles.data}>
+        <div>
           <p>{t('street')}</p>
           <span>❖</span>
           <span>
@@ -62,23 +58,23 @@ const Publisher: React.FC<PublisherProps> = ({ data, editable }) => {
             {placeNr ? `/${placeNr}` : null}
           </span>
         </div>
-        <div className='publisher__data_city'>
+        <div>
           <p>{t('city')}</p>
           <span>❖</span>
           <span>{city}</span>
         </div>
-        <div className='publisher__data_zipCode'>
+        <div>
           <p>{t('zipCode')}</p>
           <span>❖</span>
           <span>{zipCode}</span>
         </div>
-        <div className='publisher__data_country'>
+        <div>
           <p>{t('country')}</p>
           <span>❖</span>
           <span>{country}</span>
         </div>
         {website ? (
-          <div className='publisher__data_bioPages'>
+          <div className={styles.bioPages}>
             <a href={checkURL(website)} rel='noreferrer noopener' target='_blank'>
               {t('website')}
             </a>
@@ -87,7 +83,7 @@ const Publisher: React.FC<PublisherProps> = ({ data, editable }) => {
       </div>
 
       {books.length > 0 ? (
-        <div className='publisher__books'>
+        <div className={styles.books}>
           <h5>{t('books')}</h5>
           <List data={books} nested={true} />
         </div>

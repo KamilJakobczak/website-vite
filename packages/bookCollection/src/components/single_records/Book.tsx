@@ -4,6 +4,7 @@ import { imageApi } from '../../../server';
 import { useCoverResize } from '../../utility/hooks/useCoverResize';
 import EditButton from '../general-purpose/EditButton';
 import { idParser } from '../../utility/handlers/idParser';
+import styles from './Book.module.scss';
 
 interface BookProps {
 	data: {
@@ -174,58 +175,58 @@ const Book: React.FC<BookProps> = ({ data, editable }) => {
 	};
 
 	return (
-		<div className='book'>
-			<div className='book__title'>
+		<div className={styles.book}>
+			<div className={styles.title}>
 				<h4>
 					{title}
 					{editable ? <EditButton data={editableData} /> : null}
 				</h4>
 			</div>
 
-			<div className='book__cover'>
+			<div className={styles.cover}>
 				<img
 					src={`${imageApi}/covers/${data.id}/${coverSize}`}
 					alt='book_cover'
 				/>
 			</div>
-			<div className='book__data'>
-				<div className='book__data_authors'>
+			<div className={styles.data}>
+				<div>
 					<p>{authors.length === 1 ? 'Author' : 'Authors'}</p>
 					<span>❖</span>
 					<span>{showAuthors()}</span>
 				</div>
-				<div className='book__data_genres'>
+				<div>
 					<p>{bookGenres.length === 1 ? 'Genre' : 'Genres'}</p>
 					<span>❖</span>
 					<span>{showGenres()}</span>
 				</div>
-				<div className='book__data_pages'>
+				<div>
 					<p>Pages</p>
 					<span>❖</span>
 					<span>{pages}</span>
 				</div>
-				<div className='book__data_language'>
+				<div>
 					<p>Language</p>
 					<span>❖</span>
 					<span>{language}</span>
 				</div>
-				<div className='book__data_publisher'>
+				<div>
 					<p>Publisher</p>
 					<span>❖</span>
 					<span>{showPublisher()}</span>
 				</div>
-				<div className='book__data_firstEdition'>
+				<div>
 					<p>First edition</p>
 					<span>❖</span>
 					<span>{firstEdition}</span>
 				</div>
-				<div className='book__data_isbn'>
+				<div>
 					<p>ISBN</p>
 					<span>❖</span>
 					<span>{isbn}</span>
 				</div>
 				{translators.length ? (
-					<div className='book__data_translators'>
+					<div>
 						<p>
 							{translators.length === 1 ? 'Translator' : 'Translators'}
 						</p>
@@ -234,14 +235,14 @@ const Book: React.FC<BookProps> = ({ data, editable }) => {
 					</div>
 				) : null}
 				{titleEnglish ? (
-					<div className='book__data_titleEnglish'>
+					<div>
 						<p>English title</p>
 						<span>❖</span>
 						<span>{titleEnglish}</span>
 					</div>
 				) : null}
 				{titleOriginal ? (
-					<div className='book__data_titleOriginal'>
+					<div>
 						<p>Original title</p>
 						<span>❖</span>
 						<span>{titleOriginal}</span>

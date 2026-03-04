@@ -1,0 +1,19 @@
+@use '../../style/variables' as *;
+
+.singleRecord {
+	width: 100%;
+}
+
+.container {
+	width: 100%;
+	margin: 0 auto;
+	position: relative;
+}
+
+.deleteBtn {
+	position: absolute;
+	right: 5px;
+	img {
+		width: 100%;
+	}
+}

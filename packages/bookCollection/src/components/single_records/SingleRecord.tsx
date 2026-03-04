@@ -23,6 +23,7 @@ import Genre from './Genre';
 import Translator from './Translator';
 import { RecordType } from '../../types';
 import BookSeries from './BookSeries';
+import styles from './SingleRecord.module.scss';
 
 interface SingleRecordProps {
 	query: DocumentNode;
@@ -205,8 +206,8 @@ const SingleRecord: React.FC<SingleRecordProps> = ({ query }) => {
 	};
 
 	return (
-		<div className='singleRecord'>
-			<div className='singleRecord__container'>
+		<div className={styles.singleRecord}>
+			<div className={styles.container}>
 				{/* Render main content or loading spinner */}
 				{!id ? (
 					<p>No record selected.</p>
@@ -222,7 +223,7 @@ const SingleRecord: React.FC<SingleRecordProps> = ({ query }) => {
 				{!loading && id && loggedIn && (
 					<DeleteButton
 						id={id}
-						parentClass='singleRecord__container'
+						className={styles.deleteBtn}
 						popupToggle={setPopupActive}
 						popupState={popupActive}
 					/>
