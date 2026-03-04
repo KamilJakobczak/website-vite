@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import Button from '../general-purpose/Button';
+import styles from './FileUploader.module.scss';
 
 interface FileUploaderProps {
   className?: string;
@@ -16,13 +17,11 @@ const FileUploader: React.FC<FileUploaderProps> = ({
   const handleFileInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.target.files && onFileSelectSuccess(e.target.files[0]);
   };
-  // e: React.MouseEvent<HTMLDivElement, MouseEvent>
   const handleClick = () => {
-    // e.preventDefault();
     fileInput.current && fileInput.current.click();
   };
   return (
-    <div className={`file-uploader ${className}`}>
+    <div className={`${styles.fileUploader}${className ? ` ${className}` : ''}`}>
       <input
         style={{ display: 'none' }}
         ref={fileInput}
@@ -30,11 +29,9 @@ const FileUploader: React.FC<FileUploaderProps> = ({
         onChange={e => handleFileInput(e)}
       />
       <Button
-        className='file-uploader'
         handleClick={handleClick}
         text={text || 'Pick a file'}
       />
-      {/* <div onClick={e => handleClick(e)}>{text ? text : 'Pick a file'}</div> */}
     </div>
   );
 };

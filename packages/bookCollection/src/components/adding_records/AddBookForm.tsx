@@ -31,6 +31,7 @@ import CustomError from '../general-purpose/CustomError';
 // External Libraries
 import axios from 'axios';
 import { imageApi } from '../../../server';
+import styles from './AddBookForm.module.scss';
 
 export interface AddBookFormProps {
 	epubData?: {
@@ -344,15 +345,15 @@ const AddBookForm = forwardRef<AddBookFormRef, AddBookFormProps>(
 		// RENDER ELEMENTS
 		const showForm = () => {
 			return (
-				<form className='bookCollection__addBook__bookForm__form addBookForm'>
-					<div className='addBookForm_element addBookForm_element_cover'>
+				<form className={styles.form}>
+					<div className={`${styles.element} ${styles.cover}`}>
 						<img
 							src={uploadedCover}
 							alt=''
 						/>
 					</div>
 					{/* Title Input */}
-					<div className='addBookForm_element addBookForm_element_title'>
+					<div className={styles.element}>
 						<label htmlFor='title'>title</label>
 						<input
 							value={title}
@@ -364,7 +365,7 @@ const AddBookForm = forwardRef<AddBookFormRef, AddBookFormProps>(
 						/>
 					</div>
 					{/* English Title Input */}
-					<div className='addBookForm_element addBookForm_element_title'>
+					<div className={styles.element}>
 						<label htmlFor='titleEnglish'>English title</label>
 						<input
 							value={titleEnglish}
@@ -375,7 +376,7 @@ const AddBookForm = forwardRef<AddBookFormRef, AddBookFormProps>(
 						/>
 					</div>
 					{/* Original Title Input */}
-					<div className='addBookForm_element addBookForm_element_title'>
+					<div className={styles.element}>
 						<label htmlFor='titleOriginal'>Original title</label>
 						<input
 							value={titleOriginal}
@@ -387,7 +388,7 @@ const AddBookForm = forwardRef<AddBookFormRef, AddBookFormProps>(
 						/>
 					</div>
 					{/* Pages Input */}
-					<div className='addBookForm_element addBookForm_element_pages'>
+					<div className={styles.element}>
 						<label htmlFor='pages'>pages</label>
 						<input
 							autoComplete='off'
@@ -401,7 +402,7 @@ const AddBookForm = forwardRef<AddBookFormRef, AddBookFormProps>(
 						/>
 					</div>
 					{/* ISBN Input */}
-					<div className='addBookForm_element addBookForm_element_isbn'>
+					<div className={styles.element}>
 						<label htmlFor='isbn'>isbn</label>
 						<input
 							name='isbn'
@@ -413,7 +414,7 @@ const AddBookForm = forwardRef<AddBookFormRef, AddBookFormProps>(
 						/>
 					</div>
 					{/* First Edition Input */}
-					<div className='addBookForm_element addBookForm_element_firstEdition'>
+					<div className={styles.element}>
 						<label htmlFor='firstEdition'>first edition</label>
 						<input
 							autoComplete='off'
@@ -424,7 +425,7 @@ const AddBookForm = forwardRef<AddBookFormRef, AddBookFormProps>(
 						/>
 					</div>
 					{/* Language Selection */}
-					<div className='addBookForm_element addBookForm_element_language'>
+					<div className={styles.element}>
 						<label htmlFor='language'>language</label>
 						<select
 							id='language'
@@ -437,10 +438,9 @@ const AddBookForm = forwardRef<AddBookFormRef, AddBookFormProps>(
 						</select>
 					</div>
 					{/* Publisher Selection */}
-					<div className='addBookForm_element addBookForm_element_publisher'>
+					<div className={styles.element}>
 						<label htmlFor='publisher'>publisher</label>
 						<select
-							className='form_select'
 							id='publishers'
 							name='publishers'
 							onChange={e => setPublisher(e.target.value)}>
@@ -460,7 +460,7 @@ const AddBookForm = forwardRef<AddBookFormRef, AddBookFormProps>(
 						</select>
 					</div>
 					{/* Genre Selection */}
-					<div className='addBookForm_element addBookForm_element_genres'>
+					<div className={`${styles.element} ${styles.selectFields}`}>
 						{genresSelectCounter.map(input => {
 							return (
 								<Select
@@ -478,7 +478,7 @@ const AddBookForm = forwardRef<AddBookFormRef, AddBookFormProps>(
 						})}
 					</div>
 					{/* Author Selection */}
-					<div className='addBookForm_element addBookForm_element_authors'>
+					<div className={`${styles.element} ${styles.selectFields}`}>
 						{authorsSelectCounter.map(input => {
 							return (
 								<Select
@@ -497,7 +497,7 @@ const AddBookForm = forwardRef<AddBookFormRef, AddBookFormProps>(
 					</div>
 					{/* Translators Selection */}
 					{language === Language.Polish && title !== titleOriginal && (
-						<div className='addBookForm_element addBookForm_element_translators'>
+						<div className={`${styles.element} ${styles.selectFields}`}>
 							{translatorsSelectCounter.map(input => {
 								return (
 									<Select
@@ -516,7 +516,7 @@ const AddBookForm = forwardRef<AddBookFormRef, AddBookFormProps>(
 						</div>
 					)}
 					{/* Book Series Radio Buttons */}
-					<div className='addBookForm_element addBookForm_element_isBookSeries'>
+					<div className={`${styles.element} ${styles.isBookSeries}`}>
 						<label htmlFor='in_bookSeries'>Part of a book series?</label>
 						<label
 							htmlFor='yes'
@@ -542,7 +542,7 @@ const AddBookForm = forwardRef<AddBookFormRef, AddBookFormProps>(
 						</label>
 					</div>
 					{inBookSeries && (
-						<div className='addBookForm_element addBookForm_element_bookSeries'>
+						<div className={`${styles.element} ${styles.selectFields}`}>
 							{bookSeriesSelectCounter.map(index => {
 								return (
 									<React.Fragment key={index}>
@@ -571,15 +571,15 @@ const AddBookForm = forwardRef<AddBookFormRef, AddBookFormProps>(
 						</div>
 					)}
 					{/* Cover upload section */}
-					<div className='addBookForm_element addBookForm_element_cover-upload'>
+					<div className={`${styles.element} ${styles.coverUpload}`}>
 						<label htmlFor='cover'>upload cover</label>
 						<FileInput
 							id='cover'
 							coverLink={editableData?.cover}
 							fileList={cover ? [cover] : []}
 							onChange={handleCoverUpload}
-							className='addBookForm_element_cover-upload__fileInput fileInput'
-							previewClassName='addBookForm_element_cover-upload__fileInput_preview'
+							className={styles.fileInput}
+							previewClassName={styles.fileInputPreview}
 						/>
 					</div>
 					<Button
@@ -602,7 +602,7 @@ const AddBookForm = forwardRef<AddBookFormRef, AddBookFormProps>(
 		};
 
 		return (
-			<div className='bookCollection__addBook__bookForm'>
+			<div>
 				{(loading || mutationLoading) && <LoadingSpinner />}
 				{showErrors()}
 				{successMessage ? (

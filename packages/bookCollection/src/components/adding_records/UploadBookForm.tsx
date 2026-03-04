@@ -4,6 +4,7 @@ import FileUploader from './FileUploader';
 import { ParsedDataInterface } from './UploadBook';
 import { uploadAPI } from '../../../server';
 import Button from '../general-purpose/Button';
+import styles from './UploadBook.module.scss';
 
 interface UploadBookFormProps {
 	setParsedData: React.Dispatch<
@@ -23,7 +24,7 @@ const UploadBookForm: React.FC<UploadBookFormProps> = ({ setParsedData }) => {
 	const fileDetails = () => {
 		if (selectedFile) {
 			return (
-				<div className='bookCollection__addBook__upload_file-details'>
+				<div className={styles.fileDetails}>
 					Name: {selectedFile.name}
 					<br />
 					Size: {(selectedFile.size / 1024 / 1024).toFixed(2) + 'MB'}
@@ -59,13 +60,13 @@ const UploadBookForm: React.FC<UploadBookFormProps> = ({ setParsedData }) => {
 				{selectedFile && (
 					<Button
 						handleClick={submitForm}
-						className='bookCollection__addBook__upload_submit'
+						className=''
 						text='submit'
 					/>
 				)}
 				<FileUploader
 					onFileSelectSuccess={onFileSelectSuccess}
-					className='bookCollection__addBook__upload_uploader collection_button'
+					className=''
 					text={showDetails ? 'Pick a different file' : null}
 				/>
 			</form>

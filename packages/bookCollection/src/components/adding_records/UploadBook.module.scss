@@ -1,0 +1,33 @@
+@use '../../style/variables' as *;
+
+.upload {
+	margin-top: 20px;
+
+	p {
+		text-align: justify;
+	}
+
+	form {
+		margin-top: 20px;
+	}
+}
+
+.missing {
+	> p {
+		text-transform: uppercase;
+		text-align: center;
+		line-height: 110%;
+	}
+	> div {
+		> p {
+			text-transform: uppercase;
+			margin-top: 10px;
+			padding-bottom: 3px;
+			border-bottom: 1px solid $collection-color-text;
+		}
+	}
+}
+
+.fileDetails {
+	margin-bottom: 20px;
+}

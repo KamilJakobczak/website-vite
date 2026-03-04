@@ -6,6 +6,7 @@ import AddPublisherForm from './AddPublisherForm';
 import UploadBookForm from './UploadBookForm';
 import { Flags } from '../../utility/enums';
 import Button from '../general-purpose/Button';
+import styles from './UploadBook.module.scss';
 
 export type Author = {
 	firstName: string;
@@ -212,10 +213,8 @@ const UploadBook: React.FC = () => {
 			newAuthors.map(author => {
 				return (
 					<div
-						className='bookCollection__addBook__upload_addAuthor'
 						key={author.lastName}>
 						<AddAuthor
-							className='bookCollection__addBook__upload_addAuthor'
 							author={author}
 							flag={Flags.Add}
 							onAdded={setAuthorsAdded}
@@ -234,15 +233,13 @@ const UploadBook: React.FC = () => {
 				.map(genre => {
 					return (
 						<div
-							className='bookCollection__addBook__upload_addGenre'
 							key={genre}>
 							<AddGenre
-								className='bookCollection__addBook__upload_addGenre'
 								genre={genre}
 								onAdded={setGenresAdded}
 								flag={Flags.Add}
 							/>
-							<div className='bookCollection__addBook__upload_addGenre-skip'>
+							<div>
 								<Button
 									className=''
 									text='skip'
@@ -260,14 +257,13 @@ const UploadBook: React.FC = () => {
 		return (
 			newPublisher && !publisherSkipped && (
 				<div
-					className='bookCollection__addBook__upload_addPublisher'
 					key={newPublisher}>
 					<AddPublisherForm
 						publisher={newPublisher}
 						onAdded={setPublisherAdded}
 						flag={Flags.Add}
 					/>
-					<div className='bookCollection__addBook__upload_addPublisher-skip'>
+					<div>
 						<Button
 							className=''
 							text='skip'
@@ -285,22 +281,22 @@ const UploadBook: React.FC = () => {
 			(parsedData?.authors?.new ||
 				parsedData?.genres?.new ||
 				parsedData?.publisher?.new) && (
-				<div className='bookCollection__addBook__upload_missing'>
+				<div className={styles.missing}>
 					<p>Add following records to the database before the book</p>
 					{parsedData?.authors?.new && (
-						<div className='bookCollection__addBook__upload_missing_authors'>
+						<div>
 							<p>Add new authors</p>
 							{showAddAuthor()}
 						</div>
 					)}
 					{parsedData?.genres?.new && (
-						<div className='bookCollection__addBook__upload_missing_genres'>
+						<div>
 							<p>Add new genres</p>
 							{showAddGenre()}
 						</div>
 					)}
 					{parsedData?.publisher?.new && (
-						<div className='bookCollection__addBook__upload_missing_publisher'>
+						<div>
 							<p>Add new publisher</p>
 							{showAddPublisher()}
 						</div>
@@ -321,7 +317,7 @@ const UploadBook: React.FC = () => {
 	};
 
 	return (
-		<div className='bookCollection__addBook__upload'>
+		<div className={styles.upload}>
 			{!parsedData && <UploadBookForm setParsedData={setParsedData} />}
 			{showAddMissingRecords()}
 			{updatedData && (
