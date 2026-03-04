@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 interface PageNumberProps {
   activePage: number;
@@ -8,18 +8,6 @@ interface PageNumberProps {
 
 const PageNumbers: React.FC<PageNumberProps> = ({ activePage, totalPages, setActivePage }) => {
   const separationString = '. . .';
-
-  useEffect(() => {
-    const activeElement = document.querySelector(`[data-id="${activePage}"]`);
-    activeElement?.classList.add('active');
-  });
-
-  useEffect(() => {
-    const pageElements = document.querySelectorAll('.bookCollection__list_pages-page');
-    pageElements.forEach(page => page.classList.remove('active'));
-    const activeElement = document.querySelector(`[data-id="${activePage}"]`);
-    activeElement?.classList.add('active');
-  }, [activePage]);
 
   const handlePageClick = (pageNumber: number | string, e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     const { target } = e;
@@ -87,12 +75,17 @@ const PageNumbers: React.FC<PageNumberProps> = ({ activePage, totalPages, setAct
 
   const pagesArr = getPagination();
 
+  const pageClass = (page: number | string) => {
+    const base = 'bookCollection__list_pages-page';
+    return page === activePage ? `${base} active` : base;
+  };
+
   const displayNumbers = () => {
     return pagesArr.map((page, index) => (
       <div
         key={index}
         onClick={e => handlePageClick(page, e)}
-        className='bookCollection__list_pages-page'
+        className={pageClass(page)}
         data-id={page}
       >
         <span>{page}</span>

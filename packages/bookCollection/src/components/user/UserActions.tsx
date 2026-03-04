@@ -175,11 +175,11 @@ const UserActions: React.FC<UserActionsInterface> = ({ recordId }) => {
           )}
           <div>
             <legend>Owned:</legend>
-            <div className='form-control'>
+            <div className={styles.formControl}>
               <label htmlFor='owned'>owned</label>
               <input type='checkbox' name='owned' id='owned' checked={ownedChecked} onChange={e => handleOwnedCheckboxes(e)} />
             </div>
-            <div className='form-control'>
+            <div className={styles.formControl}>
               <label htmlFor='notOwned'>not owned</label>
               <input type='checkbox' name='notOwned' id='notOwned' checked={notOwnedChecked} onChange={e => handleOwnedCheckboxes(e)} />
             </div>

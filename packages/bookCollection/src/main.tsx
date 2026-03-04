@@ -9,6 +9,7 @@ import { CHECK_LOGIN } from './GraphQL/queries';
 import { SIGNOUT } from './GraphQL/mutations';
 import { useTranslation } from 'react-i18next';
 import './style/main.scss';
+import styles from './BookCollection.module.scss';
 type ContextType = {
 	setLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
 	setUserRole: React.Dispatch<React.SetStateAction<string>>;
@@ -67,7 +68,7 @@ const BookCollection: React.FC = () => {
 	];
 
 	return (
-		<div className='bookCollection'>
+		<div className={styles.bookCollection}>
 			<Navigation elements={elements} />
 			<Search />
 			<Navigation elements={elementsSecondary} />

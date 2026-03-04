@@ -5,62 +5,29 @@ interface AZListProps {
 
 const AZList: React.FC<AZListProps> = ({ letter, sort }) => {
   const letters = [
-    'a',
-    'b',
-    'c',
-    'd',
-    'e',
-    'f',
-    'g',
-    'h',
-    'i',
-    'j',
-    'k',
-    'l',
-    'm',
-    'n',
-    'o',
-    'p',
-    'q',
-    'r',
-    's',
-    't',
-    'u',
-    'v',
-    'w',
-    'x',
-    'y',
-    'z',
+    'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
+    'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
   ];
 
-  const handleClick = (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
-    const letters = document.querySelectorAll(
-      `span.bookCollection__list__az_element`
-    );
-
-    if (e.target instanceof Element) {
-      if (letter === e.target.innerHTML) {
-        sort('');
-        e.target.classList.remove('active');
-      } else {
-        letters.forEach(element => {
-          element.classList.remove('active');
-        });
-        e.target.classList.add('active');
-        sort(e.target.innerHTML);
-      }
+  const handleClick = (clickedLetter: string) => {
+    if (letter === clickedLetter) {
+      sort('');
+    } else {
+      sort(clickedLetter);
     }
   };
+
   return (
     <div className='bookCollection__list__az'>
-      {letters.map(letter => {
+      {letters.map(l => {
+        const isActive = letter === l;
         return (
           <span
-            className='bookCollection__list__az_element'
-            onClick={e => handleClick(e)}
-            key={letter}
+            className={`bookCollection__list__az_element${isActive ? ' active' : ''}`}
+            onClick={() => handleClick(l)}
+            key={l}
           >
-            {letter}
+            {l}
           </span>
         );
       })}

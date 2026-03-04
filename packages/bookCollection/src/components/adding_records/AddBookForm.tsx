@@ -578,7 +578,8 @@ const AddBookForm = forwardRef<AddBookFormRef, AddBookFormProps>(
 							coverLink={editableData?.cover}
 							fileList={cover ? [cover] : []}
 							onChange={handleCoverUpload}
-							parentClass='addBookForm_element_cover-upload'
+							className='addBookForm_element_cover-upload__fileInput fileInput'
+							previewClassName='addBookForm_element_cover-upload__fileInput_preview'
 						/>
 					</div>
 					<Button

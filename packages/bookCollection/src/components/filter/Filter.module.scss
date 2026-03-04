@@ -1,5 +1,18 @@
 @use '../../style/variables' as *;
 
+.formControl {
+	--form-control-disabled: #959495;
+	line-height: 1.2;
+	display: grid;
+	grid-template-columns: 1em auto;
+	gap: 0.5em;
+
+	&--disabled {
+		color: var(--form-control-disabled);
+		cursor: not-allowed;
+	}
+}
+
 .category {
 	display: flex;
 	flex-wrap: wrap;

@@ -5,14 +5,16 @@ interface FileInputProps {
   coverLink?: string;
   fileList: File[];
   onChange: (fileList: FileList) => void;
-  parentClass: string;
+  className?: string;
+  previewClassName?: string;
 }
 
 const FileInput: React.FC<FileInputProps> = ({
   id,
   coverLink,
   onChange,
-  parentClass,
+  className,
+  previewClassName,
   fileList = [],
 }) => {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -27,9 +29,8 @@ const FileInput: React.FC<FileInputProps> = ({
 
   return (
     <>
-      <div className={`${parentClass}__fileInput fileInput`}>
+      <div className={className}>
         <input
-          className='fileInput_input'
           id={id}
           type='file'
           ref={inputRef}
@@ -40,7 +41,7 @@ const FileInput: React.FC<FileInputProps> = ({
           }}
         />
       </div>
-      <div className={`${parentClass}__fileInput_preview`}>
+      <div className={previewClassName}>
         <img
           src={fileList[0] ? URL.createObjectURL(fileList[0]) : coverLink}
           alt=''

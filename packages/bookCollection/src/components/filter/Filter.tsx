@@ -35,7 +35,7 @@ const Filter: React.FC<FilterProps> = ({ handleCheckboxChange, filterOptions }) 
       {data.map(item => {
         return (
           <div key={item.name} className={styles.item}>
-            <label className='form-control' htmlFor={item.name}>
+            <label className={styles.formControl} htmlFor={item.name}>
               <Checkbox name={name} id={item.id} handleCheckboxChange={handleCheckboxChange} />
               {currentLanguage === 'pl' ? (item.namePolish ? item.namePolish : item.name) : item.name}
             </label>

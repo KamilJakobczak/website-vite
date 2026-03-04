@@ -34,12 +34,13 @@ import UserLibrary from '../components/user/UserLibrary';
 import Profile from '../components/user/Profile';
 import AddBookSeries from '../components/adding_records/AddBookSeries';
 import { CollectionsClasses, Flags } from '../utility/enums';
+import styles from '../BookCollection.module.scss';
 
 export const bookCollectionRoutes: RouteObject[] = [
 		{
 			index: true,
 			element: (
-				<div className='bookCollection__welcome'>
+				<div className={styles.welcome}>
 					<h2>Welcome to the Collection</h2>
 					<p>
 						A place to browse, manage and keep track of books across
