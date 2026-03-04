@@ -19,6 +19,17 @@
 			max-width: variables.$content-width;
 		}
 	}
+	button,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5 {
+		font-family: variables.$font-headings;
+	}
+	section {
+		scroll-margin-top: 80px;
+	}
 }
 
 @media (min-width: variables.$breakpoint-480) {

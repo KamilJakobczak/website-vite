@@ -20,22 +20,22 @@
 	position: relative;
 	z-index: 2;
 	width: 100%;
-	background-color: $color-search;
+	background-color: $collection-color-search;
 	border-radius: 5px;
 	height: var(--search-height);
 	display: flex;
 	justify-content: center;
 	padding: 8px 0;
-	box-shadow: 0 8px 6px -10px $color-search-accent;
+	box-shadow: 0 8px 6px -10px $collection-color-search-accent;
 
 	.dropdown {
 		flex-basis: 40%;
-		border-right: 1px solid $color-search-accent;
+		border-right: 1px solid $collection-color-search-accent;
 		letter-spacing: 1px;
 		text-transform: capitalize;
 		position: relative;
 		font-size: 0.8rem;
-		color: $color-dark;
+		color: $collection-color-dark;
 		.dropdownDefault {
 			position: relative;
 			top: 50%;
@@ -51,9 +51,9 @@
 			left: -10px;
 			width: 70%;
 			padding: 10px 20px 10px 10px;
-			background: $color-search;
+			background: $collection-color-search;
 			border-radius: 5px;
-			box-shadow: 8px 8px 6px -10px $color-accent;
+			box-shadow: 8px 8px 6px -10px $collection-color-accent;
 
 			&.open {
 				display: block;
@@ -86,16 +86,16 @@
 			width: 80%;
 			padding: 0 0 0 10px;
 			border: none;
-			background-color: $color-search;
+			background-color: $collection-color-search;
 			&::placeholder {
-				color: color-mix(in srgb, $color-dark, 20%);
+				color: color-mix(in srgb, $collection-color-dark, 20%);
 			}
 		}
 		.icon {
 			position: absolute;
 			top: calc(50% - 8px);
 			right: 0px;
-			color: $color-search-accent;
+			color: $collection-color-search-accent;
 		}
 
 		.results {
@@ -105,11 +105,11 @@
 			top: 25px;
 			right: 0;
 			backdrop-filter: blur(8px);
-			background: $color-dark;
+			background: $collection-color-dark;
 			border-radius: 5px;
 			padding: 30px 20px;
-			box-shadow: 8px 8px 6px -10px $color-accent;
-			color: $color-text;
+			box-shadow: 8px 8px 6px -10px $collection-color-accent;
+			color: $collection-color-text;
 			&.open {
 				display: block;
 				z-index: 2;

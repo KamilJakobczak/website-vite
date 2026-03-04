@@ -65,12 +65,12 @@
 		&_element {
 			padding: 0.9px;
 			&:hover {
-				background-color: $color-text;
+				background-color: $collection-color-text;
 
 				transition: 0.25s;
 			}
 			&.active {
-				background-color: $color-text;
+				background-color: $collection-color-text;
 			}
 		}
 	}
@@ -90,10 +90,10 @@
 				width: 90%;
 			}
 			&.active {
-				background-color: $color-text;
+				background-color: $collection-color-text;
 			}
 			&:hover {
-				background-color: $color-text;
+				background-color: $collection-color-text;
 			}
 		}
 	}
@@ -195,7 +195,7 @@
 							height: 2px;
 							bottom: -20%;
 							left: 0;
-							background-color: $color-text;
+							background-color: $collection-color-text;
 							transform-origin: bottom right;
 							transition: transform 0.2s ease-out;
 						}

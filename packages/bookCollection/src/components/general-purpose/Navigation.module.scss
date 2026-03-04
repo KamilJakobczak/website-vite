@@ -8,7 +8,7 @@
 	&:nth-last-child(2) {
 		margin-top: 10px;
 		margin-bottom: 20px;
-		border-bottom: 1px solid $color-text;
+		border-bottom: 1px solid $collection-color-text;
 		padding-bottom: 10px;
 	}
 }
@@ -22,15 +22,15 @@
 	.item {
 		font-family: $collection-font-headings;
 		padding: 5px 10px;
-		border-radius: 25px;
+		border-radius: 10px;
 		transition: 0.25s;
 		&:has(a:global(.active)) {
-			background-color: $color-text;
+			background-color: $collection-color-text;
 		}
 		@include hover {
-			background-color: $color-text;
+			background-color: $collection-color-text;
 			a {
-				color: $color-dark;
+				color: $collection-color-dark;
 			}
 		}
 		a,
@@ -38,12 +38,11 @@
 			text-align: center;
 			text-decoration: none;
 			text-transform: uppercase;
-			font-weight: 600;
+			font-weight: 500;
 			letter-spacing: 0.5px;
 			transition: 0.25s;
-			line-height: 1.1;
 			&:global(.active) {
-				color: $color-dark;
+				color: $collection-color-dark;
 				transition: 0.2s;
 			}
 		}

@@ -1,7 +1,7 @@
 .bookCollection {
 	margin: 20px auto;
 	width: 100%;
-	color: $color-text;
+	color: $collection-color-text;
 	.list {
 		border: none;
 		&__tiles {
@@ -12,7 +12,7 @@
 		}
 	}
 	a.router_link {
-		color: $color-text;
+		color: $collection-color-text;
 		text-decoration: none;
 	}
 	&__welcome {

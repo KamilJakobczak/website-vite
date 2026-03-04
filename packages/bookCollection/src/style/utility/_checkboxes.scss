@@ -33,7 +33,7 @@ input[type='checkbox'] {
 		height: 1em;
 		transform: scale(0);
 		transition: 120ms transform ease-in-out;
-		box-shadow: inset 1em 1em $color-text;
+		box-shadow: inset 1em 1em $collection-color-text;
 		transform-origin: bottom left;
 		clip-path: polygon(15% 39%, 40% 76%, 87% 17%, 42% 51%);
 	}
