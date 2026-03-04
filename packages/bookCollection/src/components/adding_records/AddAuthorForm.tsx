@@ -14,9 +14,9 @@ import {
 import SuccessMessage from '../general-purpose/SuccessMessage';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Flags } from '../../utility/enums';
+import styles from './AddRecordForm.module.scss';
 
 interface AddAuthorFormProps {
-	className: string;
 	author?: {
 		firstName: string;
 		secondName: string;
@@ -28,7 +28,6 @@ interface AddAuthorFormProps {
 }
 
 const AddAuthorForm: React.FC<AddAuthorFormProps> = ({
-	className,
 	author,
 	flag,
 	onAdded,
@@ -203,10 +202,9 @@ const AddAuthorForm: React.FC<AddAuthorFormProps> = ({
 	const showForm = () => {
 		return (
 			<form
-				className='addAuthor__form'
 				autoComplete='off'>
 				<h5>{`${flag} author`}</h5>
-				<div className='addAuthor__form_element'>
+				<div className=''>
 					<label htmlFor='firstName'>first name</label>
 					<input
 						type='text'
@@ -216,7 +214,7 @@ const AddAuthorForm: React.FC<AddAuthorFormProps> = ({
 						onChange={e => handleInputs(e)}
 					/>
 				</div>
-				<div className='addAuthor__form_element'>
+				<div className=''>
 					<label htmlFor='secondName'>second name</label>
 					<input
 						type='text'
@@ -226,7 +224,7 @@ const AddAuthorForm: React.FC<AddAuthorFormProps> = ({
 						onChange={e => handleInputs(e)}
 					/>
 				</div>
-				<div className='addAuthor__form_element'>
+				<div className=''>
 					<label htmlFor='thirdName'>third name</label>
 					<input
 						type='text'
@@ -236,7 +234,7 @@ const AddAuthorForm: React.FC<AddAuthorFormProps> = ({
 						onChange={e => handleInputs(e)}
 					/>
 				</div>
-				<div className='addAuthor__form_element'>
+				<div className=''>
 					<label htmlFor='lastName'>last name</label>
 					<input
 						type='text'
@@ -246,7 +244,7 @@ const AddAuthorForm: React.FC<AddAuthorFormProps> = ({
 						onChange={e => handleInputs(e)}
 					/>
 				</div>
-				<div className='addAuthor__form_element'>
+				<div className=''>
 					<label htmlFor='nationality'>nationality</label>
 					<input
 						type='text'
@@ -255,7 +253,7 @@ const AddAuthorForm: React.FC<AddAuthorFormProps> = ({
 						onChange={e => handleInputs(e)}
 					/>
 				</div>
-				<div className='addAuthor__form_element'>
+				<div className=''>
 					<label htmlFor='birth'>born in</label>
 					<input
 						type='text'
@@ -264,7 +262,7 @@ const AddAuthorForm: React.FC<AddAuthorFormProps> = ({
 						onChange={e => handleInputs(e)}
 					/>
 				</div>
-				<div className='addAuthor__form_element'>
+				<div className=''>
 					<label htmlFor='death'>died in</label>
 					<input
 						type='text'
@@ -273,7 +271,7 @@ const AddAuthorForm: React.FC<AddAuthorFormProps> = ({
 						onChange={e => handleInputs(e)}
 					/>
 				</div>
-				<div className='addAuthor__form_element'>
+				<div className=''>
 					<label htmlFor='wiki'>Wikipedia</label>
 					<input
 						name='link'
@@ -283,7 +281,7 @@ const AddAuthorForm: React.FC<AddAuthorFormProps> = ({
 						onChange={e => handleInputs(e)}
 					/>
 				</div>
-				<div className='addAuthor__form_element'>
+				<div className=''>
 					<label htmlFor='goodreads'>goodreads</label>
 					<input
 						name='link'
@@ -293,7 +291,7 @@ const AddAuthorForm: React.FC<AddAuthorFormProps> = ({
 						onChange={e => handleInputs(e)}
 					/>
 				</div>
-				<div className='addAuthor__form_element'>
+				<div className=''>
 					<label htmlFor='lubimyczytac'>lubimyczytac</label>
 					<input
 						name='link'
@@ -304,7 +302,7 @@ const AddAuthorForm: React.FC<AddAuthorFormProps> = ({
 					/>
 				</div>
 				<Button
-					className='addAuthor__form_button'
+					className=''
 					handleClick={handleSubmit}
 				/>
 			</form>
@@ -320,7 +318,7 @@ const AddAuthorForm: React.FC<AddAuthorFormProps> = ({
 	};
 
 	return (
-		<div className={`${className} addAuthor`}>
+		<div className={styles.addRecord}>
 			{successMessage ? (
 				<SuccessMessage
 					item='author'

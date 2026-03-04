@@ -263,7 +263,6 @@ const UploadBook: React.FC = () => {
 					className='bookCollection__addBook__upload_addPublisher'
 					key={newPublisher}>
 					<AddPublisherForm
-						className='bookCollection__addBook__upload_addPublisher'
 						publisher={newPublisher}
 						onAdded={setPublisherAdded}
 						flag={Flags.Add}

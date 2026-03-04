@@ -1,11 +1,14 @@
 import { useLazyQuery } from '@apollo/client';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { LOAD_SEARCH } from '../../GraphQL/queries';
+import { imageApi } from '../../../server';
 import CustomError from './CustomError';
 import LoadingSpinner from './LoadingSpinner';
 import { RecordValues } from '../lists/List';
 import { useTranslation } from 'react-i18next';
+import book_thumbnail from '../../assets/thumbnails/book_thumbnail.png';
+import styles from './Search.module.scss';
 
 enum SearchCategories {
 	Author = 'Author',
@@ -17,7 +20,13 @@ const Search: React.FC = () => {
 	const { t } = useTranslation();
 	const [searchInput, setSearchInput] = useState('');
 	const [activeCategory, setActiveCategory] = useState('Book');
-	const dropdown = useRef<HTMLUListElement>(null);
+	const [categoryLabel, setCategoryLabel] = useState('');
+	const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+	const [isResultsOpen, setIsResultsOpen] = useState(false);
+
+	const dropdownRef = useRef<HTMLUListElement>(null);
+	const searchRef = useRef<HTMLDivElement>(null);
+
 	const [loadSearch, { called, loading, data, error }] = useLazyQuery(
 		LOAD_SEARCH,
 		{
@@ -25,56 +34,35 @@ const Search: React.FC = () => {
 		},
 	);
 
-	const dropdownCloseListener = (event: MouseEvent) => {
-		const target = event.target as Element;
-		if (
-			target.classList.contains(
-				'bookCollection__search__searchBox_dropdown_default',
-			)
-		) {
-		} else {
-			dropdown &&
-				dropdown.current &&
-				dropdown.current.classList.remove('active');
+	// Set initial label after translation is ready
+	useEffect(() => {
+		if (!categoryLabel) {
+			setCategoryLabel(t('book'));
 		}
-	};
+	}, [t, categoryLabel]);
 
-	const searchResultsCloseListener = (event: MouseEvent) => {
-		const target = event.target as Element;
-		const resultsContainer = document.querySelector(
-			'.bookCollection__search__searchBox_searchField_results',
-		);
+	// Close dropdown and results on outside clicks
+	useEffect(() => {
+		const handleClickOutside = (event: MouseEvent) => {
+			const target = event.target as Node;
+			if (dropdownRef.current && !dropdownRef.current.parentElement?.contains(target)) {
+				setIsDropdownOpen(false);
+			}
+			if (searchRef.current && !searchRef.current.contains(target)) {
+				setIsResultsOpen(false);
+			}
+		};
 
-		if (
-			target.className.includes('bookCollection__search') ||
-			target.className.includes('fa-search')
-		) {
-		} else {
-			resultsContainer?.classList.remove('active');
-		}
-	};
+		document.body.addEventListener('click', handleClickOutside);
+		return () => {
+			document.body.removeEventListener('click', handleClickOutside);
+		};
+	}, []);
 
-	const handleDefaultClick = () => {
-		dropdown && dropdown.current && dropdown.current.classList.add('active');
-		document.body.addEventListener('click', dropdownCloseListener);
-	};
-
-	const handleOptionClick = (
-		e: React.MouseEvent<HTMLLIElement, MouseEvent>,
-	) => {
-		const id = e.currentTarget.getAttribute('data-name');
-		const text = e.currentTarget.innerHTML;
-		const defaultElement = document.querySelector(
-			'.bookCollection__search__searchBox_dropdown_default',
-		);
-		if (id) {
-			dropdown &&
-				dropdown.current &&
-				dropdown.current.classList.remove('active');
-			defaultElement && (defaultElement.innerHTML = text);
-			document.body.removeEventListener('click', dropdownCloseListener);
-			setActiveCategory(id);
-		}
+	const handleOptionClick = (category: SearchCategories, label: string) => {
+		setActiveCategory(category);
+		setCategoryLabel(label);
+		setIsDropdownOpen(false);
 	};
 
 	const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -83,6 +71,7 @@ const Search: React.FC = () => {
 			setTimeout(() => {
 				loadSearch();
 			}, 200);
+			setIsResultsOpen(true);
 		}
 	};
 
@@ -90,11 +79,6 @@ const Search: React.FC = () => {
 		if (!data || !data.search) return null;
 
 		const dataArr = data.search as RecordValues[];
-		const resultsContainer = document.querySelector(
-			'.bookCollection__search__searchBox_searchField_results',
-		);
-		resultsContainer?.classList.add('active');
-		document.body.addEventListener('click', searchResultsCloseListener);
 
 		return dataArr.map((record: RecordValues) => {
 			let linkPath = '';
@@ -111,14 +95,26 @@ const Search: React.FC = () => {
 				default:
 					break;
 			}
+			const isBook = activeCategory === SearchCategories.Book;
 			return (
-				<div
-					className='bookCollection__search__searchBox_searchField_results_item'
-					key={record.id}>
+				<div className={styles.resultItem} key={record.id}>
 					<Link
 						to={`${linkPath}/${record.id.slice(-10)}`}
 						state={{ id: record.id }}
-						onClick={() => setSearchInput('')}>
+						onClick={() => {
+							setSearchInput('');
+							setIsResultsOpen(false);
+						}}>
+						{isBook && (
+							<img
+								className={styles.resultThumbnail}
+								src={`${imageApi}/covers/${record.id}/thumbnail`}
+								alt=''
+								onError={e => {
+									(e.target as HTMLImageElement).src = book_thumbnail;
+								}}
+							/>
+						)}
 						{record.title ? record.title : null}
 						{record.lastName
 							? `${record.lastName} ${record.firstName}`
@@ -131,56 +127,58 @@ const Search: React.FC = () => {
 	};
 
 	return (
-		<div className='bookCollection__search '>
-			<div className='bookCollection__search__searchBox'>
-				<div className='bookCollection__search__searchBox_dropdown'>
+		<div className={styles.search} ref={searchRef}>
+			<div className={styles.searchBox}>
+				<div className={styles.dropdown}>
 					<div
-						className='bookCollection__search__searchBox_dropdown_default'
+						className={styles.dropdownDefault}
 						onClick={() => {
-							handleDefaultClick();
-						}}>
-						{t('book')}
+						setIsDropdownOpen(!isDropdownOpen);
+						if (window.innerWidth < 1024) {
+							setIsResultsOpen(false);
+						}
+					}}>
+						{categoryLabel}
 					</div>
-					<ul ref={dropdown}>
-						<li
-							data-name={SearchCategories.Author}
-							onClick={e => {
-								handleOptionClick(e);
-							}}>
+					<ul
+						ref={dropdownRef}
+						className={`${styles.dropdownList}${isDropdownOpen ? ` ${styles.open}` : ''}`}>
+						<li onClick={() => handleOptionClick(SearchCategories.Author, t('author'))}>
 							{t('author')}
 						</li>
-						<li
-							data-name={SearchCategories.Book}
-							onClick={e => {
-								handleOptionClick(e);
-							}}>
+						<li onClick={() => handleOptionClick(SearchCategories.Book, t('book'))}>
 							{t('book')}
 						</li>
-						<li
-							data-name={SearchCategories.Publisher}
-							onClick={e => {
-								handleOptionClick(e);
-							}}>
+						<li onClick={() => handleOptionClick(SearchCategories.Publisher, t('publisher'))}>
 							{t('publisher')}
 						</li>
 					</ul>
 				</div>
-				<div className='bookCollection__search__searchBox_searchField'>
+				<div className={styles.searchField}>
 					<input
-						className='bookCollection__search__searchBox_searchField_input'
+						className={styles.input}
 						placeholder={t('search')}
 						value={searchInput}
 						onChange={e => handleInputChange(e)}
 						type='text'
 					/>
-					<i className='fas fa-search'></i>
-					<div className='bookCollection__search__searchBox_searchField_results'>
+					<i className={`fas fa-search ${styles.icon}`}></i>
+					<div className={`${styles.results}${isResultsOpen ? ` ${styles.open}` : ''}`}>
 						{called && error && <CustomError text={error.message} />}
 						{called && loading && !data && <LoadingSpinner />}
 						{data && !loading && !error && showSearchResults()}
 					</div>
 				</div>
 			</div>
+			{isResultsOpen && (
+				<div
+					className={styles.backdrop}
+					onClick={() => {
+						setIsResultsOpen(false);
+						setIsDropdownOpen(false);
+					}}
+				/>
+			)}
 		</div>
 	);
 };

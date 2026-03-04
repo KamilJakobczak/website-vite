@@ -6,13 +6,13 @@ const AddBookOptions: React.FC = () => {
 			<Button
 				// handleClick={handleBookButtonClick}
 				className='bookCollection__addBook__options_button'
-				linkPath='/add/book/upload'
+				linkPath='/collection/add/book/upload'
 				text='upload an epub file'
 			/>
 			<Button
 				// handleClick={handleBookButtonClick}
 				className='bookCollection__addBook__options_button'
-				linkPath='/add/book/manual'
+				linkPath='/collection/add/book/manual'
 				text='input info by yourself'
 			/>
 		</div>

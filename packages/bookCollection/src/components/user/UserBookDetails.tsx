@@ -1,12 +1,12 @@
 import { BookStatus, UserBookDetailsType } from '../../types';
 import { getOrdinal } from '../../utility/handlers/getOrdinal';
+import styles from './UserBookDetails.module.scss';
 
 interface UserBookDetailsInterface {
   details: UserBookDetailsType;
-  className: string;
 }
 
-const UserBookDetails: React.FC<UserBookDetailsInterface> = ({ details, className }) => {
+const UserBookDetails: React.FC<UserBookDetailsInterface> = ({ details }) => {
   const { rating, status, whenRead, purchasedBookInfo } = details;
 
   const statusElement = () => {
@@ -34,7 +34,7 @@ const UserBookDetails: React.FC<UserBookDetailsInterface> = ({ details, classNam
         stars.push(<i key={i} className='fa-solid fa-star'></i>);
       }
       return (
-        <div className='userBookDetails_rating-wrapper'>
+        <div className={styles.ratingWrapper}>
           {stars.map(star => {
             return star;
           })}
@@ -71,12 +71,11 @@ const UserBookDetails: React.FC<UserBookDetailsInterface> = ({ details, classNam
     });
   };
   return (
-    <div className={`${className}__userBookDetails userBookDetails`}>
+    <div className={styles.details}>
       <h5>Your details</h5>
-      <div className={`userBookDetails_rating`}>{ratingElement()}</div>
-      <div className={`userBookDetails_status`}>{statusElement()}</div>
-
-      <div className={`userBookDetails_purchased`}>{purchasedElement()}</div>
+      <div>{ratingElement()}</div>
+      <div>{statusElement()}</div>
+      <div className={styles.purchased}>{purchasedElement()}</div>
     </div>
   );
 };

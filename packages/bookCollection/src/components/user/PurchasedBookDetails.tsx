@@ -1,5 +1,6 @@
 import React from 'react';
 import { CoverCheckboxes, Currency } from '../../types';
+import styles from './UserActions.module.scss';
 
 interface PurchasedBookDetailsInterface {
   cover: CoverCheckboxes;
@@ -74,10 +75,10 @@ const PurchasedBookDetails: React.FC<PurchasedBookDetailsInterface> = ({ cover, 
     }
   };
   return (
-    <div className={`userActions__form_element userActions__form_element-${coverClass}`}>
-      <fieldset className='purchaseInfo'>
+    <div>
+      <fieldset>
         <legend>{cover.type}</legend>
-        <div className={`purchaseInfo_edition`}>
+        <div className={styles.editions}>
           <legend>Edition:</legend>
           <div>
             <label htmlFor={`editionNumber-${index}`}>number</label>
@@ -104,7 +105,7 @@ const PurchasedBookDetails: React.FC<PurchasedBookDetailsInterface> = ({ cover, 
             />
           </div>
         </div>
-        <div className={`purchaseInfo_price`}>
+        <div className={styles.price}>
           <div>
             <label htmlFor={`price-${index}`}>Price:</label>
             <input

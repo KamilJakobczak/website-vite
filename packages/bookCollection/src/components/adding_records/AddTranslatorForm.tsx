@@ -12,15 +12,14 @@ import Button from '../general-purpose/Button';
 import SuccessMessage from '../general-purpose/SuccessMessage';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Flags } from '../../utility/enums';
+import styles from './AddRecordForm.module.scss';
 
 interface AddTranslatorFormProps {
-	className: string;
 	translator?: string;
 	flag: Flags;
 }
 
 const AddTranslator: React.FC<AddTranslatorFormProps> = ({
-	className,
 	flag,
 }) => {
 	const location = useLocation();
@@ -104,7 +103,7 @@ const AddTranslator: React.FC<AddTranslatorFormProps> = ({
 		return (
 			<form action='addTranslator__form'>
 				<h5>new translator</h5>
-				<div className='addTranslator__form_element'>
+				<div className=''>
 					<label htmlFor='firstName'>first name</label>
 					<input
 						type='text'
@@ -115,7 +114,7 @@ const AddTranslator: React.FC<AddTranslatorFormProps> = ({
 						onChange={e => handleNamesChange(e)}
 					/>
 				</div>
-				<div className='addTranslator__form_element'>
+				<div className=''>
 					<label htmlFor='lastName'>last name</label>
 					<input
 						type='text'
@@ -127,7 +126,7 @@ const AddTranslator: React.FC<AddTranslatorFormProps> = ({
 					/>
 				</div>
 				<Button
-					className='addTranslator__form_button'
+					className=''
 					handleClick={handleSubmit}
 				/>
 			</form>
@@ -143,7 +142,7 @@ const AddTranslator: React.FC<AddTranslatorFormProps> = ({
 	};
 
 	return (
-		<div className={`${className} addTranslator`}>
+		<div className={styles.addRecord}>
 			{data && successMessage ? (
 				<SuccessMessage
 					item='translator'

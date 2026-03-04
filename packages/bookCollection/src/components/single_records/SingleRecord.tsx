@@ -176,7 +176,7 @@ const SingleRecord: React.FC<SingleRecordProps> = ({ query }) => {
 			return lowerCaseString;
 		};
 
-		const linkRedirect = `/apps/collection/${typeString(recordType)}`;
+		const linkRedirect = `/collection/${typeString(recordType)}`;
 		const cappedRecordType =
 			recordType && recordType.charAt(0).toUpperCase() + recordType.slice(1);
 		setPopupActive(false);
@@ -244,13 +244,11 @@ const SingleRecord: React.FC<SingleRecordProps> = ({ query }) => {
 				!details &&
 				loggedIn === true && (
 					<UserActions
-						parentClass='singleRecord'
 						recordId={id!}
 					/>
 				)}
 			{data?.book && !loadingUserBookDetails && details && (
 				<UserBookDetails
-					className={'singleRecord'}
 					details={details}
 				/>
 			)}

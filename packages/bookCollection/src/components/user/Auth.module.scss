@@ -1,0 +1,29 @@
+@use '../../style/variables' as *;
+
+.wrapper {
+	width: 90%;
+	margin: 20px auto;
+
+	form {
+		> div {
+			display: flex;
+			align-items: center;
+			+ div {
+				margin-top: 2px;
+			}
+			label {
+				flex-basis: 27%;
+				text-transform: capitalize;
+			}
+			input {
+				flex-basis: 60%;
+			}
+			textarea {
+				flex: 1;
+			}
+			&:last-child {
+				margin-top: 10px;
+			}
+		}
+	}
+}

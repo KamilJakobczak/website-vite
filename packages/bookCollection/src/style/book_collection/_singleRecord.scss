@@ -29,7 +29,6 @@ $singleRecords_selectors: '.author, .genre, .publisher, .translator, .bookSeries
 				}
 				a {
 					margin-left: 10px;
-					width: $font-size-h5;
 					img {
 						width: 100%;
 					}
@@ -39,7 +38,7 @@ $singleRecords_selectors: '.author, .genre, .publisher, .translator, .bookSeries
 				flex-basis: 20%;
 				margin-bottom: 10px;
 
-				border: 3px double $fourth-color;
+				border: 3px double $color-text;
 				padding: 5px;
 				border-radius: 5px;
 
@@ -65,7 +64,6 @@ $singleRecords_selectors: '.author, .genre, .publisher, .translator, .bookSeries
 					}
 					span {
 						text-align: right;
-						font-size: $font-size-p;
 						cursor: default;
 						&:nth-child(2) {
 							flex-basis: 10%;
@@ -96,7 +94,6 @@ $singleRecords_selectors: '.author, .genre, .publisher, .translator, .bookSeries
 						text-align: center;
 						text-transform: uppercase;
 						letter-spacing: 1px;
-						font-size: $font-size-p;
 					}
 				}
 			}
@@ -128,9 +125,8 @@ $singleRecords_selectors: '.author, .genre, .publisher, .translator, .bookSeries
 					// &:hover {
 					//   a {
 					//     span {
-					//       font-size: calc(1.15 * $font-size-p);
-					//       padding-bottom: 3px;
-					//       border-bottom: 1px solid $fourth-color;
+									//       padding-bottom: 3px;
+					//       border-bottom: 1px solid $color-text;
 					//     }
 					//   }
 					// }
@@ -163,10 +159,7 @@ $singleRecords_selectors: '.author, .genre, .publisher, .translator, .bookSeries
 
 		&_delete {
 			position: absolute;
-			top: calc(($font-size-h4 * 1.1 - $font-size-h5) / 2);
 			right: 5px;
-			width: $font-size-h5;
-			height: $font-size-h5;
 			img {
 				width: 100%;
 			}
@@ -261,8 +254,7 @@ $singleRecords_selectors: '.author, .genre, .publisher, .translator, .bookSeries
 						a {
 							transition: 0.2s;
 							&:hover {
-								background-color: $fourth-color;
-								color: $apps_background;
+								background-color: $color-text;
 							}
 						}
 					}
@@ -315,7 +307,6 @@ $singleRecords_selectors: '.author, .genre, .publisher, .translator, .bookSeries
 //         }
 //         div:nth-child(4) {
 //           h5 {
-//             // font-size: 32px;
 //           }
 //           div {
 //             a {

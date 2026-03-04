@@ -1,7 +1,8 @@
 import { Link, useNavigate } from 'react-router-dom';
+import styles from './Button.module.scss';
 
 interface ButtonProps {
-  className: string;
+  className?: string;
   handleClick?: () => void | React.Dispatch<React.SetStateAction<boolean>>;
   linkPath?: string;
   linkEnd?: string;
@@ -29,7 +30,7 @@ const Button: React.FC<ButtonProps> = ({
   };
   return (
     <div
-      className={`${className} collectionButton`}
+      className={`${styles.button}${className ? ` ${className}` : ''}`}
       onClick={e => handleSubmit(e)}
     >
       {!linkPath && <span>{text || 'submit'}</span>}

@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import React from 'react';
 import { checkDuplicates, processSelectionData } from '../../utility/handlers';
+import styles from './Select.module.scss';
 
 interface SelectProps {
   item: string;
@@ -88,8 +89,7 @@ const Select: React.FC<SelectProps> = ({
     }
 
     return (
-      <button className='select_add-button' onClick={e => handleAddClick(e)}>
-        {/* add {item} */}
+      <button className={styles.addButton} onClick={e => handleAddClick(e)}>
         Add more
       </button>
     );
@@ -99,7 +99,7 @@ const Select: React.FC<SelectProps> = ({
     if (selectCounter.length > 1) {
       return (
         <button
-          className='select_remove-button'
+          className={styles.removeButton}
           onClick={e => handleSelectRemove(e)}
         >
           X
@@ -109,15 +109,15 @@ const Select: React.FC<SelectProps> = ({
   };
 
   return (
-    <div className='select_wrapper'>
+    <div className={styles.wrapper}>
       {id === 0 ? (
         <label htmlFor={item}>{item}</label>
       ) : (
         <label htmlFor={`${item}${id}`}>{`${item} ${id + 1}`}</label>
       )}
-      <div className='select_wrapper-inner'>
+      <div className={styles.inner}>
         <select
-          className='custom-select'
+          className={styles.select}
           id={`${id}`}
           name={id === 0 ? item : `${item}${id}`}
           onChange={e => handleSelectChange(e)}

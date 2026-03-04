@@ -9,15 +9,15 @@ import LoadingSpinner from '../general-purpose/LoadingSpinner';
 import { lastNameRegex, nameRegex, websiteRegex } from '../../utility/regex';
 import { Flags } from '../../utility/enums';
 import { useLocation, useNavigate } from 'react-router-dom';
+import styles from './AddRecordForm.module.scss';
 
 interface AddPublisherFormProps {
-  className?: string;
   publisher?: string;
   onAdded?: React.Dispatch<React.SetStateAction<string>>;
   flag: Flags;
 }
 
-const AddPublisherForm: React.FC<AddPublisherFormProps> = ({ className, publisher, onAdded, flag }) => {
+const AddPublisherForm: React.FC<AddPublisherFormProps> = ({ publisher, onAdded, flag }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const editableData = location.state;
@@ -131,9 +131,9 @@ const AddPublisherForm: React.FC<AddPublisherFormProps> = ({ className, publishe
 
   const showForm = () => {
     return (
-      <form className='addPublisher__form' action='' autoComplete='off'>
+      <form action='' autoComplete='off'>
         <h5>{flag} publisher</h5>
-        <div className='addPublisher__form_element'>
+        <div>
           <label htmlFor='name'>name</label>
           <input
             autoComplete='nameOff'
@@ -144,13 +144,13 @@ const AddPublisherForm: React.FC<AddPublisherFormProps> = ({ className, publishe
             onChange={e => handleTextInputs(e)}
           />
         </div>
-        <div className='addPublisher__form_element'>
+        <div>
           <label htmlFor='website'>website</label>
           <input type='text' id='website' required value={website} onChange={e => handleTextInputs(e)} />
         </div>
-        <div className='addPublisher__form_element address'>
+        <div className={styles.address}>
           <p>address</p>
-          <div className='address_item'>
+          <div className={styles.addressItem}>
             <label htmlFor='country'>country</label>
             <input
               autoComplete='countryOff'
@@ -161,7 +161,7 @@ const AddPublisherForm: React.FC<AddPublisherFormProps> = ({ className, publishe
               onChange={e => handleTextInputs(e)}
             />
           </div>
-          <div className='address_item'>
+          <div className={styles.addressItem}>
             <label htmlFor='zipCode'>zip code</label>
             <input
               autoComplete='zipCodeOff'
@@ -172,7 +172,7 @@ const AddPublisherForm: React.FC<AddPublisherFormProps> = ({ className, publishe
               onChange={e => setZipCode(e.target.value)}
             />
           </div>
-          <div className='address_item'>
+          <div className={styles.addressItem}>
             <label htmlFor='city'>city</label>
             <input
               autoComplete='cityOff'
@@ -183,7 +183,7 @@ const AddPublisherForm: React.FC<AddPublisherFormProps> = ({ className, publishe
               onChange={e => handleTextInputs(e)}
             />
           </div>
-          <div className='address_item'>
+          <div className={styles.addressItem}>
             <label htmlFor='street'>street</label>
             <input
               autoComplete='streetOff'
@@ -194,7 +194,7 @@ const AddPublisherForm: React.FC<AddPublisherFormProps> = ({ className, publishe
               onChange={e => handleTextInputs(e)}
             />
           </div>
-          <div className='address_item'>
+          <div className={styles.addressItem}>
             <label htmlFor='buildingNr'>building number</label>
             <input
               type='text'
@@ -204,12 +204,12 @@ const AddPublisherForm: React.FC<AddPublisherFormProps> = ({ className, publishe
               onChange={e => setBuildingNr(e.target.value)}
             />
           </div>
-          <div className='address_item'>
+          <div className={styles.addressItem}>
             <label htmlFor='placeNr'>place number</label>
             <input type='text' id='placeNr' required value={placeNr} onChange={e => setPlaceNr(e.target.value)} />
           </div>
         </div>
-        <Button className='addPublisher__form_button' handleClick={handleSubmit} />
+        <Button className='' handleClick={handleSubmit} />
       </form>
     );
   };
@@ -223,7 +223,7 @@ const AddPublisherForm: React.FC<AddPublisherFormProps> = ({ className, publishe
   };
 
   return (
-    <div className={`${className} addPublisher`}>
+    <div className={styles.addRecord}>
       {data && successMessage ? <SuccessMessage item='publisher' successMessage={successMessage} /> : null}
       {loading && <LoadingSpinner />}
       {!loading && !successMessage ? showForm() : null}

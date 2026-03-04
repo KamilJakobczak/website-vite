@@ -4,13 +4,13 @@ import { useState } from 'react';
 import { ADD_USERBOOKDETAILS } from '../../GraphQL/mutations';
 import PurchasedBookDetails from './PurchasedBookDetails';
 import { CoverTypes, BookStatus, CoverCheckboxes } from '../../types';
+import styles from './UserActions.module.scss';
 
 interface UserActionsInterface {
-  parentClass: string;
   recordId: string;
 }
 
-const UserActions: React.FC<UserActionsInterface> = ({ parentClass, recordId }) => {
+const UserActions: React.FC<UserActionsInterface> = ({ recordId }) => {
   // initial state
   const initialPurchasedBooksState = [
     {
@@ -64,9 +64,6 @@ const UserActions: React.FC<UserActionsInterface> = ({ parentClass, recordId }) 
     });
   };
 
-  // const handleRating = (e: React.MouseEvent<HTMLInputElement, MouseEvent>) => {
-  //   setRating(e.currentTarget.value);
-  // };
   const handleBookStatus = (status: string) => {
     setRatingState('');
     setWhenRead('');
@@ -145,9 +142,9 @@ const UserActions: React.FC<UserActionsInterface> = ({ parentClass, recordId }) 
 
   const optionsForm = () => {
     return (
-      <div className={`${parentClass}__userActions__options userActions`}>
-        <form className={`${parentClass}__userActions__options_form userActions__form`}>
-          <div className='userActionsForm_element userActions__form_element-status'>
+      <div className={styles.userActions}>
+        <form className={styles.form}>
+          <div>
             <label htmlFor='bookStatus'>Status:</label>
             <select name='bookStatus' id='bookStatus' onChange={e => handleBookStatus(e.target.value)}>
               <option value=''>-- select --</option>
@@ -159,11 +156,11 @@ const UserActions: React.FC<UserActionsInterface> = ({ parentClass, recordId }) 
           </div>
           {bookStatus === BookStatus.READ && (
             <>
-              <div className='userActionsForm_element userActions__form_element-rating'>
+              <div className={styles.rating}>
                 <legend>Rating:</legend>
                 <div>{showRating()}</div>
               </div>
-              <div className='userActionsForm_element userActions__form_element-whenRead'>
+              <div>
                 <label htmlFor='whenRead'>Read in:</label>
                 <input
                   id='whenRead'
@@ -176,7 +173,7 @@ const UserActions: React.FC<UserActionsInterface> = ({ parentClass, recordId }) 
               </div>
             </>
           )}
-          <div className='userActionsForm_element userActions__form_element-owned '>
+          <div>
             <legend>Owned:</legend>
             <div className='form-control'>
               <label htmlFor='owned'>owned</label>
@@ -189,7 +186,7 @@ const UserActions: React.FC<UserActionsInterface> = ({ parentClass, recordId }) 
           </div>
           {owned && (
             <>
-              <div className='userActionsForm_element userActions__form_element-coverType'>
+              <div>
                 <label htmlFor='coverType'>Cover:</label>
                 <div>
                   <label htmlFor={CoverTypes.PAPERBACK}>paperback</label>
@@ -223,7 +220,7 @@ const UserActions: React.FC<UserActionsInterface> = ({ parentClass, recordId }) 
             </>
           )}
           <Button
-            className={`${parentClass}__userActions__submit userActions__form_element-submit`}
+            className={styles.submit}
             text='add to library'
             handleClick={handleSubmit}
           />
@@ -233,10 +230,10 @@ const UserActions: React.FC<UserActionsInterface> = ({ parentClass, recordId }) 
   };
 
   return (
-    <div className={`${parentClass}__userActions`}>
+    <div className={styles.userActions}>
       {!showOptions && (
         <Button
-          className={`${parentClass}__userActions_showDetails`}
+          className=''
           text='add book to your library'
           handleClick={() => setShowOptions(true)}
         />

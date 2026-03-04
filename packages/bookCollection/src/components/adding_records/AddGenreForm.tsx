@@ -9,15 +9,15 @@ import { genreRegex } from '../../utility/regex';
 import SuccessMessage from '../general-purpose/SuccessMessage';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Flags } from '../../utility/enums';
+import styles from './AddRecordForm.module.scss';
 
 interface AddGenreFormProps {
-  className?: string;
   genre?: string;
   onAdded?: React.Dispatch<React.SetStateAction<string[]>>;
   flag: Flags;
 }
 
-const AddGenreForm: React.FC<AddGenreFormProps> = ({ className, genre, onAdded, flag }) => {
+const AddGenreForm: React.FC<AddGenreFormProps> = ({ genre, onAdded, flag }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const editableData = location.state;
@@ -81,9 +81,9 @@ const AddGenreForm: React.FC<AddGenreFormProps> = ({ className, genre, onAdded, 
 
   const showForm = () => {
     return (
-      <form action='' className='add_genre__form'>
+      <form action=''>
         <h5>{flag} genre</h5>
-        <div className='add_genre__form_element'>
+        <div>
           <label htmlFor='name'>name</label>
           <input
             type='text'
@@ -95,7 +95,7 @@ const AddGenreForm: React.FC<AddGenreFormProps> = ({ className, genre, onAdded, 
             onChange={e => handleNameChange(e)}
           />
         </div>
-        <div className='add_genre__form_element'>
+        <div>
           <label htmlFor='namePolish'>Polish Name</label>
           <input
             type='text'
@@ -107,7 +107,7 @@ const AddGenreForm: React.FC<AddGenreFormProps> = ({ className, genre, onAdded, 
             onChange={e => handleNameChange(e)}
           />
         </div>
-        <Button className='add_genre__form_button' handleClick={handleSubmit} />
+        <Button className='' handleClick={handleSubmit} />
       </form>
     );
   };
@@ -121,7 +121,7 @@ const AddGenreForm: React.FC<AddGenreFormProps> = ({ className, genre, onAdded, 
   };
 
   return (
-    <div className={`${className} addGenre`}>
+    <div className={styles.addRecord}>
       {data && successMessage ? <SuccessMessage item='genre' successMessage={successMessage} /> : null}
       {loading && <LoadingSpinner />}
 

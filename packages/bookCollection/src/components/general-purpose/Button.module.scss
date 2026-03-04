@@ -1,0 +1,29 @@
+@use '../../style/variables' as *;
+
+.button {
+	width: 90%;
+	margin: 10px auto 0;
+	background-color: $color-text;
+	text-transform: uppercase;
+	color: $color-dark;
+	a,
+	span {
+		padding: 5px 0;
+		text-align: center;
+		font-weight: bold;
+		letter-spacing: 1px;
+	}
+	span {
+		display: block;
+		width: 100%;
+	}
+}
+
+@media (min-width: $breakpoint-768) {
+	.button {
+		a,
+		span {
+			padding: 10px 0;
+		}
+	}
+}

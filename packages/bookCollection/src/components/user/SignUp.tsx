@@ -5,6 +5,7 @@ import Button from '../general-purpose/Button';
 import LoadingSpinner from '../general-purpose/LoadingSpinner';
 import SuccessMessage from '../general-purpose/SuccessMessage';
 import Error from '../general-purpose/CustomError';
+import styles from './Auth.module.scss';
 
 const SignUp = () => {
   const [username, setUsername] = useState('');
@@ -47,8 +48,8 @@ const SignUp = () => {
 
   const showForm = () => {
     return (
-      <form className='signup__form'>
-        <div className='signup__form_email'>
+      <form>
+        <div>
           <label htmlFor='username'>e-mail</label>
           <input
             type='text'
@@ -59,15 +60,15 @@ const SignUp = () => {
             required
           />
         </div>
-        <div className='signup__form_password'>
+        <div>
           <label htmlFor='password'>password</label>
           <input type='password' id='password' value={password} onChange={e => onPasswordChange(e)} required />
         </div>
-        <div className='signup__form_username'>
+        <div>
           <label htmlFor='username'>username</label>
           <input type='text' id='username' value={username} onChange={e => setUsername(e.target.value)} required />
         </div>
-        <div className='signup__form_bio'>
+        <div>
           <label htmlFor='bio'>bio</label>
           <textarea
             name='bio'
@@ -79,7 +80,7 @@ const SignUp = () => {
             placeholder='optional'
           ></textarea>
         </div>
-        <Button text='sign up' className='signup__form_submit' handleClick={handleSubmit} />
+        <Button text='sign up' className='' handleClick={handleSubmit} />
       </form>
     );
   };
@@ -96,7 +97,7 @@ const SignUp = () => {
       {loading && <LoadingSpinner />}
       {showErrors()}
       {data && successMessage ? <SuccessMessage item='sign up' successMessage={successMessage} /> : null}
-      <div className='signup-wrapper'>{!loading && !successMessage ? showForm() : null}</div>
+      <div className={styles.wrapper}>{!loading && !successMessage ? showForm() : null}</div>
     </div>
   );
 };

@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../general-purpose/Button';
 import { useTranslation } from 'react-i18next';
+import styles from './NewRecords.module.scss';
 
 const NewRecords: React.FC = () => {
 	const { t } = useTranslation();
@@ -21,10 +22,10 @@ const NewRecords: React.FC = () => {
 					return (
 						<Button
 							key={element.name}
-							className='bookCollection__newRecords_item'
+							className={styles.item}
 							linkEnd={element.name}
 							text={element.text}
-							linkPath='/add'
+							linkPath='/collection/add'
 						/>
 					);
 				})}
@@ -32,6 +33,6 @@ const NewRecords: React.FC = () => {
 		);
 	};
 
-	return <div className='bookCollection__newRecords'>{showButtons()}</div>;
+	return <div className={styles.newRecords}>{showButtons()}</div>;
 };
 export default NewRecords;

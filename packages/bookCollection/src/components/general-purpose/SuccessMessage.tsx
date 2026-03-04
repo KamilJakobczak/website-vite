@@ -1,3 +1,5 @@
+import styles from './SuccessMessage.module.scss';
+
 interface SuccessMessageProps {
   item?: string;
   successMessage?: string;
@@ -8,7 +10,7 @@ const SuccessMessage: React.FC<SuccessMessageProps> = ({
   successMessage,
 }) => {
   return (
-    <div className='success_message'>
+    <div className={styles.message}>
       <p>
         <span>{item ? `${item} added successfully` : successMessage}</span>
       </p>

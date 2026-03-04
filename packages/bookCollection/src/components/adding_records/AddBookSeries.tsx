@@ -16,13 +16,13 @@ import { numbersRegex } from '../../utility/regex';
 import { Flags } from '../../utility/enums';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { loadEditableData } from '../../utility/handlers/loadEditableData';
+import styles from './AddRecordForm.module.scss';
 
 interface AddBookSeriesProps {
-	className: string;
 	flag: Flags;
 }
 
-const AddBookSeries: React.FC<AddBookSeriesProps> = ({ className, flag }) => {
+const AddBookSeries: React.FC<AddBookSeriesProps> = ({ flag }) => {
 	const location = useLocation();
 	const navigate = useNavigate();
 	const editableData = location.state;
@@ -158,10 +158,9 @@ const AddBookSeries: React.FC<AddBookSeriesProps> = ({ className, flag }) => {
 	const showForm = () => {
 		return (
 			<form
-				action=''
-				className='addBookSeries__form'>
+				action=''>
 				<h5>{`${flag}`} book series</h5>
-				<div className='addBookSeries__form_element'>
+				<div className=''>
 					<label htmlFor='name'>name</label>
 					<input
 						type='text'
@@ -201,7 +200,7 @@ const AddBookSeries: React.FC<AddBookSeriesProps> = ({ className, flag }) => {
 					<CustomError text='Duplication error(s) detected, correct mistakes before continuing' />
 				)}
 				<Button
-					className='addBookSeries__form_button'
+					className=''
 					handleClick={handleSubmit}
 				/>
 			</form>
@@ -257,7 +256,7 @@ const AddBookSeries: React.FC<AddBookSeriesProps> = ({ className, flag }) => {
 		}
 	};
 	return (
-		<div className={`${className} addBookSeries`}>
+		<div className={styles.addRecord}>
 			{data && successMessage ? (
 				<SuccessMessage
 					item='book series'

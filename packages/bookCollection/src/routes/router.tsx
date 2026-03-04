@@ -40,19 +40,16 @@ export const bookCollectionRoutes: RouteObject[] = [
 			index: true,
 			element: (
 				<div className='bookCollection__welcome'>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo
-					consequatur accusamus, perferendis, nemo magni illum quis
-					voluptas sed exercitationem beatae odit temporibus sunt, vel
-					eligendi asperiores voluptates deserunt excepturi porro vero!
-					Suscipit illum praesentium quidem pariatur obcaecati alias ullam,
-					fugit quibusdam! Iste ipsam similique commodi soluta possimus
-					voluptates amet quisquam deserunt dolorum molestias distinctio,
-					dolor eos consequatur odio! Tenetur fugit dolor in, ullam ab
-					temporibus, reiciendis dicta iusto quam quaerat odio?
-					Necessitatibus corrupti doloremque sit deserunt. Maxime
-					explicabo, et laborum ipsa non vero corrupti voluptatem!
-					Perferendis officia sunt incidunt aliquid assumenda saepe dolorum
-					sapiente! Repellendus inventore vel ipsam corrupti ipsum!
+					<h2>Welcome to the Collection</h2>
+					<p>
+						A place to browse, manage and keep track of books across
+						the family library. Search by title, author or genre,
+						add new records, and organise everything in one place.
+					</p>
+					<p>
+						Use the navigation above to explore the catalogue or
+						log in to manage your personal reading list.
+					</p>
 				</div>
 			),
 		},
@@ -94,7 +91,6 @@ export const bookCollectionRoutes: RouteObject[] = [
 				<ProtectedRoute
 					nestedElement={
 						<AddAuthorForm
-							className='bookCollection__editAuthor'
 							flag={Flags.Edit}
 						/>
 					}
@@ -120,7 +116,6 @@ export const bookCollectionRoutes: RouteObject[] = [
 				<ProtectedRoute
 					nestedElement={
 						<AddBookSeries
-							className='bookCollection__editBookSeries'
 							flag={Flags.Edit}
 						/>
 					}
@@ -146,7 +141,6 @@ export const bookCollectionRoutes: RouteObject[] = [
 				<ProtectedRoute
 					nestedElement={
 						<AddGenreForm
-							className='bookCollection__editGenre'
 							flag={Flags.Edit}
 						/>
 					}
@@ -172,7 +166,6 @@ export const bookCollectionRoutes: RouteObject[] = [
 				<ProtectedRoute
 					nestedElement={
 						<AddPublisherForm
-							className='bookCollection__editPublisher'
 							flag={Flags.Edit}
 						/>
 					}
@@ -198,7 +191,6 @@ export const bookCollectionRoutes: RouteObject[] = [
 				<ProtectedRoute
 					nestedElement={
 						<AddTranslatorForm
-							className='bookCollection__editTranslator'
 							flag={Flags.Edit}
 						/>
 					}
@@ -215,7 +207,6 @@ export const bookCollectionRoutes: RouteObject[] = [
 				<ProtectedRoute
 					nestedElement={
 						<AddAuthorForm
-							className='bookCollection__addAuthor'
 							flag={Flags.Add}
 						/>
 					}
@@ -250,7 +241,6 @@ export const bookCollectionRoutes: RouteObject[] = [
 				<ProtectedRoute
 					nestedElement={
 						<AddBookSeries
-							className='bookCollection__addBookSeries'
 							flag={Flags.Add}
 						/>
 					}
@@ -263,7 +253,6 @@ export const bookCollectionRoutes: RouteObject[] = [
 				<ProtectedRoute
 					nestedElement={
 						<AddGenreForm
-							className='bookCollection__addGenre'
 							flag={Flags.Add}
 						/>
 					}
@@ -276,7 +265,6 @@ export const bookCollectionRoutes: RouteObject[] = [
 				<ProtectedRoute
 					nestedElement={
 						<AddPublisherForm
-							className='bookCollection__addPublisher'
 							flag={Flags.Add}
 						/>
 					}
@@ -289,7 +277,6 @@ export const bookCollectionRoutes: RouteObject[] = [
 				<ProtectedRoute
 					nestedElement={
 						<AddTranslatorForm
-							className='bookCollection__addTranslator'
 							flag={Flags.Add}
 						/>
 					}
@@ -309,12 +296,6 @@ export const bookCollectionRoutes: RouteObject[] = [
 		{
 			path: 'user/login',
 			element: <LogIn />,
-		},
-		{
-			path: 'user/logout',
-			loader: () => {
-				return redirect('/');
-			},
 		},
 		{
 			path: 'user/signup',

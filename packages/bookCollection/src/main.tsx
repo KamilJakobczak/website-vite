@@ -43,21 +43,23 @@ const BookCollection: React.FC = () => {
 		{ id: 1, element: 'authors', text: `${t('authors')}` },
 		{ id: 2, element: 'publishers', text: `${t('publishers')}` },
 	];
-	const adminNavElements = [
-		{ id: 0, element: 'add', text: `${t('add')}` },
-		{ id: 1, element: 'genres', text: `${t('genres')}` },
-		{ id: 2, element: 'translators', text: `${t('translators')}` },
-		{ id: 3, element: 'bookseries', text: `${t('bookSeries')}` },
+	const elementsSecondary = [
+		{ id: 0, element: 'genres', text: `${t('genres')}` },
+		{ id: 1, element: 'translators', text: `${t('translators')}` },
+		{ id: 2, element: 'bookseries', text: `${t('bookSeries')}` },
 	];
+
 	const userNavElements = [
 		{ id: 0, path: 'user', element: 'signup', text: `${t('signUp')}` },
 		{ id: 1, path: 'user', element: 'login', text: `${t('logIn')}` },
 	];
 	const loggedInUserNavElements = [
-		{ id: 0, path: 'user', element: 'profile', text: `${t('profile')}` },
+		...(userRole === 'ADMIN'
+			? [{ id: 0, element: 'add', text: `${t('add')}` }]
+			: []),
+		{ id: 1, path: 'user', element: 'profile', text: `${t('profile')}` },
 		{
 			id: 2,
-			path: 'user',
 			element: 'logout',
 			text: `${t('logOut')}`,
 			handler: logout,
@@ -66,24 +68,14 @@ const BookCollection: React.FC = () => {
 
 	return (
 		<div className='bookCollection'>
-			<Navigation
-				elements={elements}
-				parentClass='bookCollection__main'
-			/>
+			<Navigation elements={elements} />
 			<Search />
-			{userRole === 'ADMIN' && (
-				<Navigation
-					elements={adminNavElements}
-					parentClass='bookCollection__admin'
-				/>
-			)}
+			<Navigation elements={elementsSecondary} />
 			{!loading && (
 				<Navigation
 					elements={loggedIn ? loggedInUserNavElements : userNavElements}
-					parentClass='bookCollection__user'
 				/>
 			)}
-
 			<Outlet context={{ setLoggedIn, setUserRole, loggedIn }} />
 		</div>
 	);

@@ -1,9 +1,9 @@
 .bookCollection {
-	margin: 50px auto;
+	margin: 20px auto;
 	width: 100%;
+	color: $color-text;
 	.list {
 		border: none;
-
 		&__tiles {
 			margin: 10px auto;
 			&__single_tile {
@@ -12,19 +12,12 @@
 		}
 	}
 	a.router_link {
-		color: $fourth-color;
+		color: $color-text;
 		text-decoration: none;
 	}
 	&__welcome {
 		width: 90%;
 		margin: 0 auto;
-		font-size: $font-size-p;
-	}
-	&__admin {
-		&_navigation {
-			// padding-bottom: 10px;
-			// border-bottom: 1px solid;
-		}
 	}
 }
 .invalid {

@@ -10,6 +10,7 @@ import LoadingSpinner from '../general-purpose/LoadingSpinner';
 import SuccessMessage from '../general-purpose/SuccessMessage';
 // GraphQL
 import { SIGNIN } from '../../GraphQL/mutations';
+import styles from './Auth.module.scss';
 
 const LogIn: React.FC = () => {
 	const navigate = useNavigate();
@@ -33,7 +34,7 @@ const LogIn: React.FC = () => {
 				setUserError('');
 				setUserRole(data.signin.user.role);
 				setTimeout(() => {
-					navigate('/apps/collection');
+					navigate('/collection');
 				}, 1000);
 			}
 		},
@@ -60,7 +61,7 @@ const LogIn: React.FC = () => {
 	const showForm = () => {
 		return (
 			<form action=''>
-				<div className='login_username'>
+				<div>
 					<label htmlFor='username'>e-mail</label>
 					<input
 						type='text'
@@ -73,7 +74,7 @@ const LogIn: React.FC = () => {
 						}}
 					/>
 				</div>
-				<div className='login_password'>
+				<div>
 					<label htmlFor='password'>password</label>
 					<input
 						type='password'
@@ -97,7 +98,7 @@ const LogIn: React.FC = () => {
 	};
 
 	return (
-		<div className='login-wrapper'>
+		<div className={styles.wrapper}>
 			{loading && <LoadingSpinner />}
 			{!loading && !successMessage && showForm()}
 			{successMessage ? (
@@ -105,7 +106,7 @@ const LogIn: React.FC = () => {
 			) : (
 				<Button
 					text='login'
-					className='login_submit'
+					className=''
 					handleClick={handleSubmit}
 				/>
 			)}

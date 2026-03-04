@@ -1,0 +1,64 @@
+@use '../../style/variables' as *;
+
+.category {
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 5px;
+	justify-content: space-between;
+}
+
+.legend {
+	flex-basis: 100%;
+	text-transform: capitalize;
+	padding-bottom: 1px;
+	margin: 3px 0 5px;
+	border-bottom: 1px solid;
+}
+
+.item {
+	flex-basis: 45%;
+	margin-top: 3px;
+}
+
+.publishers .item {
+	flex-basis: 45%;
+}
+
+@media (min-width: $breakpoint-480) {
+	.item {
+		flex-basis: 30%;
+	}
+	.publishers .item {
+		flex-basis: 45%;
+	}
+}
+
+@media (min-width: $breakpoint-768) {
+	.category {
+		justify-content: flex-start;
+	}
+	.item {
+		flex-basis: 25%;
+	}
+	.publishers .item {
+		flex-basis: 33%;
+	}
+}
+
+@media (min-width: $breakpoint-1024) {
+	.category {
+		justify-content: space-between;
+	}
+	.item {
+		flex-basis: 50%;
+	}
+	.publishers .item {
+		flex-basis: 90%;
+	}
+}
+
+@media (min-width: $breakpoint-1280) {
+	.publishers .item {
+		flex-basis: 100%;
+	}
+}
