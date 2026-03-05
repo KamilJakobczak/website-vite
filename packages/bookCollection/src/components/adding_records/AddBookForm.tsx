@@ -262,7 +262,12 @@ const AddBookForm = forwardRef<AddBookFormRef, AddBookFormProps>(
 					break;
 				case 'isbn':
 					setIsbn(value);
-					if (value.length >= 10) checkIsbn(e);
+					if (value.length >= 10) {
+						const isbnError = checkIsbn(value);
+						setUserError(isbnError);
+					} else {
+						setUserError('');
+					}
 					break;
 				case 'firstEdition':
 					regexValidator(numbersRegex, value, setFirstEdition);

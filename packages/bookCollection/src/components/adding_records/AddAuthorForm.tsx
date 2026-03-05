@@ -4,7 +4,7 @@ import { ADD_AUTHOR, UPDATE_AUTHOR } from '../../GraphQL/mutations';
 import CustomError from '../general-purpose/CustomError';
 import LoadingSpinner from '../general-purpose/LoadingSpinner';
 import Button from '../general-purpose/Button';
-import { invalidValue, regexValidator } from '../../utility/handlers';
+import { regexValidator } from '../../utility/handlers';
 import {
 	lastNameRegex,
 	nameRegex,
@@ -38,30 +38,35 @@ const AddAuthorForm: React.FC<AddAuthorFormProps> = ({
 	const editableData = location.state;
 
 	const [firstName, setFirstName] = useState(
-		author?.firstName || editableData?.firstName || ''
+		author?.firstName || editableData?.firstName || '',
 	);
 	const [lastName, setLastName] = useState(
-		author?.lastName || editableData?.lastName || ''
+		author?.lastName || editableData?.lastName || '',
 	);
 	const [secondName, setSecondName] = useState(
-		author?.secondName || editableData?.secondName || ''
+		author?.secondName || editableData?.secondName || '',
 	);
 	const [thirdName, setThirdName] = useState(
-		author?.thirdName || editableData?.thirdName || ''
+		author?.thirdName || editableData?.thirdName || '',
 	);
 	const [nationality, setNationality] = useState(
-		editableData?.nationality || ''
+		editableData?.nationality || '',
 	);
 	const [birthYear, setBirthYear] = useState(editableData?.birthYear || '');
 	const [deathYear, setDeathYear] = useState(editableData?.deathYear || '');
 	const [wiki, setWiki] = useState(editableData?.wiki || '');
 	const [goodreads, setGoodreads] = useState(editableData?.goodreads || '');
 	const [lubimyczytac, setLubimyczytac] = useState(
-		editableData?.lubimyczytac || ''
+		editableData?.lubimyczytac || '',
 	);
 
 	const [userError, setUserError] = useState('');
 	const [successMessage, setSuccessMessage] = useState('');
+	const [urlErrors, setUrlErrors] = useState({
+		wiki: '',
+		goodreads: '',
+		lubimyczytac: '',
+	});
 
 	const [addAuthor, { loading, error }] = useMutation(ADD_AUTHOR, {
 		onCompleted(data) {
@@ -102,7 +107,7 @@ const AddAuthorForm: React.FC<AddAuthorFormProps> = ({
 			setSuccessMessage(
 				data.addAuthor.author.firstName +
 					' ' +
-					data.addAuthor.author.lastName
+					data.addAuthor.author.lastName,
 			);
 			onAdded &&
 				onAdded(prevState => [...prevState, data.addAuthor.author.id]);
@@ -117,8 +122,7 @@ const AddAuthorForm: React.FC<AddAuthorFormProps> = ({
 	};
 
 	const handleInputs = (e: React.ChangeEvent<HTMLInputElement>) => {
-		const element = e.target;
-		const { id, value } = element;
+		const { id, value } = e.target;
 		switch (id) {
 			case 'firstName':
 				regexValidator(nameRegex, value, setFirstName);
@@ -143,29 +147,34 @@ const AddAuthorForm: React.FC<AddAuthorFormProps> = ({
 				break;
 			case 'wiki':
 				regexValidator(websiteRegex, value, setWiki);
-				if (!value.includes('wikipedia')) {
-					invalidValue(e);
-				} else {
-					invalidValue(e, true);
-				}
+				setUrlErrors(prev => ({
+					...prev,
+					wiki:
+						value && !value.includes('wikipedia')
+							? 'Must be a Wikipedia URL.'
+							: '',
+				}));
 				break;
 			case 'goodreads':
 				regexValidator(websiteRegex, value, setGoodreads);
-				if (!value.includes('goodreads')) {
-					invalidValue(e);
-				} else {
-					invalidValue(e, true);
-				}
+				setUrlErrors(prev => ({
+					...prev,
+					goodreads:
+						value && !value.includes('goodreads')
+							? 'Must be a Goodreads URL.'
+							: '',
+				}));
 				break;
 			case 'lubimyczytac':
 				regexValidator(websiteRegex, value, setLubimyczytac);
-				if (!value.includes('lubimyczytac')) {
-					invalidValue(e);
-				} else {
-					invalidValue(e, true);
-				}
+				setUrlErrors(prev => ({
+					...prev,
+					lubimyczytac:
+						value && !value.includes('lubimyczytac')
+							? 'Must be a lubimyczytac URL.'
+							: '',
+				}));
 				break;
-
 			default:
 				break;
 		}
@@ -201,8 +210,7 @@ const AddAuthorForm: React.FC<AddAuthorFormProps> = ({
 
 	const showForm = () => {
 		return (
-			<form
-				autoComplete='off'>
+			<form autoComplete='off'>
 				<h5>{`${flag} author`}</h5>
 				<div className=''>
 					<label htmlFor='firstName'>first name</label>
@@ -280,6 +288,7 @@ const AddAuthorForm: React.FC<AddAuthorFormProps> = ({
 						value={wiki}
 						onChange={e => handleInputs(e)}
 					/>
+					{urlErrors.wiki && <CustomError text={urlErrors.wiki} />}
 				</div>
 				<div className=''>
 					<label htmlFor='goodreads'>goodreads</label>
@@ -290,6 +299,9 @@ const AddAuthorForm: React.FC<AddAuthorFormProps> = ({
 						value={goodreads}
 						onChange={e => handleInputs(e)}
 					/>
+					{urlErrors.goodreads && (
+						<CustomError text={urlErrors.goodreads} />
+					)}
 				</div>
 				<div className=''>
 					<label htmlFor='lubimyczytac'>lubimyczytac</label>
@@ -300,6 +312,9 @@ const AddAuthorForm: React.FC<AddAuthorFormProps> = ({
 						value={lubimyczytac}
 						onChange={e => handleInputs(e)}
 					/>
+					{urlErrors.lubimyczytac && (
+						<CustomError text={urlErrors.lubimyczytac} />
+					)}
 				</div>
 				<Button
 					className=''

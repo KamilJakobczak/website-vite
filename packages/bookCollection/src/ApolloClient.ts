@@ -15,7 +15,7 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
 const link = from([
 	errorLink,
 	new HttpLink({
-		uri: 'http://localhost:4000/api/graphql',
+		uri: `${import.meta.env.VITE_APP_API_URL}/api/graphql`,
 		credentials: 'include',
 	}),
 ]);
