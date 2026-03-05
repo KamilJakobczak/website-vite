@@ -130,7 +130,8 @@
 		&:global(.authors),
 		&:global(.genres),
 		&:global(.publishers),
-		&:global(.bookSeries) {
+		&:global(.bookSeries),
+		&.bookList {
 			// TODO: add .bookCollection__books__list equivalent when BookList is migrated
 			.element {
 				a {

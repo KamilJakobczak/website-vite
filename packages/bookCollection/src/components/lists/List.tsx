@@ -6,6 +6,7 @@ import ThumbnailWithFallback from '../general-purpose/ThumbnailWithFallback';
 import PageNumbers from './PageNumbers';
 import { RecordTypes } from '../../utility/enums';
 import { useTranslation } from 'react-i18next';
+import { CollectionsClasses } from '../../utility/enums';
 import styles from './CollectionList.module.scss';
 interface ListProps {
 	data: {
@@ -18,6 +19,7 @@ interface ListProps {
 		__typename: string;
 	}[];
 	nested?: boolean;
+	listClass?: CollectionsClasses;
 	pagination?: {
 		activePage: number;
 		totalPages: number;
@@ -62,10 +64,17 @@ const List: React.FC<ListProps> = ({ data, nested, pagination }) => {
 
 	const showThumbnail = (record: RecordValues, thumbnail: string) => {
 		const type = record.__typename;
-
+		if (type === RecordTypes.Book) {
+			return (
+				<ThumbnailWithFallback
+					url={thumbnail}
+					recordType={type}
+					listClass={CollectionsClasses.Books}
+				/>
+			);
+		}
 		if (
 			type === RecordTypes.Author ||
-			type === RecordTypes.Book ||
 			type === RecordTypes.Genre ||
 			type === RecordTypes.Publisher ||
 			type === RecordTypes.BookSeries ||

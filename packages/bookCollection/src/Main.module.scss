@@ -7,14 +7,11 @@
 
 // Utility
 
-// @import './style/utility/checkboxes';
-// @import './style/utility/radioInput';
-
-// Book Collection
-@import './style/book_collection/bookList';
-// @import './style/book_collection/list';
+@import './style/utility/checkboxes';
+@import './style/utility/radioInput';
 
 .bookCollection {
+	max-width: 1200px;
 	margin: 20px auto;
 	width: 100%;
 	color: $collection-color-text;

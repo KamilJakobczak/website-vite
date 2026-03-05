@@ -1,0 +1,19 @@
+@use '../../style/variables' as *;
+.filters {
+	width: 90%;
+	margin: 0 auto;
+}
+.books {
+}
+.bookList {
+	width: 95%;
+}
+@media (min-width: $breakpoint-1024) {
+	.books {
+		width: 95%;
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0 auto;
+		justify-content: space-between;
+	}
+}

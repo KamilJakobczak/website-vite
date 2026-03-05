@@ -8,6 +8,7 @@ import publisher_thumbnail from '../../assets/thumbnails/publisher_thumbnail.png
 import translator_thumbnail from '../../assets/thumbnails/translator_thumbnail.png';
 
 import { RecordTypes } from '../../utility/enums';
+import { CollectionsClasses } from '../../utility/enums';
 import styles from './ThumbnailWithFallback.module.scss';
 
 interface ThumbnailWithFallbackProps
@@ -15,11 +16,13 @@ interface ThumbnailWithFallbackProps
 	url?: string;
 	recordType: RecordTypes;
 	linkTo?: string;
+	listClass?: CollectionsClasses;
 }
 
 const ThumbnailWithFallback: React.FC<ThumbnailWithFallbackProps> = ({
 	url,
 	recordType,
+	listClass,
 }) => {
 	const [imgSrc, setImgSrc] = useState('');
 
@@ -55,7 +58,12 @@ const ThumbnailWithFallback: React.FC<ThumbnailWithFallbackProps> = ({
 
 	const showImage = () => {
 		return (
-			<div className={styles.thumbnail}>
+			<div
+				className={`${styles.thumbnail} ${
+					listClass === CollectionsClasses.Books
+						? styles.thumbnailBooks
+						: ''
+				}`}>
 				<img
 					src={imgSrc}
 					alt='thumbnail'
