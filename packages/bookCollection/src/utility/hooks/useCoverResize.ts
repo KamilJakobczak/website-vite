@@ -2,27 +2,21 @@ import { useState, useEffect } from 'react';
 import { resizeHelper } from '../handlers/resizeHelper';
 
 export const useCoverResize = () => {
-  const [coverSize, setCoverSize] = useState('');
+	const [coverSize, setCoverSize] = useState('');
 
-  useEffect(() => {
-    resizeHelper(window.innerWidth, setCoverSize);
-  }, []);
+	useEffect(() => {
+		resizeHelper(window.innerWidth, setCoverSize);
 
-  useEffect(() => {
-    function handleResize() {
-      const currentWidth = window.innerWidth;
-      resizeHelper(currentWidth, setCoverSize);
-    }
+		function handleResize() {
+			resizeHelper(window.innerWidth, setCoverSize);
+		}
 
-    window.addEventListener('resize', handleResize);
+		window.addEventListener('resize', handleResize);
 
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  });
+		return () => {
+			window.removeEventListener('resize', handleResize);
+		};
+	}, []);
 
-  const payload = {
-    coverSize,
-  };
-  return payload;
+	return { coverSize };
 };
