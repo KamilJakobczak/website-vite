@@ -1,0 +1,19 @@
+&.az {
+	flex-basis: 90%;
+	display: flex;
+	margin: 10px auto 20px;
+	align-self: flex-end;
+	justify-content: space-between;
+	text-transform: uppercase;
+	&_element {
+		padding: 0.9px;
+		&:hover {
+			background-color: $collection-color-text;
+
+			transition: 0.25s;
+		}
+		&.active {
+			background-color: $collection-color-text;
+		}
+	}
+}

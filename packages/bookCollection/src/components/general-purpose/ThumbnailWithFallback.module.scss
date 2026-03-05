@@ -1,0 +1,10 @@
+@use '../../style/variables' as *;
+
+.thumbnail {
+	width: $list_thumbnail;
+	height: $list_thumbnail;
+	margin-right: 5px;
+	img {
+		width: 100%;
+	}
+}

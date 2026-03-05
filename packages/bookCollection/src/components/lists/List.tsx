@@ -6,7 +6,7 @@ import ThumbnailWithFallback from '../general-purpose/ThumbnailWithFallback';
 import PageNumbers from './PageNumbers';
 import { RecordTypes } from '../../utility/enums';
 import { useTranslation } from 'react-i18next';
-
+import styles from './CollectionList.module.scss';
 interface ListProps {
 	data: {
 		id: string;
@@ -99,7 +99,7 @@ const List: React.FC<ListProps> = ({ data, nested, pagination }) => {
 				const thumbnail = `${imageApi}/covers/${record.id}/thumbnail`;
 				return (
 					<div
-						className='bookCollection__list_element'
+						className={styles.element}
 						key={record.id}>
 						<Link
 							className='router_link'

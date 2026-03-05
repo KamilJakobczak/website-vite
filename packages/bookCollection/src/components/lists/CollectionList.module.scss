@@ -1,0 +1,165 @@
+@use '../../style/variables' as *;
+
+.collectionList {
+	display: flex;
+	width: 95%;
+	margin: 10px auto 0;
+	min-height: 20dvh;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	align-items: center;
+	&:global(.genres) {
+		.element {
+			flex-basis: 40%;
+		}
+	}
+	&:global(.publishers),
+	&:global(.genres),
+	&:global(.bookSeries) {
+		.element {
+			a {
+				span {
+					letter-spacing: 1px;
+					font-weight: 500;
+				}
+			}
+		}
+	}
+	.element {
+		flex-basis: 95%;
+		margin-bottom: 12px;
+		a {
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+
+			span {
+				margin-left: 10px;
+				position: relative;
+				text-align: left;
+				font-weight: 500;
+				letter-spacing: 0.4px;
+			}
+		}
+	}
+	h4 {
+		flex-basis: 100%;
+		margin: 5px auto 20px;
+
+		text-align: center;
+		text-transform: uppercase;
+	}
+}
+
+@media (min-width: $breakpoint-480) {
+	.collectionList {
+		width: 90%;
+		&:global(.authors),
+		&:global(.translators) {
+			justify-content: space-evenly;
+			.element {
+				flex: 1 1 45%;
+				&:nth-last-child(1):nth-child(even) {
+					a {
+						span {
+						}
+					}
+				}
+			}
+		}
+		&:global(.genres) {
+			justify-content: space-evenly;
+			.element {
+				flex-basis: 32%;
+			}
+		}
+		&:global(.bookSeries),
+		&:global(.publishers) {
+			.element {
+				flex: 1 1 45%;
+			}
+		}
+	}
+}
+
+@media (min-width: $breakpoint-768) {
+	.collectionList {
+		&:global(.authors),
+		&:global(.bookSeries),
+		&:global(.translators) {
+			justify-content: space-around;
+			.element {
+				flex: 1 1 32%;
+			}
+		}
+	}
+}
+
+@media (min-width: $breakpoint-1024) {
+	.collectionList {
+		&:global(.publishers) {
+			.element {
+				flex: 1 1 32%;
+			}
+		}
+		&:global(.genres) {
+			.element {
+				flex: 1 1 25%;
+			}
+		}
+	}
+}
+
+@media (min-width: $breakpoint-1280) {
+	.collectionList {
+		&:global(.authors),
+		&:global(.genres),
+		&:global(.translators) {
+			justify-content: space-between;
+			.element {
+				flex: 1 1 24%;
+				margin-bottom: 12px;
+			}
+		}
+		&:global(.publishers) {
+			.element {
+				flex-basis: 30%;
+			}
+		}
+		&:global(.translators),
+		&:global(.authors),
+		&:global(.genres),
+		&:global(.publishers),
+		&:global(.bookSeries) {
+			// TODO: add .bookCollection__books__list equivalent when BookList is migrated
+			.element {
+				a {
+					span {
+						transition: color 0.2s;
+
+						&::after {
+							content: '';
+							position: absolute;
+							width: 100%;
+							transform: scaleX(0);
+							height: 2px;
+							bottom: -20%;
+							left: 0;
+							background-color: $collection-color-text;
+							transform-origin: bottom right;
+							transition: transform 0.2s ease-out;
+						}
+						&:hover::after {
+							transform: scaleX(1);
+							transform-origin: bottom left;
+						}
+					}
+				}
+				&:hover span::after {
+					transform: scaleX(1);
+					transform-origin: bottom left;
+				}
+			}
+		}
+	}
+}

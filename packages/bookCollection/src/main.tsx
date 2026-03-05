@@ -8,8 +8,9 @@ import Search from './components/general-purpose/Search';
 import { CHECK_LOGIN } from './GraphQL/queries';
 import { SIGNOUT } from './GraphQL/mutations';
 import { useTranslation } from 'react-i18next';
-import './style/main.scss';
-import styles from './BookCollection.module.scss';
+
+import styles from './Main.module.scss';
+
 type ContextType = {
 	setLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
 	setUserRole: React.Dispatch<React.SetStateAction<string>>;
@@ -20,7 +21,7 @@ const BookCollection: React.FC = () => {
 	const { t } = useTranslation();
 	const { loading, data } = useQuery(CHECK_LOGIN);
 
-	const [loggedIn, setLoggedIn] = useState<boolean>();
+	const [loggedIn, setLoggedIn] = useState<boolean>(false);
 	const [userRole, setUserRole] = useState('');
 
 	const [logout] = useMutation(SIGNOUT, {

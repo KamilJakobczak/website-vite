@@ -1,0 +1,31 @@
+@use './style/variables' as *;
+
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Rubik:wght@400;500;600;700&display=swap');
+
+// reset, variables & top tier elements
+
+// Utility
+
+// @import './style/utility/checkboxes';
+// @import './style/utility/radioInput';
+
+// Book Collection
+@import './style/book_collection/bookList';
+// @import './style/book_collection/list';
+
+.bookCollection {
+	margin: 20px auto;
+	width: 100%;
+	color: $collection-color-text;
+
+	a {
+		text-decoration: none;
+		color: inherit;
+	}
+}
+
+.welcome {
+	width: 90%;
+	margin: 0 auto;
+}

@@ -1,0 +1,23 @@
+@use '../../style/variables' as *;
+.pages {
+	flex-basis: 90%;
+	margin: 5px auto;
+	display: flex;
+	justify-content: space-evenly;
+	&.page {
+		flex-basis: 7%;
+		transition: 0.1s;
+		> span {
+			text-align: center;
+			display: block;
+
+			width: 90%;
+		}
+		&.active {
+			background-color: $collection-color-text;
+		}
+		&:hover {
+			background-color: $collection-color-text;
+		}
+	}
+}
