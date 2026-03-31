@@ -35,14 +35,14 @@ const BookList: React.FC<ListProps> = ({ paginatedQuery, listClass }) => {
 	};
 	const hideFilters = () => {
 		const width = window.innerWidth;
-		if (width < 1024) {
+		if (width < 1280) {
 			setFiltersVisible(false);
 		}
 	};
 	useEffect(() => {
 		const handleResize = () => {
 			const width = window.innerWidth;
-			if (width >= 1024) {
+			if (width >= 1280) {
 				setFiltersVisible(true);
 				setHigherWidth(true);
 			} else {

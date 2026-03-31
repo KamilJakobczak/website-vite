@@ -9,7 +9,7 @@
 		margin-top: 10px;
 		margin-bottom: 20px;
 		border-bottom: 1px solid $collection-color-text;
-		padding-bottom: 10px;
+		padding-bottom: 8px;
 	}
 }
 
@@ -48,5 +48,33 @@
 				transition: 0.2s;
 			}
 		}
+	}
+}
+
+@media (min-width: $breakpoint-480) {
+	.nav {
+		font-size: 0.9rem;
+	}
+}
+@media (min-width: $breakpoint-768) {
+	.nav {
+		font-size: 1rem;
+	}
+}
+@media (min-width: $breakpoint-1024) {
+	.nav {
+		&:nth-last-child(2) {
+			padding-bottom: 15px;
+		}
+	}
+	.list {
+		.item {
+			padding: 10px 20px;
+		}
+	}
+}
+@media (min-width: $breakpoint-1280) {
+	.nav {
+		font-size: 1.1rem;
 	}
 }
