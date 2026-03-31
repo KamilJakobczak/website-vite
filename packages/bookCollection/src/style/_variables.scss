@@ -5,12 +5,14 @@ $collection-color-dark: #020617;
 $collection-color-search: #e2e8f0;
 $collection-color-search-accent: #5078ef;
 
-$book_thumbnail: clamp(2rem, 1.632rem + 2.105vw, 5rem);
-$list_thumbnail: clamp(1.5rem, 1.316rem + 1.053vw, 3rem);
+$book_thumbnail: 25px;
+$list_thumbnail: 25px;
 
 $collection-font-main: 'Lora', Georgia, 'Times New Roman', serif;
 $collection-font-headings: 'Rubik', Arial, Helvetica, sans-serif;
 
+$header-height: 65px;
+$footer-height: 45px;
 // Mixins
 
 @mixin hover {

@@ -24,6 +24,7 @@
 		padding: 5px 10px;
 		border-radius: 10px;
 		transition: 0.25s;
+
 		&:has(a:global(.active)) {
 			background-color: $collection-color-text;
 		}
@@ -41,6 +42,7 @@
 			font-weight: 500;
 			letter-spacing: 0.5px;
 			transition: 0.25s;
+			color: $collection-color-text;
 			&:global(.active) {
 				color: $collection-color-dark;
 				transition: 0.2s;

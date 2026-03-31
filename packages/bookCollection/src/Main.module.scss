@@ -1,24 +1,22 @@
 @use './style/variables' as *;
+// Utility
+
+@import './style/utility/checkboxes';
+@import './style/utility/radioInput';
 
 // Fonts
 @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Rubik:wght@400;500;600;700&display=swap');
 
 // reset, variables & top tier elements
 
-// Utility
-
-@import './style/utility/checkboxes';
-@import './style/utility/radioInput';
-
 .bookCollection {
 	max-width: 1200px;
-	margin: 20px auto;
-	width: 100%;
+	margin: 20px auto 0;
 	color: $collection-color-text;
-
+	min-height: calc(100dvh - 20px - $header-height - $footer-height);
 	a {
 		text-decoration: none;
-		color: inherit;
+		color: $collection-color-text;
 	}
 }
 

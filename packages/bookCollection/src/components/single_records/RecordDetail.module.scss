@@ -80,14 +80,9 @@
 	}
 }
 
-.books {
-	flex-basis: 90%;
-	margin: 10px auto;
-	text-align: center;
-	h5 {
-		text-transform: capitalize;
-		margin-bottom: 5px;
-	}
+h5 {
+	text-transform: capitalize;
+	margin: 0 auto 5px;
 }
 
 .listElement {

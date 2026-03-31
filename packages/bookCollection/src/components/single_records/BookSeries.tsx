@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 import EditButton from '../general-purpose/EditButton';
 import List from '../lists/List';
 import styles from './RecordDetail.module.scss';
+import listStyles from '../lists/CollectionList.module.scss';
 
 interface BookSeriesProps {
 	data: {
@@ -29,7 +30,7 @@ const BookSeries: React.FC<BookSeriesProps> = ({ data, editable }) => {
 				{editable ? <EditButton data={editableData} /> : null}
 			</div>
 			{!booksInBookSeries.length ? null : (
-				<div className={styles.books}>
+				<div className={listStyles.collectionList}>
 					<h5>{t('books')}</h5>
 					<List
 						data={books}

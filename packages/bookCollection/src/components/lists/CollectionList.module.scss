@@ -4,13 +4,12 @@
 	display: flex;
 	width: 95%;
 	margin: 10px auto 0;
-	min-height: 20dvh;
 	flex-wrap: wrap;
-	justify-content: space-evenly;
-	align-items: center;
+	gap: 10px;
+
 	&:global(.genres) {
 		.element {
-			flex-basis: 40%;
+			// flex-basis: 0%;
 		}
 	}
 	&:global(.publishers),
@@ -27,7 +26,6 @@
 	}
 	.element {
 		flex-basis: 95%;
-		margin-bottom: 12px;
 		a {
 			display: flex;
 			align-items: center;
@@ -36,18 +34,21 @@
 			span {
 				margin-left: 10px;
 				position: relative;
-				text-align: left;
+				line-height: 1.2;
+				font-size: 0.9rem;
 				font-weight: 500;
-				letter-spacing: 0.4px;
+				letter-spacing: 0.2px;
 			}
 		}
 	}
 	h4 {
 		flex-basis: 100%;
-		margin: 5px auto 20px;
-
+		margin: 5px auto 15px;
 		text-align: center;
 		text-transform: uppercase;
+		font-weight: bold;
+		letter-spacing: 1px;
+		font-size: 1.1rem;
 	}
 }
 
@@ -118,7 +119,6 @@
 			justify-content: space-between;
 			.element {
 				flex: 1 1 24%;
-				margin-bottom: 12px;
 			}
 		}
 		&:global(.publishers) {

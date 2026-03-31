@@ -9,7 +9,9 @@ interface NavigationProps extends WithTheme {
 export default function Navigation({ device }: NavigationProps) {
 	return (
 		<div
-			className={`${styles.navWrapper} ${device === 'mobile' ? styles.mobile : ''}`}>
+			className={`${styles.navWrapper} ${
+				device === 'mobile' ? styles.mobile : ''
+			}`}>
 			<nav className={styles.nav}>
 				<ul>
 					<li>
