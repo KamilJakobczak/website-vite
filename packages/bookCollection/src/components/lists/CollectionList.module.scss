@@ -131,6 +131,7 @@
 			.element {
 				a {
 					span {
+						overflow: visible;
 						transition: color 0.2s;
 
 						&::after {
@@ -144,10 +145,6 @@
 							background-color: $collection-color-text;
 							transform-origin: bottom right;
 							transition: transform 0.2s ease-out;
-						}
-						&:hover::after {
-							transform: scaleX(1);
-							transform-origin: bottom left;
 						}
 					}
 				}
