@@ -1,5 +1,4 @@
 import { useTranslation } from 'react-i18next';
-import EditButton from '../general-purpose/EditButton';
 import List from '../lists/List';
 import styles from './RecordDetail.module.scss';
 
@@ -10,17 +9,11 @@ interface TranslatorProps {
 		lastName: string;
 		books: [];
 	};
-	editable: boolean;
 }
 
-const Translator: React.FC<TranslatorProps> = ({ data, editable }) => {
+const Translator: React.FC<TranslatorProps> = ({ data }) => {
 	const { t } = useTranslation();
-	const { id, firstName, lastName, books } = data;
-	const editableData = {
-		id,
-		firstName,
-		lastName,
-	};
+	const { firstName, lastName, books } = data;
 
 	return (
 		<div className={styles.record}>
@@ -28,7 +21,6 @@ const Translator: React.FC<TranslatorProps> = ({ data, editable }) => {
 				<h4>
 					{firstName} {lastName}
 				</h4>
-				{editable ? <EditButton data={editableData} /> : null}
 			</div>
 			{books.length ? (
 				<div className={styles.books}>
@@ -42,4 +34,5 @@ const Translator: React.FC<TranslatorProps> = ({ data, editable }) => {
 		</div>
 	);
 };
+
 export default Translator;

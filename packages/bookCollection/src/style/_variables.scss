@@ -46,3 +46,9 @@ $breakpoint-1280: 1280px;
 		--list-thumbnail: 30px;
 	}
 }
+@media (min-width: $breakpoint-1280) {
+	:root {
+		--book-thumbnail: 45px;
+		--list-thumbnail: 35px;
+	}
+}

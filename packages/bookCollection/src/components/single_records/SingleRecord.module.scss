@@ -8,12 +8,22 @@
 	width: 100%;
 	margin: 0 auto;
 	position: relative;
-}
-
-.deleteBtn {
-	position: absolute;
-	right: 5px;
-	img {
-		width: 100%;
+	.deleteBtn {
+		width: var(--list-thumbnail);
+		position: absolute;
+		top: 0;
+		right: 5px;
+		img {
+			width: 100%;
+		}
+	}
+	.editBtn {
+		width: var(--list-thumbnail);
+		position: absolute;
+		top: 0;
+		right: calc(var(--list-thumbnail) + 10px);
+		img {
+			width: 100%;
+		}
 	}
 }

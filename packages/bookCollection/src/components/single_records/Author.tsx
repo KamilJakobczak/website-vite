@@ -1,6 +1,5 @@
 import { checkURL } from '../../utility/handlers/checkURL';
 import List from '../lists/List';
-import EditButton from '../general-purpose/EditButton';
 import { useTranslation } from 'react-i18next';
 import styles from './RecordDetail.module.scss';
 
@@ -20,13 +19,11 @@ interface AuthorProps {
 		};
 		books: [];
 	};
-	editable: boolean;
 }
 
-const Author: React.FC<AuthorProps> = ({ data, editable }) => {
+const Author: React.FC<AuthorProps> = ({ data }) => {
 	const { t } = useTranslation();
 	const {
-		id,
 		firstName,
 		secondName,
 		thirdName,
@@ -36,18 +33,6 @@ const Author: React.FC<AuthorProps> = ({ data, editable }) => {
 		books,
 		bioPages,
 	} = data;
-	const editableData = {
-		id,
-		firstName,
-		secondName,
-		thirdName,
-		lastName,
-		nationality,
-		birthYear,
-		wiki: bioPages?.wiki,
-		goodreads: bioPages?.goodreads,
-		lubimyczytac: bioPages?.lubimyczytac,
-	};
 
 	return (
 		<div className={styles.record}>
@@ -55,9 +40,7 @@ const Author: React.FC<AuthorProps> = ({ data, editable }) => {
 				<h4>
 					{firstName} {secondName} {thirdName} {lastName}
 				</h4>
-				{editable ? <EditButton data={editableData} /> : null}
 			</div>
-
 			<div className={styles.data}>
 				<div className={styles.nationality}>
 					<p>{t('nationality')}</p>

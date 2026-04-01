@@ -2,8 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { imageApi } from '../../../server';
 import { useCoverResize } from '../../utility/hooks/useCoverResize';
-import EditButton from '../general-purpose/EditButton';
-import { idParser } from '../../utility/handlers/idParser';
 import styles from './Book.module.scss';
 
 interface BookProps {
@@ -43,10 +41,9 @@ interface BookProps {
 			};
 		};
 	};
-	editable: boolean;
 }
 
-const Book: React.FC<BookProps> = ({ data, editable }) => {
+const Book: React.FC<BookProps> = ({ data }) => {
 	const {
 		id,
 		title,
@@ -60,74 +57,34 @@ const Book: React.FC<BookProps> = ({ data, editable }) => {
 		translators,
 		titleEnglish,
 		titleOriginal,
-		// bookSeries,
 	} = data;
 
 	const { coverSize } = useCoverResize();
 
-	const editableData = {
-		id,
-		firstEdition,
-		isbn,
-		title,
-		language,
-		pages,
-		authors: idParser(authors),
-		bookGenres: idParser(bookGenres),
-		publisher: publisher,
-		translators: idParser(translators),
-		titleEnglish,
-		titleOriginal,
-		cover: `${imageApi}/covers/${data.id}/${coverSize}`,
-	};
-
 	const showAuthors = () => {
-		let counter = 1;
-		return authors.map(author => {
-			const { id } = author;
+		return authors.map((author, i) => {
 			const pathId = author.id.slice(-10);
-			if (counter === authors.length) {
-				return (
-					<span key={id}>
-						<Link
-							to={`../authors/${pathId}`}
-							state={{ id }}>
-							{author.firstName.concat(' ', author.lastName)}
-						</Link>
-					</span>
-				);
-			} else {
-				counter++;
-				return (
-					<span key={id}>
-						<Link
-							to={`../authors/${pathId}`}
-							state={{ id }}>
-							{author.firstName.concat(' ', author.lastName)}
-						</Link>
-					</span>
-				);
-			}
+			return (
+				<span key={author.id}>
+					<Link
+						to={`../authors/${pathId}`}
+						state={{ id: author.id }}>
+						{author.firstName.concat(' ', author.lastName)}
+					</Link>
+				</span>
+			);
 		});
 	};
 
 	const showGenres = () => {
-		let counter = 1;
-		if (counter === bookGenres.length) {
-			return bookGenres.map(genre => {
-				return <span key={genre.name}>{genre.name}</span>;
-			});
-		} else {
-			counter++;
-			return bookGenres.map((genre, i) => {
-				const lastEntry = bookGenres.length - 1;
-				return (
-					<span key={genre.name}>
-						{i === lastEntry ? genre.name : genre.name.concat(',')}
-					</span>
-				);
-			});
-		}
+		return bookGenres.map((genre, i) => {
+			const lastEntry = bookGenres.length - 1;
+			return (
+				<span key={genre.name}>
+					{i === lastEntry ? genre.name : genre.name.concat(',')}
+				</span>
+			);
+		});
 	};
 
 	const showPublisher = () => {
@@ -145,47 +102,28 @@ const Book: React.FC<BookProps> = ({ data, editable }) => {
 	};
 
 	const showTranslators = () => {
-		let counter = 1;
 		return translators.map(translator => {
-			const { id } = translator;
 			const pathId = translator.id.slice(-10);
-			if (counter === translators.length) {
-				return (
-					<span key={id}>
-						<Link
-							to={`../translators/${pathId}`}
-							state={{ id }}>
-							{translator.firstName.concat(' ', translator.lastName)}
-						</Link>
-					</span>
-				);
-			} else {
-				counter++;
-				return (
-					<span key={id}>
-						<Link
-							to={`../translators/${pathId}`}
-							state={{ id }}>
-							{translator.firstName.concat(' ', translator.lastName)}
-						</Link>
-					</span>
-				);
-			}
+			return (
+				<span key={translator.id}>
+					<Link
+						to={`../translators/${pathId}`}
+						state={{ id: translator.id }}>
+						{translator.firstName.concat(' ', translator.lastName)}
+					</Link>
+				</span>
+			);
 		});
 	};
 
 	return (
 		<div className={styles.book}>
 			<div className={styles.title}>
-				<h4>
-					{title}
-					{editable ? <EditButton data={editableData} /> : null}
-				</h4>
+				<h4>{title}</h4>
 			</div>
-
 			<div className={styles.cover}>
 				<img
-					src={`${imageApi}/covers/${data.id}/${coverSize}`}
+					src={`${imageApi}/covers/${id}/${coverSize}`}
 					alt='book_cover'
 				/>
 			</div>

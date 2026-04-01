@@ -1,5 +1,4 @@
 import { useTranslation } from 'react-i18next';
-import EditButton from '../general-purpose/EditButton';
 import List from '../lists/List';
 import styles from './RecordDetail.module.scss';
 import listStyles from '../lists/CollectionList.module.scss';
@@ -11,23 +10,16 @@ interface BookSeriesProps {
 		booksInBookSeries: [];
 		books: [];
 	};
-	editable: boolean;
 }
 
-const BookSeries: React.FC<BookSeriesProps> = ({ data, editable }) => {
+const BookSeries: React.FC<BookSeriesProps> = ({ data }) => {
 	const { t } = useTranslation();
-	const { id, name, booksInBookSeries, books } = data;
+	const { name, booksInBookSeries, books } = data;
 
-	const editableData = {
-		id,
-		name,
-		books: booksInBookSeries,
-	};
 	return (
 		<div className={styles.record}>
 			<div className={styles.name}>
 				<h4>{name}</h4>
-				{editable ? <EditButton data={editableData} /> : null}
 			</div>
 			{!booksInBookSeries.length ? null : (
 				<div className={listStyles.collectionList}>
@@ -41,4 +33,5 @@ const BookSeries: React.FC<BookSeriesProps> = ({ data, editable }) => {
 		</div>
 	);
 };
+
 export default BookSeries;
