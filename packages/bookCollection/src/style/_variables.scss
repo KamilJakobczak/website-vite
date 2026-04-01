@@ -29,3 +29,20 @@ $breakpoint-480: 480px;
 $breakpoint-768: 768px;
 $breakpoint-1024: 1024px;
 $breakpoint-1280: 1280px;
+
+:root {
+	--list-thumbnail: #{$list_thumbnail};
+	--book-thumbnail: #{$book_thumbnail};
+}
+
+@media (min-width: $breakpoint-768) {
+	:root {
+		--book-thumbnail: 30px;
+	}
+}
+@media (min-width: $breakpoint-1024) {
+	:root {
+		--book-thumbnail: 35px;
+		--list-thumbnail: 30px;
+	}
+}

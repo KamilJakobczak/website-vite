@@ -1,16 +1,18 @@
 @use '../../style/variables' as *;
 
 .thumbnail {
-	width: $list_thumbnail;
-	height: $list_thumbnail;
+	width: var(--list-thumbnail);
+	height: var(--list-thumbnail);
+	flex-shrink: 0;
 	margin-right: 5px;
+
 	img {
 		width: 100%;
 	}
 }
 
 .thumbnailBooks {
-	min-width: $book_thumbnail;
+	min-width: var(--book-thumbnail);
 	// width: $book_thumbnail;
 	height: auto;
 	margin-right: 5px;

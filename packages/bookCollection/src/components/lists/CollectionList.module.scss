@@ -3,14 +3,14 @@
 .collectionList {
 	display: flex;
 	width: 95%;
-	margin: 10px auto 0;
+	margin: 5px auto 20px;
 	flex-wrap: wrap;
 	gap: 10px;
+	align-items: center;
+	justify-content: space-around;
 
-	&:global(.genres) {
-		.element {
-			// flex-basis: 0%;
-		}
+	&:global(.publishers) {
+		gap: 12px;
 	}
 	&:global(.publishers),
 	&:global(.genres),
@@ -26,13 +26,14 @@
 	}
 	.element {
 		flex-basis: 95%;
+
 		a {
 			display: flex;
 			align-items: center;
 			justify-content: flex-start;
 
 			span {
-				margin-left: 10px;
+				margin-left: 5px;
 				position: relative;
 				line-height: 1.2;
 				font-size: 0.9rem;
@@ -43,7 +44,7 @@
 	}
 	h4 {
 		flex-basis: 100%;
-		margin: 5px auto 15px;
+		margin: 5px auto 10px;
 		text-align: center;
 		text-transform: uppercase;
 		font-weight: bold;
@@ -54,30 +55,16 @@
 
 @media (min-width: $breakpoint-480) {
 	.collectionList {
+		margin-bottom: 40px;
 		width: 90%;
 		&:global(.authors),
-		&:global(.translators) {
-			justify-content: space-evenly;
-			.element {
-				flex: 1 1 45%;
-				&:nth-last-child(1):nth-child(even) {
-					a {
-						span {
-						}
-					}
-				}
-			}
-		}
+		&:global(.translators),
+		&:global(.bookSeries),
+		&:global(.publishers),
 		&:global(.genres) {
 			justify-content: space-evenly;
 			.element {
-				flex-basis: 32%;
-			}
-		}
-		&:global(.bookSeries),
-		&:global(.publishers) {
-			.element {
-				flex: 1 1 45%;
+				flex-basis: 45%;
 			}
 		}
 	}
@@ -85,12 +72,11 @@
 
 @media (min-width: $breakpoint-768) {
 	.collectionList {
-		&:global(.authors),
-		&:global(.bookSeries),
-		&:global(.translators) {
-			justify-content: space-around;
-			.element {
-				flex: 1 1 32%;
+		.element {
+			a {
+				span {
+					font-size: 1.1rem;
+				}
 			}
 		}
 	}
@@ -98,15 +84,24 @@
 
 @media (min-width: $breakpoint-1024) {
 	.collectionList {
-		&:global(.publishers) {
+		&:global(.authors),
+		&:global(.translators),
+		&:global(.genres) {
+			justify-content: space-around;
 			.element {
-				flex: 1 1 32%;
+				flex-basis: 26%;
 			}
 		}
-		&:global(.genres) {
+		&:global(.bookSeries),
+		&:global(.publishers) {
+			justify-content: space-around;
 			.element {
-				flex: 1 1 25%;
+				flex-basis: 35%;
 			}
+		}
+
+		h4 {
+			font-size: 1.3rem;
 		}
 	}
 }
@@ -118,12 +113,12 @@
 		&:global(.translators) {
 			justify-content: space-between;
 			.element {
-				flex: 1 1 24%;
+				flex-basis: 24%;
 			}
 		}
 		&:global(.publishers) {
 			.element {
-				flex-basis: 30%;
+				flex-basis: 32%;
 			}
 		}
 		&:global(.translators),
