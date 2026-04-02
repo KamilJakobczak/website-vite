@@ -3,8 +3,10 @@ import Hamburger from './Hamburger';
 import Navigation from './Navigation';
 import { useMediaQuery } from '../../../hooks/useMediaQuery';
 import type { WithTheme } from '../../theme';
-import SunIcon from '../../../assets/icons/sun.svg?react';
-import MoonIcon from '../../../assets/icons/moon.svg?react';
+// import SunIcon from '../../../assets/icons/sun.svg?react';
+// import MoonIcon from '../../../assets/icons/moon.svg?react';
+import { Sun, Moon } from 'lucide-react';
+
 type HeaderProps = WithTheme;
 
 export function DarkModeButton({
@@ -21,9 +23,9 @@ export function DarkModeButton({
 			onClick={toggleDarkMode}
 			aria-label='Toggle dark mode'>
 			{theme === 'dark' ? (
-				<SunIcon className={styles.sun} />
+				<Sun className={styles.sun} />
 			) : (
-				<MoonIcon className={styles.moon} />
+				<Moon className={styles.moon} />
 			)}
 		</button>
 	);

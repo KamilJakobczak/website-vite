@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import List from '../lists/List';
 import styles from './RecordDetail.module.scss';
+import listStyles from '../lists/CollectionList.module.scss';
 
 interface GenreProps {
 	data: {
@@ -27,9 +28,9 @@ const Genre: React.FC<GenreProps> = ({ data }) => {
 						: name}
 				</h4>
 			</div>
-			<div className={styles.data}></div>
+			{/* <div className={styles.data}></div> */}
 			{!books.length ? null : (
-				<div className={styles.books}>
+				<div className={listStyles.collectionList}>
 					<h5>{t('books')}</h5>
 					<List
 						data={books}

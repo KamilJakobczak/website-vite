@@ -89,7 +89,9 @@ const PageNumbers: React.FC<PageNumberProps> = ({
 	const pagesArr = getPagination();
 
 	const pageClass = (page: number | string) => {
-		return page === activePage ? `${styles.page} active` : styles.page;
+		return page === activePage
+			? `${styles.page} ${styles.active}`
+			: styles.page;
 	};
 
 	const displayNumbers = () => {

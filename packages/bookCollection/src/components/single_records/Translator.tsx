@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import List from '../lists/List';
 import styles from './RecordDetail.module.scss';
-
+import listStyles from '../lists/CollectionList.module.scss';
 interface TranslatorProps {
 	data: {
 		id: string;
@@ -23,7 +23,7 @@ const Translator: React.FC<TranslatorProps> = ({ data }) => {
 				</h4>
 			</div>
 			{books.length ? (
-				<div className={styles.books}>
+				<div className={listStyles.collectionList}>
 					<h5>{t('books')}</h5>
 					<List
 						data={books}

@@ -1,18 +1,24 @@
-import deleteIcon from '../../assets/delete50.png';
-
+import { Trash2 } from 'lucide-react';
 interface DeleteButtonProps {
-  id: string;
-  className?: string;
-  popupToggle: React.Dispatch<React.SetStateAction<boolean>>;
-  popupState: boolean;
+	id: string;
+	className?: string;
+	popupToggle: React.Dispatch<React.SetStateAction<boolean>>;
+	popupState: boolean;
 }
 
-const DeleteButton: React.FC<DeleteButtonProps> = ({ id, className, popupState, popupToggle }) => {
-  return (
-    <div className={className} onClick={() => popupToggle(true)}>
-      <img src={deleteIcon} alt='delete icon' />
-    </div>
-  );
+const DeleteButton: React.FC<DeleteButtonProps> = ({
+	id,
+	className,
+	popupState,
+	popupToggle,
+}) => {
+	return (
+		<button
+			className={className}
+			onClick={() => popupToggle(true)}>
+			<Trash2 />
+		</button>
+	);
 };
 
 export default DeleteButton;
