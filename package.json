@@ -14,7 +14,7 @@
 	"scripts": {
 		"dev": "npm run dev --workspace=main-site",
 		"dev:japanese": "npm run develop --workspace japanese",
-		"prebuild": "npm run build --workspace=book-collection",
+		"prebuild": "npm run build --workspace=@portfolio/book-collection",
 		"build": "npm run build --workspace=main-site",
 		"preview": "npm run preview --workspace=main-site"
 	},

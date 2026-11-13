@@ -10,7 +10,7 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
-		"build": "tsc -b && vite build",
+		"build": "tsc -b",
 		"preview": "vite preview"
 	},
 	"dependencies": {

@@ -12,10 +12,11 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
 	if (networkError) console.log(`[Network error]: ${networkError}`);
 });
 
+const apiUrl = import.meta.env.VITE_APP_API_URL ?? '';
 const link = from([
 	errorLink,
 	new HttpLink({
-		uri: `${import.meta.env.VITE_APP_API_URL}/api/graphql`,
+		uri: `${apiUrl}/api/graphql`,
 		credentials: 'include',
 	}),
 ]);

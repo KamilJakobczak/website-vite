@@ -10,7 +10,7 @@ interface CodeEditorProps {
 	onChange(value: string): void;
 }
 const CodeEditor: React.FC<CodeEditorProps> = ({ onChange, initialValue }) => {
-	const editorRef = useRef<any>();
+	const editorRef = useRef<any>(null);
 
 	// const babelParse = (code: any) =>
 	//   parse(code, {
