@@ -71,7 +71,7 @@ const SingleRecord: React.FC<SingleRecordProps> = ({ query }) => {
 		refetch: refetchUserBookDetails,
 	} = useQuery(LOAD_USER_BOOK_DETAILS, {
 		variables: { bookId: id },
-		skip: !id,
+		skip: !id || !loggedIn,
 	});
 
 	const details = dataUserBookDetails?.userBookDetails.userBookDetails;
@@ -170,7 +170,8 @@ const SingleRecord: React.FC<SingleRecordProps> = ({ query }) => {
 
 	const showErrors = () => {
 		if (error) return <CustomError text={error.message} />;
-		if (errorUserBookDetails)
+		console.log(error, errorUserBookDetails, userError);
+		if (errorUserBookDetails && loggedIn)
 			return <CustomError text={errorUserBookDetails.message} />;
 		if (userError) return <CustomError text={userError} />;
 		return null;

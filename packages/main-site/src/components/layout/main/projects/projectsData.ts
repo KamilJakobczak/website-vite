@@ -1,8 +1,9 @@
 import type { CardLink } from '../../../ui/card/Card';
 import placeholder from '../../../../assets/images/dreams.jpg';
 import japanese from '../../../../assets/images/projects/learning_japanese.jpg';
-import bookCollection from '../../../../assets/images/projects/book_collection.jpg';
+import bookCollection from '../../../../assets/images/projects/book_collection2.jpg';
 import codingPlayground from '../../../../assets/images/projects/coding_playground.jpg';
+import csvParser from '../../../../assets/images/projects/csv_parser.jpg';
 
 interface ProjectItem {
 	id: string;
@@ -15,22 +16,6 @@ interface ProjectItem {
 }
 
 export const projects: ProjectItem[] = [
-	{
-		id: 'portfolio-site',
-		image: placeholder,
-		imageAlt: 'Screenshot of portfolio website',
-		title: 'Portfolio Website',
-		description:
-			'Personal portfolio site built with React, TypeScript, and Vite. Features dark mode, responsive design, and SCSS modules.',
-		tags: ['React', 'TypeScript', 'Vite', 'SCSS'],
-		links: [
-			{
-				url: 'https://github.com/KamilJakobczak/website-vite',
-				label: 'GitHub',
-			},
-			{ url: '', label: 'You are there!' },
-		],
-	},
 	{
 		id: 'collection',
 		image: bookCollection,
@@ -78,7 +63,7 @@ export const projects: ProjectItem[] = [
 
 	{
 		id: 'csv-parser',
-		image: placeholder,
+		image: csvParser,
 		imageAlt: 'Screenshot of CSV Data Parser and Viewer',
 		title: 'CSV Data Parser and Viewer',
 		description:
@@ -101,9 +86,29 @@ export const projects: ProjectItem[] = [
 		tags: ['React', 'Redux', 'Node.js'],
 		links: [
 			{
+				url: 'https://github.com/KamilJakobczak/website-vite/tree/main/packages/playground',
+				label: 'GitHub',
+			},
+			{
 				url: '/projects/playground',
 				label: 'Live Demo',
 			},
+		],
+	},
+	{
+		id: 'portfolio-site',
+		image: placeholder,
+		imageAlt: 'Screenshot of portfolio website',
+		title: 'Portfolio Website',
+		description:
+			'Personal portfolio site built with React, TypeScript, and Vite. Features dark mode, responsive design, and SCSS modules.',
+		tags: ['React', 'TypeScript', 'Vite', 'SCSS'],
+		links: [
+			{
+				url: 'https://github.com/KamilJakobczak/website-vite',
+				label: 'GitHub',
+			},
+			{ url: '', label: 'You are there!' },
 		],
 	},
 ];

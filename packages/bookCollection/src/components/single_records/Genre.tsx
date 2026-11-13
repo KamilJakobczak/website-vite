@@ -23,9 +23,9 @@ const Genre: React.FC<GenreProps> = ({ data }) => {
 				<h4>
 					{currentLanguage === 'pl'
 						? namePolish
-							? namePolish
-							: name
-						: name}
+							? namePolish.toUpperCase()
+							: name.toUpperCase()
+						: name.toUpperCase()}
 				</h4>
 			</div>
 			{/* <div className={styles.data}></div> */}

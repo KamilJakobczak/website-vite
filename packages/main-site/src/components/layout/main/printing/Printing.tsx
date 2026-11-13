@@ -7,7 +7,7 @@ export default function Printing() {
 	return (
 		<section id='3d-printing'>
 			<div className={styles.inner}>
-				<h2 className={styles.heading}>3D Printing Gallery</h2>
+				<h2 className={styles.heading}>3D Printing</h2>
 				<CardList variant='gallery'>
 					{prints.map(print => (
 						<Card
