@@ -1,6 +1,6 @@
 import styles from './AboutMe.module.scss';
 
-import my_face from '../../../../assets/images/my_face.jpg';
+import my_face from '../../../../assets/images/my_face.webp';
 
 export default function AboutMe() {
 	return (
