@@ -33,26 +33,14 @@ import { ProtectedRoute } from './ProtectedRoute';
 import UserLibrary from '../components/user/UserLibrary';
 import Profile from '../components/user/Profile';
 import AddBookSeries from '../components/adding_records/AddBookSeries';
+import Welcome from '../Welcome';
 import { CollectionsClasses, Flags } from '../utility/enums';
 import styles from '../Main.module.scss';
 
 export const bookCollectionRoutes: RouteObject[] = [
 	{
 		index: true,
-		element: (
-			<div className={styles.welcome}>
-				<h2>Welcome to the Collection</h2>
-				<p>
-					A place to browse, manage and keep track of books across the
-					family library. Search by title, author or genre, add new
-					records, and organise everything in one place.
-				</p>
-				<p>
-					Use the navigation above to explore the catalogue or log in to
-					manage your personal reading list.
-				</p>
-			</div>
-		),
+		element: <Welcome />,
 	},
 	{
 		path: 'books',
