@@ -1,5 +1,5 @@
 import type { CardLink } from '../../../ui/card/Card';
-import placeholder from '../../../../assets/images/dreams.jpg';
+import hero from '../../../../assets/images/hero_wynik.webp';
 import japanese from '../../../../assets/images/projects/learning_japanese.jpg';
 import bookCollection from '../../../../assets/images/projects/book_collection2.jpg';
 import codingPlayground from '../../../../assets/images/projects/coding_playground.jpg';
@@ -97,7 +97,7 @@ export const projects: ProjectItem[] = [
 	},
 	{
 		id: 'portfolio-site',
-		image: placeholder,
+		image: hero,
 		imageAlt: 'Screenshot of portfolio website',
 		title: 'Portfolio Website',
 		description:
