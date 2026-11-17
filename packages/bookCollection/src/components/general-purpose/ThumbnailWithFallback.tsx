@@ -1,77 +1,70 @@
-import React, { ImgHTMLAttributes, useEffect, useState } from 'react';
-import author_thumbnail from '../../assets/thumbnails/author_thumbnail.png';
-import bookSeries_thumbnail from '../../assets/thumbnails/bookSeries_thumbnail.png';
-import book_thumbnail from '../../assets/thumbnails/book_thumbnail.png';
+import React, { useEffect, useState } from 'react';
+import FaceIcon from '../../assets/thumbnails/face.svg?react';
+import BooksIcon from '../../assets/thumbnails/books.svg?react';
+import BookIcon from '../../assets/thumbnails/book.svg?react';
+import GenresIcon from '../../assets/thumbnails/genres.svg?react';
+import CompanyIcon from '../../assets/thumbnails/company.svg?react';
 
-import genre_thumbnail from '../../assets/thumbnails/genre_thumbnail.png';
-import publisher_thumbnail from '../../assets/thumbnails/publisher_thumbnail.png';
-import translator_thumbnail from '../../assets/thumbnails/translator_thumbnail.png';
-
-import { RecordTypes } from '../../utility/enums';
-import { CollectionsClasses } from '../../utility/enums';
+import { CollectionsClasses, RecordTypes } from '../../utility/enums';
 import styles from './ThumbnailWithFallback.module.scss';
 
-interface ThumbnailWithFallbackProps
-	extends ImgHTMLAttributes<HTMLImageElement> {
+interface ThumbnailWithFallbackProps {
 	url?: string;
 	recordType: RecordTypes;
-	linkTo?: string;
 	listClass?: CollectionsClasses;
+	alt?: string;
 }
+
+const FALLBACK_ICONS: Record<
+	RecordTypes,
+	React.FC<React.SVGProps<SVGSVGElement>>
+> = {
+	[RecordTypes.Author]: FaceIcon,
+	[RecordTypes.Book]: BookIcon,
+	[RecordTypes.Genre]: GenresIcon,
+	[RecordTypes.Publisher]: CompanyIcon,
+	[RecordTypes.Translator]: FaceIcon,
+	[RecordTypes.BookSeries]: BooksIcon,
+};
 
 const ThumbnailWithFallback: React.FC<ThumbnailWithFallbackProps> = ({
 	url,
 	recordType,
 	listClass,
+	alt = 'thumbnail',
 }) => {
-	const [imgSrc, setImgSrc] = useState('');
+	const [hasLoadError, setHasLoadError] = useState(false);
 
+	// Reset error state whenever a new cover URL is passed in
 	useEffect(() => {
-		if (url) {
-			switch (recordType) {
-				case RecordTypes.Author:
-					setImgSrc(author_thumbnail);
-					break;
-				case RecordTypes.Book:
-					const img = new Image();
-					img.src = url;
-					img.onload = () => setImgSrc(url);
-					img.onerror = () => setImgSrc(book_thumbnail);
-					break;
-				case RecordTypes.Genre:
-					setImgSrc(genre_thumbnail);
-					break;
-				case RecordTypes.Publisher:
-					setImgSrc(publisher_thumbnail);
-					break;
-				case RecordTypes.Translator:
-					setImgSrc(translator_thumbnail);
-					break;
-				case RecordTypes.BookSeries:
-					setImgSrc(bookSeries_thumbnail);
-					break;
-				default:
-					break;
-			}
-		}
-	}, [url, recordType]);
+		setHasLoadError(false);
+	}, [url]);
 
-	const showImage = () => {
-		return (
-			<div
-				className={`${styles.thumbnail} ${
-					listClass === CollectionsClasses.Books
-						? styles.thumbnailBooks
-						: ''
-				}`}>
+	const showBookCover =
+		recordType === RecordTypes.Book && Boolean(url) && !hasLoadError;
+
+	const FallbackIcon = FALLBACK_ICONS[recordType] ?? BookIcon;
+
+	return (
+		<div
+			className={`${styles.thumbnail} ${
+				listClass === CollectionsClasses.Books ? styles.thumbnailBooks : ''
+			}`}>
+			{showBookCover ? (
 				<img
-					src={imgSrc}
-					alt='thumbnail'
+					src={url}
+					alt={alt}
+					loading='lazy'
+					onError={() => setHasLoadError(true)}
 				/>
-			</div>
-		);
-	};
-
-	return showImage();
+			) : (
+				<FallbackIcon
+					className={styles.svgThumbnail}
+					aria-label={alt}
+				/>
+			)}
+		</div>
+	);
 };
+
 export default ThumbnailWithFallback;

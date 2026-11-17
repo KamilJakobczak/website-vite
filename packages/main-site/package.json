@@ -13,5 +13,7 @@
 	"dependencies": {
 		"@portfolio/book-collection": "1.0.0"
 	},
-	"devDependencies": {}
+	"devDependencies": {
+		"vite-plugin-svgr": "^4.5.0"
+	}
 }

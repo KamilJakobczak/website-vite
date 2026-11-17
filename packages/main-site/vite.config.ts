@@ -19,6 +19,7 @@ export default defineConfig({
 		}),
 		svgr({
 			svgrOptions: {
+				dimensions: false,
 				replaceAttrValues: {
 					'#1C274C': 'currentColor',
 					'#000000': 'currentColor',
