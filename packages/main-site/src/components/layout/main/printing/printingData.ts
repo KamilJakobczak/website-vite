@@ -1,4 +1,7 @@
-import placeholder from '../../../../assets/images/dreams.jpg';
+import king_of_tokyo from '../../../../assets/images/printing/KingTokyo_webp.webp';
+import tabletop from '../../../../assets/images/printing/tabletop_webp.webp';
+import token_bowls from '../../../../assets/images/printing/token_bowls_webp.webp';
+import virus from '../../../../assets/images/printing/virus_webp.webp';
 
 interface PrintItem {
 	id: string;
@@ -11,45 +14,30 @@ interface PrintItem {
 export const prints: PrintItem[] = [
 	{
 		id: 'print-1',
-		image: placeholder,
-		imageAlt: 'Custom board game insert for Wingspan',
-		title: 'Wingspan Insert',
-		overlay:
-			'Custom-designed insert with card trays and token organizers',
+		image: tabletop,
+		imageAlt: 'Custom board game insert for Tabletop Inc. Deluxe',
+		title: 'Tabletop Inc. Insert',
+		overlay: 'Custom-designed insert with card trays and token organizers',
 	},
 	{
 		id: 'print-2',
-		image: placeholder,
-		imageAlt: 'Board game token organizer',
-		title: 'Token Organizer',
-		overlay: 'Precision-fit compartments, 0.2mm tolerance',
+		image: virus,
+		imageAlt: 'Custom board game insert for Virus!',
+		title: 'Virus! All-In-One Insert',
+		overlay: 'Precision-fit compartments, card and roll & write in one box',
 	},
 	{
 		id: 'print-3',
-		image: placeholder,
-		imageAlt: '3D printed miniature display stand',
-		title: 'Miniature Display Stand',
-		overlay: 'Modular display system for miniatures',
+		image: king_of_tokyo,
+		imageAlt: 'Custom board game insert for King of Tokyo: Dark Edition',
+		title: 'King of Tokyo: Dark Edition Insert',
+		overlay: 'Main game and expansions in one box',
 	},
 	{
 		id: 'print-4',
-		image: placeholder,
-		imageAlt: 'Custom dice tower',
-		title: 'Dice Tower',
-		overlay: 'Multi-level tower with felt-lined tray',
-	},
-	{
-		id: 'print-5',
-		image: placeholder,
-		imageAlt: 'Card holder for board games',
-		title: 'Card Holder',
-		overlay: 'Angled display for easy reading during gameplay',
-	},
-	{
-		id: 'print-6',
-		image: placeholder,
-		imageAlt: 'Modular terrain pieces',
-		title: 'Terrain Set',
-		overlay: 'Interlocking terrain tiles for tabletop RPGs',
+		image: token_bowls,
+		imageAlt: 'Custom token bowls',
+		title: 'Token Bowls',
+		overlay: 'Stackable token bowls with tray',
 	},
 ];
