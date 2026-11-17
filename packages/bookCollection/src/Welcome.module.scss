@@ -1,3 +1,4 @@
+@use './style/variables' as *;
 .welcome {
 	width: 90%;
 	margin: 0 auto;
@@ -5,10 +6,59 @@
 		width: 100%;
 		margin-bottom: 10px;
 		text-align: center;
+		font-size: 1.1rem;
 		font-weight: bold;
 		letter-spacing: 0.25px;
 	}
 	p {
+		margin-bottom: 5px;
 		line-height: 1.1;
+		font-size: 0.9rem;
+	}
+}
+
+@media (min-width: $breakpoint-480) {
+	.welcome {
+		h2 {
+			font-size: 1.2rem;
+		}
+		p {
+			font-size: 1rem;
+		}
+	}
+}
+
+@media (min-width: $breakpoint-768) {
+	.welcome {
+		p {
+			font-size: 1.05rem;
+			line-height: 1.15;
+		}
+	}
+}
+
+@media (min-width: $breakpoint-1024) {
+	.welcome {
+		h2 {
+			font-size: 1.3rem;
+			margin-bottom: 15px;
+		}
+		p {
+			font-size: 1.1rem;
+		}
+	}
+}
+@media (min-width: $breakpoint-1280) {
+	.welcome {
+		h2 {
+			font-size: 1.5rem;
+			margin-top: 25px;
+			margin-bottom: 20px;
+		}
+		p {
+			width: 85%;
+			margin: 0 auto 8px;
+			font-size: 1.2rem;
+		}
 	}
 }
