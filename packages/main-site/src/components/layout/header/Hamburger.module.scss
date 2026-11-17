@@ -36,23 +36,21 @@
 				}
 				&:nth-child(3) {
 					animation: bottomSpan 0.1s ease-out forwards;
-					animation-delay: 0.3s;
+					animation-delay: 0.1s;
 					transform-origin: top right;
 				}
 			}
 			+ .hamburgerContent {
 				transform: scale(1);
 				visibility: visible;
-				transition:
-					transform 0.3s ease-out 0.7s,
-					visibility 0s 0.7s;
+				transition: transform 0.2s ease-out 0.4s, visibility 0s 0.4s;
 			}
 		}
 	}
 	.hamburgerContent {
 		position: absolute;
 		top: 5px;
-		right: 3px;
+		right: 2px;
 		width: 200px;
 		height: auto;
 		z-index: 10;
@@ -66,9 +64,7 @@
 		visibility: hidden;
 		transform: scale(0);
 		transform-origin: top right;
-		transition:
-			transform 0.2s ease-in,
-			visibility 0s linear 0.2s;
+		transition: transform 0.2s ease-in, visibility 0s linear 0.2s;
 
 		.closeButton {
 			position: absolute;
