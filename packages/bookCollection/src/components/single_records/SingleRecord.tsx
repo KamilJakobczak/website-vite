@@ -157,7 +157,7 @@ const SingleRecord: React.FC<SingleRecordProps> = ({ query }) => {
 
 	const onCompletedDel = () => {
 		const recordTypeLower = recordType?.toLowerCase() ?? '';
-		const linkRedirect = `/collection/${recordTypeLower}`;
+		const linkRedirect = `/collection/${recordTypeLower}s`;
 		const cappedRecordType =
 			recordType && recordType.charAt(0).toUpperCase() + recordType.slice(1);
 		setPopupActive(false);

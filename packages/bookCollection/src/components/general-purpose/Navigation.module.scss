@@ -29,6 +29,7 @@
 			background-color: $collection-color-text;
 		}
 		@include hover {
+			cursor: pointer;
 			background-color: $collection-color-text;
 			a {
 				color: $collection-color-dark;

@@ -1,9 +1,6 @@
 import { useMutation } from '@apollo/client';
 import { useState } from 'react';
-import {
-	ADD_TRANSLATOR,
-	UPDATE_TRANSLATOR,
-} from '../../GraphQL/mutations';
+import { ADD_TRANSLATOR, UPDATE_TRANSLATOR } from '../../GraphQL/mutations';
 import CustomError from '../general-purpose/CustomError';
 import LoadingSpinner from '../general-purpose/LoadingSpinner';
 import Button from '../general-purpose/Button';
@@ -19,9 +16,7 @@ interface AddTranslatorFormProps {
 	flag: Flags;
 }
 
-const AddTranslator: React.FC<AddTranslatorFormProps> = ({
-	flag,
-}) => {
+const AddTranslator: React.FC<AddTranslatorFormProps> = ({ flag }) => {
 	const location = useLocation();
 	const navigate = useNavigate();
 	const editableData = location.state;
@@ -45,16 +40,15 @@ const AddTranslator: React.FC<AddTranslatorFormProps> = ({
 					setSuccessMessage(
 						data.addTranslator.translator.firstName +
 							' ' +
-							data.addTranslator.translator.lastName
+							data.addTranslator.translator.lastName,
 					);
 
 					setTimeout(() => {
 						setSuccessMessage('');
-						navigate('/add');
 					}, 3000);
 				}
 			},
-		}
+		},
 	);
 	const [updateTranslator, { data: dataU, loading: loadingU, error: errorU }] =
 		useMutation(UPDATE_TRANSLATOR, {
