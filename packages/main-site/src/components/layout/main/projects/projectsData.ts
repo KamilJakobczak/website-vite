@@ -1,9 +1,9 @@
 import type { CardLink } from '../../../ui/card/Card';
 import hero from '../../../../assets/images/hero_wynik.webp';
-import japanese from '../../../../assets/images/projects/learning_japanese.jpg';
-import bookCollection from '../../../../assets/images/projects/book_collection2.jpg';
-import codingPlayground from '../../../../assets/images/projects/coding_playground.jpg';
-import csvParser from '../../../../assets/images/projects/csv_parser.jpg';
+import japanese from '../../../../assets/images/projects/learning_japanese.webp';
+import bookCollection from '../../../../assets/images/projects/book_collection.webp';
+import codingPlayground from '../../../../assets/images/projects/coding_playground.webp';
+import csvParser from '../../../../assets/images/projects/csv_parser.webp';
 
 interface ProjectItem {
 	id: string;
