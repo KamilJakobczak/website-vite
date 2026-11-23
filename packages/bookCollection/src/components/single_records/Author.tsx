@@ -1,6 +1,7 @@
 import { checkURL } from '../../utility/handlers/checkURL';
 import List from '../lists/List';
 import { useTranslation } from 'react-i18next';
+import LinkIcon from '../../assets/link2.svg?react';
 import styles from './RecordDetail.module.scss';
 import listStyles from '../lists/CollectionList.module.scss';
 interface AuthorProps {
@@ -59,6 +60,7 @@ const Author: React.FC<AuthorProps> = ({ data }) => {
 								href={checkURL(bioPages.wiki)}
 								rel='noreferrer noopener'
 								target='_blank'>
+								<LinkIcon />
 								wikipedia
 							</a>
 						) : null}
@@ -67,6 +69,7 @@ const Author: React.FC<AuthorProps> = ({ data }) => {
 								href={checkURL(bioPages.goodreads)}
 								rel='noreferrer noopener'
 								target='_blank'>
+								<LinkIcon />
 								goodreads
 							</a>
 						) : null}
@@ -75,6 +78,7 @@ const Author: React.FC<AuthorProps> = ({ data }) => {
 								href={checkURL(bioPages.lubimyczytac)}
 								rel='noreferrer noopener'
 								target='_blank'>
+								<LinkIcon />
 								lubimyczytac
 							</a>
 						) : null}

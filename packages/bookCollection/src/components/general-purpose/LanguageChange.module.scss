@@ -1,0 +1,31 @@
+@use '../../style/variables' as *;
+
+.languageSelect {
+	position: absolute;
+	top: 1.2rem; // adjust to vertically center with the header text
+	right: 1.5rem;
+	z-index: 100;
+
+	select {
+		padding: 4px 8px;
+		border: 1px solid $collection-color-text;
+		border-radius: 6px;
+		background-color: transparent;
+		color: $collection-color-text;
+		font-family: $collection-font-headings;
+		font-size: 0.9rem;
+		font-weight: 500;
+
+		option {
+			letter-spacing: 0.5px;
+			background-color: $collection-color-dark;
+			color: $collection-color-text;
+		}
+	}
+}
+
+@media (min-width: $breakpoint-1280) {
+	.languageSelect {
+		right: 8.5rem;
+	}
+}

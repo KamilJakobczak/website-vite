@@ -10,6 +10,7 @@ import { SIGNOUT } from './GraphQL/mutations';
 import { useTranslation } from 'react-i18next';
 
 import styles from './Main.module.scss';
+import LanguageChange from './components/general-purpose/LanguageChange';
 
 type ContextType = {
 	setLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
@@ -70,6 +71,7 @@ const BookCollection: React.FC = () => {
 
 	return (
 		<div className={styles.bookCollection}>
+			<LanguageChange />
 			<Navigation elements={elements} />
 			<Search />
 			<Navigation elements={elementsSecondary} />

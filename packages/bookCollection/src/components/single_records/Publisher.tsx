@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { checkURL } from '../../utility/handlers/checkURL';
 import List from '../lists/List';
+import LinkIcon from '../../assets/link2.svg?react';
 import styles from './RecordDetail.module.scss';
 import listStyles from '../lists/CollectionList.module.scss';
 interface PublisherProps {
@@ -60,6 +61,7 @@ const Publisher: React.FC<PublisherProps> = ({ data }) => {
 							href={checkURL(website)}
 							rel='noreferrer noopener'
 							target='_blank'>
+							<LinkIcon />
 							{t('website')}
 						</a>
 					</div>
