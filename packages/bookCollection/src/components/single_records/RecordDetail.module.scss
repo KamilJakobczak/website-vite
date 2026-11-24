@@ -10,7 +10,8 @@
 }
 
 .name {
-	margin: 0 auto 10px;
+	flex-basis: 100%;
+	margin-bottom: 10px;
 	text-align: center;
 	display: flex;
 	justify-content: center;
@@ -69,7 +70,8 @@
 	a {
 		display: flex;
 		align-items: center;
-		padding: 5px;
+		padding: 10px 25px;
+		border-radius: 8%;
 		font-size: 1rem;
 		text-align: center;
 		text-transform: uppercase;
@@ -102,8 +104,8 @@
 		}
 	}
 	.bioPages {
-		flex-direction: row;
-		gap: 20px;
+		// flex-direction: row;
+		// gap: 20px;
 		font-weight: bold;
 	}
 }
@@ -111,6 +113,11 @@
 @media (min-width: $breakpoint-1024) {
 	.data {
 		flex-basis: 50%;
+	}
+	.bioPages {
+		flex-direction: row;
+		gap: 20px;
+		flex-basis: 40%;
 	}
 }
 
@@ -120,6 +127,7 @@
 			transition: 0.2s;
 			&:hover {
 				background-color: $collection-color-text;
+				color: $collection-color-dark;
 			}
 		}
 	}

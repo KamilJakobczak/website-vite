@@ -3,8 +3,8 @@
 .button {
 	display: block;
 	margin: 0 auto;
-	min-width: 280px;
-	padding: 5px 0;
+	min-width: 290px;
+	padding: 10px 0;
 	background-color: $collection-color-text;
 	text-transform: uppercase;
 	text-align: center;
@@ -12,13 +12,35 @@
 	letter-spacing: 1px;
 	color: $collection-color-dark;
 	border-radius: 50px 10px;
+	transition: 0.3s;
 	&:is(a) {
 		color: $collection-color-dark;
+	}
+	div + &:last-child {
+		margin-top: 20px;
 	}
 }
 
 @media (min-width: $breakpoint-768) {
 	.button {
 		padding: 10px 0;
+	}
+}
+@media (min-width: $breakpoint-1024) {
+	.button {
+		font-size: 1.1rem;
+		padding: 12px 24px;
+	}
+}
+
+@media (hover: hover) and (pointer: fine) {
+	.button {
+		&:hover {
+			color: $collection-color-text;
+			background-color: transparent;
+			outline-style: solid;
+			outline-color: $collection-color-text;
+			outline-width: 2px;
+		}
 	}
 }

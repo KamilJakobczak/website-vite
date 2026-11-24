@@ -19,7 +19,15 @@
 			color: $collection-color-dark;
 		}
 		&:hover {
+			color: $collection-color-dark;
 			background-color: $collection-color-text;
+		}
+	}
+}
+@media (hover: hover) and (pointer: fine) {
+	.pages {
+		.page {
+			cursor: pointer;
 		}
 	}
 }

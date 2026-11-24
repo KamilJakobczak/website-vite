@@ -18,4 +18,27 @@
 		text-decoration: none;
 		color: $collection-color-text;
 	}
+	a,
+	button {
+		cursor: auto;
+	}
+	font-family: $collection-font-main;
+	a,
+	button,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5 {
+		font-family: $collection-font-headings;
+	}
+}
+@media (hover: hover) and (pointer: fine) {
+	.bookCollection {
+		a,
+		button,
+		[role='button'] {
+			cursor: pointer;
+		}
+	}
 }

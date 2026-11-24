@@ -10,10 +10,11 @@
 
 		h5 {
 			width: 100%;
-			margin: 15px auto 10px;
+			margin: 15px auto 20px;
 			text-align: center;
 			text-transform: uppercase;
-			letter-spacing: 1px;
+			letter-spacing: 0.5px;
+			font-size: 1.2rem;
 		}
 
 		> div {
@@ -25,9 +26,9 @@
 			& + div {
 				margin-top: 3px;
 
-				&:nth-last-child(1) {
-					margin-top: 20px;
-				}
+				// &:nth-last-child(1) {
+				// 	margin-top: 20px;
+				// }
 			}
 
 			label {
@@ -73,14 +74,14 @@
 	}
 }
 
-@media (min-width: $breakpoint-768) {
-	.addressItem {
-		flex-basis: 49%;
-		label {
-			flex-basis: 40%;
-		}
-		input {
-			flex-basis: 55%;
-		}
-	}
-}
+// @media (min-width: $breakpoint-768) {
+// 	.addressItem {
+// 		flex-basis: 49%;
+// 		label {
+// 			flex-basis: 40%;
+// 		}
+// 		input {
+// 			flex-basis: 55%;
+// 		}
+// 	}
+// }

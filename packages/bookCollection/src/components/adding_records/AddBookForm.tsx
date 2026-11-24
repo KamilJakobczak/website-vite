@@ -228,7 +228,7 @@ const AddBookForm = forwardRef<AddBookFormRef, AddBookFormProps>(
 				setSuccessMessage(data.addBook.book.title);
 				setTimeout(() => {
 					setSuccessMessage('');
-					navigate(`/books/${bookId.slice(-10)}`, {
+					navigate(`collection/books/${bookId.slice(-10)}`, {
 						state: { id: bookId, refetch: false },
 					});
 				}, 3000);

@@ -2,5 +2,21 @@
 
 .options {
 	width: 70%;
-	margin: 20px auto;
+	margin: 30px auto;
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
+@media (min-width: $breakpoint-768) {
+	.options {
+		width: 100%;
+		flex-direction: row;
+	}
+}
+
+@media (min-width: $breakpoint-1024) {
+	.options {
+		width: 70%;
+	}
 }

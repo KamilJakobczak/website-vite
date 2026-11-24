@@ -15,6 +15,13 @@ enum SearchCategories {
 	Book = 'Book',
 	Publisher = 'Publisher',
 }
+
+const CATEGORY_KEYS: Record<SearchCategories, string> = {
+	[SearchCategories.Author]: 'author',
+	[SearchCategories.Book]: 'book',
+	[SearchCategories.Publisher]: 'publisher',
+};
+
 const BookResultThumbnail: React.FC<{ bookId: string }> = ({ bookId }) => {
 	const [hasError, setHasError] = useState(false);
 
@@ -31,11 +38,13 @@ const BookResultThumbnail: React.FC<{ bookId: string }> = ({ bookId }) => {
 		/>
 	);
 };
+
 const Search: React.FC = () => {
 	const { t } = useTranslation();
 	const [searchInput, setSearchInput] = useState('');
-	const [activeCategory, setActiveCategory] = useState('Book');
-	const [categoryLabel, setCategoryLabel] = useState('');
+	const [activeCategory, setActiveCategory] = useState<SearchCategories>(
+		SearchCategories.Book,
+	);
 	const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 	const [isResultsOpen, setIsResultsOpen] = useState(false);
 
@@ -48,13 +57,6 @@ const Search: React.FC = () => {
 			variables: { contains: searchInput, type: activeCategory },
 		},
 	);
-
-	// Set initial label after translation is ready
-	useEffect(() => {
-		if (!categoryLabel) {
-			setCategoryLabel(t('book'));
-		}
-	}, [t, categoryLabel]);
 
 	// Close dropdown and results on outside clicks
 	useEffect(() => {
@@ -77,9 +79,8 @@ const Search: React.FC = () => {
 		};
 	}, []);
 
-	const handleOptionClick = (category: SearchCategories, label: string) => {
+	const handleOptionClick = (category: SearchCategories) => {
 		setActiveCategory(category);
-		setCategoryLabel(label);
 		setIsDropdownOpen(false);
 	};
 
@@ -151,34 +152,20 @@ const Search: React.FC = () => {
 								setIsResultsOpen(false);
 							}
 						}}>
-						{categoryLabel}
+						{t(CATEGORY_KEYS[activeCategory])}
 					</div>
 					<ul
 						ref={dropdownRef}
 						className={`${styles.dropdownList}${
 							isDropdownOpen ? ` ${styles.open}` : ''
 						}`}>
-						<li
-							onClick={() =>
-								handleOptionClick(SearchCategories.Author, t('author'))
-							}>
-							{t('author')}
-						</li>
-						<li
-							onClick={() =>
-								handleOptionClick(SearchCategories.Book, t('book'))
-							}>
-							{t('book')}
-						</li>
-						<li
-							onClick={() =>
-								handleOptionClick(
-									SearchCategories.Publisher,
-									t('publisher'),
-								)
-							}>
-							{t('publisher')}
-						</li>
+						{Object.values(SearchCategories).map(category => (
+							<li
+								key={category}
+								onClick={() => handleOptionClick(category)}>
+								{t(CATEGORY_KEYS[category])}
+							</li>
+						))}
 					</ul>
 				</div>
 				<div className={styles.searchField}>
