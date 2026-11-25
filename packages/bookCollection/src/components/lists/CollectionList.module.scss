@@ -43,15 +43,15 @@
 	}
 	h4 {
 		flex-basis: 100%;
-		margin: 5px auto 10px;
+		margin: 5px auto 15px;
 		text-align: center;
 		text-transform: uppercase;
 		font-weight: bold;
 		letter-spacing: 1px;
-		font-size: 1.1rem;
+		font-size: var(--collection-single-record-heading);
 	}
 	h5 {
-		font-size: 1.1rem;
+		font-size: var(--collection-single-record-heading);
 		margin-top: 15px;
 		line-height: 1;
 		font-weight: bold;
@@ -127,38 +127,33 @@
 				flex-basis: 32%;
 			}
 		}
-		&:global(.translators),
-		&:global(.authors),
-		&:global(.genres),
-		&:global(.publishers),
-		&:global(.bookSeries),
-		&.bookList {
-			// TODO: add .bookCollection__books__list equivalent when BookList is migrated
-			.element {
-				a {
-					span {
-						overflow: visible;
-						transition: color 0.2s;
+	}
 
-						&::after {
-							content: '';
-							position: absolute;
-							width: 100%;
-							transform: scaleX(0);
-							height: 2px;
-							bottom: -20%;
-							left: 0;
-							background-color: $collection-color-text;
-							transform-origin: bottom right;
-							transition: transform 0.2s ease-out;
-						}
-					}
-				}
-				&:hover span::after {
-					transform: scaleX(1);
-					transform-origin: bottom left;
+	.element {
+		a {
+			span {
+				position: relative;
+				overflow: visible;
+				transition: color 0.2s;
+
+				&::after {
+					content: '';
+					position: absolute;
+					width: 100%;
+					transform: scaleX(0);
+					height: 2px;
+					bottom: -20%;
+					left: 0;
+					background-color: $collection-color-text;
+					transform-origin: bottom right;
+					transition: transform 0.2s ease-out;
 				}
 			}
+		}
+
+		&:hover span::after {
+			transform: scaleX(1);
+			transform-origin: bottom left;
 		}
 	}
 }

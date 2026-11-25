@@ -14,53 +14,25 @@
 		position: absolute;
 		svg {
 			fill: $collection-color-text;
-			width: 1rem;
-			height: 1rem;
+			width: var(--collection-single-record-heading);
+			height: var(--collection-single-record-heading);
+		}
+		&:hover {
+			svg {
+				fill: $collection-color-dark;
+				transition: 0.3s;
+			}
 		}
 	}
 	.editBtn {
-		top: 7px;
-		right: calc(15px + 10px + 1rem);
+		top: 5px;
+		right: calc(
+			var(--collection-buttons-right) + 10px +
+				var(--collection-single-record-heading)
+		);
 	}
 	.deleteBtn {
-		top: 6px;
-		right: 15px;
-	}
-}
-
-@media (min-width: $breakpoint-480) {
-	.container {
-		.editBtn,
-		.deleteBtn {
-			svg {
-				width: 1.2rem;
-				height: 1.2rem;
-			}
-		}
-		.editBtn {
-			right: calc(15px + 10px + 1.2rem);
-		}
-	}
-}
-@media (min-width: $breakpoint-768) {
-}
-@media (min-width: $breakpoint-1024) {
-	.container {
-		.editBtn {
-			right: calc(100px + 10px + 1.2rem);
-		}
-		.deleteBtn {
-			right: 100px;
-		}
-	}
-}
-@media (min-width: $breakpoint-1280) {
-	.container {
-		.editBtn {
-			right: calc(200px + 10px + 1.2rem);
-		}
-		.deleteBtn {
-			right: 200px;
-		}
+		top: 4px;
+		right: var(--collection-buttons-right);
 	}
 }

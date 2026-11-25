@@ -13,6 +13,9 @@ $collection-font-headings: 'Rubik', Arial, Helvetica, sans-serif;
 
 $header-height: 65px;
 $footer-height: 45px;
+
+$collection-buttons-right: 15px;
+$collection-single-record-heading: 1rem;
 // Mixins
 
 @mixin hover {
@@ -38,22 +41,35 @@ $breakpoint-1280: 1280px;
 :root {
 	--list-thumbnail: #{$list_thumbnail};
 	--book-thumbnail: #{$book_thumbnail};
+	--collection-buttons-right: #{$collection-buttons-right};
+	--collection-single-record-heading: #{$collection-single-record-heading};
 }
-
+@media (min-width: $breakpoint-480) {
+	:root {
+		--collection-buttons-right: 45px;
+		--collection-single-record-heading: 1.2rem;
+	}
+}
 @media (min-width: $breakpoint-768) {
 	:root {
 		--book-thumbnail: 30px;
+		--collection-buttons-right: 75px;
+		--collection-single-record-heading: 1.3rem;
 	}
 }
 @media (min-width: $breakpoint-1024) {
 	:root {
 		--book-thumbnail: 35px;
 		--list-thumbnail: 30px;
+		--collection-buttons-right: 300px;
+		--collection-single-record-heading: 1.4rem;
 	}
 }
 @media (min-width: $breakpoint-1280) {
 	:root {
 		--book-thumbnail: 45px;
 		--list-thumbnail: 35px;
+		--collection-buttons-right: 350px;
+		--collection-single-record-heading: 1.5rem;
 	}
 }

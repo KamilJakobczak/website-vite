@@ -12,7 +12,7 @@
 		text-align: center;
 
 		h4 {
-			font-size: 1.1rem;
+			font-size: var(--collection-single-record-heading);
 			line-height: 1.1;
 		}
 	}
@@ -100,7 +100,7 @@
 		.title {
 			flex-basis: 80%;
 			h4 {
-				font-size: 1.2rem;
+				// font-size: 1.2rem;
 				margin: 10px auto 15px;
 			}
 		}
