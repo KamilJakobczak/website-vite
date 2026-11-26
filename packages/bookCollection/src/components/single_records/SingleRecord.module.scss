@@ -36,3 +36,14 @@
 		right: var(--collection-buttons-right);
 	}
 }
+
+@media (min-width: $breakpoint-768) {
+	.container {
+		.editBtn {
+			top: 10px;
+		}
+		.deleteBtn {
+			top: 9px;
+		}
+	}
+}

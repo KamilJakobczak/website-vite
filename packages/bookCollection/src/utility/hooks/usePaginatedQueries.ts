@@ -18,7 +18,7 @@ const feedConfigMap: Record<CollectionsClasses, FeedConfig> = {
 	[CollectionsClasses.Authors]: {
 		dataKey: 'authorsFeed',
 		itemsKey: 'authors',
-		offset: 30,
+		offset: 50,
 	},
 	[CollectionsClasses.Books]: {
 		dataKey: 'booksFeed',

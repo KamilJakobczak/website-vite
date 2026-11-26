@@ -115,7 +115,7 @@ const AddAuthorForm: React.FC<AddAuthorFormProps> = ({
 			setTimeout(() => {
 				setSuccessMessage('');
 				if (!location.pathname.includes('add/book')) {
-					navigate('/add');
+					navigate('/collection/add');
 				}
 			}, 3000);
 		}

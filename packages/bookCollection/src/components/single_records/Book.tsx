@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { imageApi } from '../../../server';
 import { useCoverResize } from '../../utility/hooks/useCoverResize';
 import styles from './Book.module.scss';
+import { useTranslation } from 'react-i18next';
 
 interface BookProps {
 	data: {
@@ -24,6 +25,7 @@ interface BookProps {
 		bookGenres: {
 			id: string;
 			name: string;
+			namePolish: string;
 		}[];
 		pages: number;
 		publisher: {
@@ -44,6 +46,7 @@ interface BookProps {
 }
 
 const Book: React.FC<BookProps> = ({ data }) => {
+	const { t } = useTranslation();
 	const {
 		id,
 		title,
@@ -77,6 +80,7 @@ const Book: React.FC<BookProps> = ({ data }) => {
 	};
 
 	const showGenres = () => {
+		console.log(bookGenres);
 		return bookGenres.map((genre, i) => {
 			const lastEntry = bookGenres.length - 1;
 			return (
@@ -129,32 +133,32 @@ const Book: React.FC<BookProps> = ({ data }) => {
 			</div>
 			<div className={styles.data}>
 				<div>
-					<p>{authors.length === 1 ? 'Author' : 'Authors'}</p>
+					<p>{authors.length === 1 ? t('author') : t('authors')}</p>
 					<span>❖</span>
 					<span>{showAuthors()}</span>
 				</div>
 				<div>
-					<p>{bookGenres.length === 1 ? 'Genre' : 'Genres'}</p>
+					<p>{bookGenres.length === 1 ? t('genre') : t('genres')}</p>
 					<span>❖</span>
 					<span>{showGenres()}</span>
 				</div>
 				<div>
-					<p>Pages</p>
+					<p>{t('pages')}</p>
 					<span>❖</span>
 					<span>{pages}</span>
 				</div>
 				<div>
-					<p>Language</p>
+					<p>{t('language')}</p>
 					<span>❖</span>
 					<span>{language}</span>
 				</div>
 				<div>
-					<p>Publisher</p>
+					<p>{t('publisher')}</p>
 					<span>❖</span>
 					<span>{showPublisher()}</span>
 				</div>
 				<div>
-					<p>First edition</p>
+					<p>{t('firstEdition')}</p>
 					<span>❖</span>
 					<span>{firstEdition}</span>
 				</div>
@@ -166,7 +170,9 @@ const Book: React.FC<BookProps> = ({ data }) => {
 				{translators.length ? (
 					<div>
 						<p>
-							{translators.length === 1 ? 'Translator' : 'Translators'}
+							{translators.length === 1
+								? t('translator')
+								: t('translators')}
 						</p>
 						<span>❖</span>
 						<span>{showTranslators()}</span>
@@ -174,14 +180,14 @@ const Book: React.FC<BookProps> = ({ data }) => {
 				) : null}
 				{titleEnglish ? (
 					<div>
-						<p>English title</p>
+						<p>{t('englishTitle')}</p>
 						<span>❖</span>
 						<span>{titleEnglish}</span>
 					</div>
 				) : null}
 				{titleOriginal ? (
 					<div>
-						<p>Original title</p>
+						<p>{t('originalTitle')}</p>
 						<span>❖</span>
 						<span>{titleOriginal}</span>
 					</div>

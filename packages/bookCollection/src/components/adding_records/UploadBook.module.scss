@@ -2,13 +2,22 @@
 
 .upload {
 	margin-top: 20px;
-
 	p {
 		text-align: justify;
 	}
 
 	form {
-		margin-top: 20px;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-evenly;
+		align-items: center;
+
+		gap: 20px;
+	}
+	.fileDetails {
+		flex-basis: 100%;
+		line-height: 1.2;
 	}
 }
 
@@ -27,7 +36,24 @@
 		}
 	}
 }
-
-.fileDetails {
-	margin-bottom: 20px;
+@media (min-width: $breakpoint-480) {
+	.upload {
+		.fileDetails {
+			font-size: 1.1rem;
+		}
+	}
+}
+@media (min-width: $breakpoint-1024) {
+	.upload {
+		.fileDetails {
+			font-size: 1.2rem;
+		}
+	}
+}
+@media (min-width: $breakpoint-1280) {
+	.upload {
+		.fileDetails {
+			font-size: 1.3rem;
+		}
+	}
 }

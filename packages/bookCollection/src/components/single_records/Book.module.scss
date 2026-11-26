@@ -45,6 +45,10 @@
 		line-height: 1.1;
 		p {
 			flex-basis: 35%;
+			line-height: 1.3;
+			&:first-letter {
+				text-transform: uppercase;
+			}
 		}
 		span {
 			text-align: right;
@@ -106,7 +110,7 @@
 		}
 	}
 	.data {
-		flex-basis: 63%;
+		flex-basis: 75%;
 	}
 }
 
@@ -123,9 +127,11 @@
 	}
 	.data {
 		flex-basis: 70%;
+		font-size: 1.2rem;
+
 		> div {
 			p {
-				flex-basis: 20%;
+				flex-basis: 26%;
 			}
 			span {
 				&:nth-last-child(1) {
